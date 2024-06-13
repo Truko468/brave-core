@@ -17,6 +17,8 @@ import MarketplaceKit
 import Preferences
 import SafariServices
 import Shared
+import SwiftUI
+import Translation
 import UniformTypeIdentifiers
 import WebKit
 import os.log
@@ -1058,6 +1060,31 @@ extension BrowserViewController: WKNavigationDelegate {
       if tab.walletEthProvider != nil {
         tab.emitEthereumEvent(.connect)
       }
+
+      #if compiler(>=6.0)
+      #if targetEnvironment(simulator)
+      #else
+      if #available(iOS 18.0, *),
+        let scriptHandler = tab.getContentScript(name: BraveTranslateScriptHandler.scriptName)
+          as? BraveTranslateScriptHandler
+      {
+        Task {
+          let (currentLanguage, pageLanguage) = try await scriptHandler.getLanguageInfo()
+          if pageLanguage.languageCode == nil
+            || currentLanguage.languageCode == pageLanguage.languageCode
+          {
+            return
+          }
+          translationHostingController.rootView = AnyView(
+            TranslationContainer(
+              configuration: .init(source: pageLanguage),
+              scriptHandler: scriptHandler
+            )
+          )
+        }
+      }
+      #endif
+      #endif
     }
 
     // Added this method to determine long press menu actions better
