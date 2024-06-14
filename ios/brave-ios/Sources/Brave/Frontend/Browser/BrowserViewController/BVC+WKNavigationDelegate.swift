@@ -1069,6 +1069,7 @@ extension BrowserViewController: WKNavigationDelegate {
           as? BraveTranslateScriptHandler
       {
         Task {
+          translationHostingController.rootView = AnyView(EmptyView())
           let (currentLanguage, pageLanguage) = try await scriptHandler.getLanguageInfo()
           if pageLanguage.languageCode == nil
             || currentLanguage.languageCode == pageLanguage.languageCode
