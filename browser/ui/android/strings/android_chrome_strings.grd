@@ -1698,6 +1698,108 @@ Your Brave account may have other forms of browsing history like searches and ac
       <message name="IDS_SAFETY_HUB_NOTIFICATIONS_PAGE_HEADER" translateable="false">
         You can review sites that send a lot of notifications and stop them from sending more in the future
       </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_SUBLABEL" translateable="false">
+        {NUM_SITES, plural, =1 {About 1 notification a day} other {About # notifications a day}}
+      </message>
+      <message name="IDS_SAFETY_HUB_RESET_NOTIFICATIONS_MENU_ITEM" translateable="false">
+        Unsubscribe notifications from this site
+      </message>
+      <message name="IDS_SAFETY_HUB_ALLOW_NOTIFICATIONS_MENU_ITEM" translateable="false">
+        Always allow notifications from this site
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_MODULES_SECTION_HEADER" translateable="false">
+        Safety at a glance
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_TIPS_SECTION_HEADER" translateable="false">
+        More ways to stay safer with Brave
+      </message>
+      <message name="IDS_SAFETY_HUB_DESCRIPTION" translateable="false">
+        Brave regularly checks to make sure your browser has the safest settings. We'll let you know if anything needs review.
+      </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_RESET_ALL_BUTTON" translateable="false">
+        Unsubscribe all
+      </message>
+      <message name="IDS_SAFETY_HUB_REMOVED_ONE_PERMISSION_SUBLABEL" translateable="false">
+        You haven't visited recently. Brave removed <ph name="PERMISSION">%1$s<ex>location</ex></ph>
+      </message>
+      <message name="IDS_SAFETY_HUB_REMOVED_TWO_PERMISSIONS_SUBLABEL" translateable="false">
+        You haven't visited recently. Brave removed <ph name="PERMISSION_1">%1$s<ex>location</ex></ph>, <ph name="PERMISSION_2">%2$s<ex>notifications</ex></ph>
+      </message>
+      <message name="IDS_SAFETY_HUB_REMOVED_THREE_PERMISSIONS_SUBLABEL" translateable="false">
+        You haven't visited recently. Brave removed <ph name="PERMISSION_1">%1$s<ex>location</ex></ph>, <ph name="PERMISSION_2">%2$s<ex>notifications</ex></ph>, <ph name="PERMISSION_3">%3$s<ex>camera</ex></ph>
+      </message>
+      <message name="IDS_SAFETY_HUB_REMOVED_FOUR_OR_MORE_PERMISSIONS_SUBLABEL" translateable="false">
+        You haven't visited recently. Brave removed <ph name="PERMISSION_1">%1$s<ex>location</ex></ph>, <ph name="PERMISSION_2">%2$s<ex>notifications</ex></ph>, and <ph name="COUNT">%3$s<ex>2</ex></ph> more
+      </message>
+      <message name="IDS_SAFETY_HUB_ABUSIVE_NOTIFICATION_PERMISSIONS_SUBLABEL" translateable="false">
+        Dangerous site. Brave removed notifications.
+      </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_RESET_SNACKBAR" translateable="false">
+        Notifications not allowed for <ph name="SITE_NAME">%1$s<ex>https://example.com:443</ex></ph>
+      </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_ALLOW_SNACKBAR" translateable="false">
+        Notifications allowed for <ph name="SITE_NAME">%1$s<ex>https://example.com:443</ex></ph>
+      </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_BULK_RESET_SNACKBAR" translateable="false">
+        Notifications not allowed for <ph name="SITE_NUMBER">%1$s<ex>3</ex></ph> sites
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_ON_TITLE" translateable="false">
+        Safe Browsing is on
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_ON_SUMMARY" translateable="false">
+        You're getting standard protection
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_ON_SUMMARY_MANAGED" translateable="false">
+        Your organization turned on Safe Browsing
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_ENHANCED_TITLE" translateable="false">
+        Enhanced Safe Browsing is on
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_ENHANCED_SUMMARY" translateable="false">
+        You have Brave's strongest security
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_ENHANCED_SUMMARY_MANAGED" translateable="false">
+        Your organization turned on Enhanced Safe Browsing
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_OFF_SUMMARY" translateable="false">
+        Turn on Safe Browsing to get protection against dangerous sites
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSING_OFF_SUMMARY_MANAGED" translateable="false">
+        Your organization turned off Safe Browsing
+      </message>
+      <message name="IDS_SAFETY_HUB_VIEW_SITES_BUTTON" translateable="false">
+        View sites
+      </message>
+      <message name="IDS_SAFETY_HUB_PASSWORDS_NAVIGATION_BUTTON" translateable="false">
+        Go to Password Manager
+      </message>
+      <message name="IDS_SAFETY_HUB_GO_TO_GOOGLE_PLAY_BUTTON" translateable="false">
+        Go to Google Play
+      </message>
+      <message name="IDS_SAFETY_HUB_GO_TO_SETTINGS_BUTTON" translateable="false">
+        Go to Settings
+      </message>
+      <message name="IDS_SAFETY_HUB_GO_TO_SECURITY_SETTINGS_BUTTON" translateable="false">
+        Go to security settings
+      </message>
+      <message name="IDS_SAFETY_HUB_TURN_ON_BUTTON" translateable="false">
+        Turn on
+      </message>
+      <message name="IDS_SAFETY_HUB_GO_TO_NOTIFICATIONS_BUTTON" translateable="false">
+        Go to notifications
+      </message>
+      <message name="IDS_SAFETY_HUB_PERMISSIONS_PAGE_MENU_TEXT" translateable="false">
+        Go to site settings
+      </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_PAGE_MENU_TEXT" translateable="false">
+        Go to notification settings
+      </message>
+      <message name="IDS_SAFETY_HUB_AUTOREVOCATION_TOGGLE_TITLE" translateable="false">
+        Automatically remove permissions
+      </message>
+      <message name="IDS_SAFETY_HUB_AUTOREVOCATION_TOGGLE_SUMMARY" translateable="false">
+        To protect your data, let Brave remove permissions from sites that you haven’t visited recently
+      </message>
 
        <!-- Safe Browsing preferences -->
       <message name="IDS_PREFS_SAFE_BROWSING_TITLE" desc="Title for the Safe Browsing preferences. [CHAR_LIMIT=32]">
@@ -2640,12 +2742,6 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       <message name="IDS_ACCESSIBILITY_TAB_SWITCHER_INCOGNITO_STACK" desc="Content description for the Private stack selection 'button'.">
         Private tabs
       </message>
-      <message name="IDS_ACCESSIBILITY_TAB_SWITCHER_STANDARD_STACK_SELECTED" desc="Announcement when the standard tab stack is selected.">
-        Switched to standard tabs
-      </message>
-      <message name="IDS_ACCESSIBILITY_TAB_SWITCHER_INCOGNITO_STACK_SELECTED" desc="Announcement when the Private tab stack is selected.">
-        Switched to Private tabs
-      </message>
       <message name="IDS_ACCESSIBILITY_UNDO_CLOSED_TAB_ANNOUNCEMENT_MESSAGE" desc="Message spoken out loud for accessibility when a user decides to undo a closed tab.">
         Restored <ph name="TAB_TITLE">%1$s<ex>YouTube</ex></ph>, tab
       </message>
@@ -3374,7 +3470,7 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
         Sign in to browse easier across devices
       </message>
       <message name="IDS_SIGNIN_FRE_SUBTITLE" desc="This string is the body of a promotion about signing in to Brave with the user's Brave sync chain. It explains the overarching user benefit of signing in (access to bookmarks, passwords, history, settings, etc.). We want users to understand why signing in is beneficial, and click 'Continue as name' to sign in to their Brave sync chain. The tone should be informative and lightweight.">
-        Sign in to get your bookmarks, passwords and more on all your devices
+        Sign in to get your bookmarks, passwords, and more on all your devices
       </message>
       <message name="IDS_SIGNIN_FRE_SUBTITLE_WITHOUT_SYNC" desc="This string is the body of a promotion about signing in to Brave with the user's Brave sync chain. It explains the overarching user benefit of signing in (access to bookmarks, passwords, history, settings, etc.). However, we introduce a caveat, because the user has a managed account (such as Enterprise); this means that, depending on their organization's settings, the user might not be able to save all types of data in their Brave sync chain. We want users to understand why signing in is beneficial, and click 'Continue as name' to sign in to their Brave sync chain.">
         Sign in to get the most out of Brave
@@ -4005,6 +4101,9 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       <message name="IDS_MENU_RECENT_TABS" desc="Menu item for opening the 'Recent tabs' page that shows recently closed tabs and pages the user has opened on his/her other devices. [CHAR_LIMIT=27]">
         Recent tabs
       </message>
+      <message name="IDS_MENU_TINKER_TANK" desc="Menu item for opening the tinker tank bottom sheet. [CHAR_LIMIT=27]" translateable="false">
+        Tinker tank
+      </message>
       <message name="IDS_CHROME_HISTORY" desc="Menu item for opening the CCT history page. [CHAR_LIMIT=27]">
         Brave history
       </message>
@@ -4150,9 +4249,6 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       <message name="IDS_BOOKMARK_TOOLBAR_SEARCH_TITLE" desc="Toolbar search title [CHAR_LIMIT=32]">
         Search
       </message>
-      <message name="IDS_BOOKMARK_NO_RESULT" desc="Text explaining that no bookmarks are found to match a search query">
-        Can’t find that bookmark. Check your spelling or add a new bookmark.
-      </message>
       <message name="IDS_EDIT_BOOKMARK" desc="The string prompting the user to edit the content of a bookmark. [CHAR_LIMIT=30]">
         Edit bookmark
       </message>
@@ -4235,6 +4331,24 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       </message>
       <message name="IDS_IPH_PRICE_TRACKING_MENU_ITEM_ACCESSIBILITY" is_accessibility_with_no_ui="true" desc="In-product-help accessibility text that describes that a user can track the price of a product in the overflow menu.">
         Track price from the More options button
+      </message>
+      <message name="IDS_PRICE_INSIGHTS_BOTTOM_SHEET_CONTENT_CLOSED" desc="Accessibility string that describes closing a price insights bottom sheet.">
+        Price insights bottom sheet closed
+      </message>
+      <message name="IDS_PRICE_INSIGHTS_BOTTOM_SHEET_CONTENT_DESCRIPTION" desc="Accessibility string that describes the price insights bottom sheet.">
+        Price insights bottom sheet
+      </message>
+      <message name="IDS_PRICE_INSIGHTS_BOTTOM_SHEET_CONTENT_OPENED_FULL" desc="Accessibility string that describes fully opening a price insights bottom sheet.">
+        Price insights bottom sheet opened at full height
+      </message>
+      <message name="IDS_PRICE_INSIGHTS_TITLE" desc="The title for the price insights button.">
+        Price insights
+      </message>
+      <message name="IDS_PRICE_INSIGHTS_PRICE_IS_LOW_TITLE" desc="The title when a user see the price insights contextual page action while price is low.">
+        Price is low
+      </message>
+      <message name="IDS_PRICE_HISTORY_TITLE" desc="The title when a user see the price history graph section in the price insights bottom sheet.">
+        Price history across the web
       </message>
       <message name="IDS_IPH_SHOPPING_LIST_SAVE_FLOW" desc="In-product help text that notifies a user that they can organize their saved products from a folder in bookmarks.">
         Organize your tracked products in Bookmarks
@@ -4462,12 +4576,6 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       </message>
       <message name="IDS_RDS_WINDOW_SETTING_MESSAGE_BUTTON" desc="Text on the button allowing users to manage the setting.">
         Go to Settings
-      </message>
-      <message name="IDS_RDS_APP_MENU_USER_EDUCATION_DIALOG_TITLE" desc="Title of the dialog shown to educate the user about the desktop site app menu site-level setting.">
-        Brave will remember your choice
-      </message>
-      <message name="IDS_RDS_APP_MENU_USER_EDUCATION_DIALOG_MESSAGE" desc="Message on the dialog shown to educate the user about the desktop site app menu site-level setting.">
-        When you select desktop site once, the setting is applied to the site each time you visit
       </message>
       <message name="IDS_RDS_SITE_SETTINGS_GENERIC_IPH_TEXT_DESKTOP" desc="Message on the generic text bubble shown to educate the user about using the desktop site site-level setting to switch to desktop mode.">
         You can request the desktop site for <ph name="HOST_NAME">%1$s<ex>www.example.com</ex></ph>
@@ -5871,6 +5979,18 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       </message>
       <message name="IDS_ACCOUNT_SELECTION_SHEET_TITLE_EXPLICIT_SIGNIN" desc="Header for sign in sheet. Sheet is shown to prompt user to sign in to a website using an account from an identity provider.">
         Sign in to <ph name="SITE_ETLD_PLUS_ONE">%1$s<ex>rp.example</ex></ph> with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%2$s<ex>idp.com</ex></ph>
+      </message>
+      <message name="IDS_ACCOUNT_SELECTION_BUTTON_MODE_SHEET_TITLE_EXPLICIT_SIGNIN" desc="Header for sign in sheet. Sheet is shown to prompt user to sign in to a website using an account from an identity provider." translateable="false">
+        Sign in with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%1$s<ex>idp.com</ex></ph>
+      </message>
+      <message name="IDS_ACCOUNT_SELECTION_BUTTON_MODE_SHEET_TITLE_EXPLICIT_SIGNUP" desc="Header for sign up sheet. Sheet is shown to prompt user to sign up to a website using an account from an identity provider." translateable="false">
+        Sign up with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%1$s<ex>idp.com</ex></ph>
+      </message>
+      <message name="IDS_ACCOUNT_SELECTION_BUTTON_MODE_SHEET_TITLE_EXPLICIT_USE" desc="Header for use sheet. Sheet is shown to prompt user to use a website using an account from an identity provider." translateable="false">
+        Use with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%1$s<ex>idp.com</ex></ph>
+      </message>
+      <message name="IDS_ACCOUNT_SELECTION_BUTTON_MODE_SHEET_TITLE_EXPLICIT_CONTINUE" desc="Header for continue sheet. Sheet is shown to prompt user to continue to a website using an account from an identity provider." translateable="false">
+        Continue with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%1$s<ex>idp.com</ex></ph>
       </message>
       <message name="IDS_ACCOUNT_SELECTION_SHEET_TITLE_EXPLICIT_SIGNUP" desc="Header for sign up sheet. Sheet is shown to prompt user to sign up to a website using an account from an identity provider.">
         Sign up to <ph name="SITE_ETLD_PLUS_ONE">%1$s<ex>rp.example</ex></ph> with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%2$s<ex>idp.com</ex></ph>
