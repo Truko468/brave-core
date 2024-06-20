@@ -153,6 +153,7 @@
 # These tests fail because they expect the infobar count to be 1, but we
 # display an additional confirmation infobar for P3A
 -All/PageSpecificSiteDataDialogBrowserTest.*/*
+-HeadlessModeInfobarBrowserTest.InfoBarsCanBeDisabled/*
 -PageSpecificSiteDataDialogBrowserTest.*
 
 # These tests fail because they expect an additional Manifest V2 deprecation
