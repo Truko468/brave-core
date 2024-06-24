@@ -181,6 +181,9 @@ extra_input_roots = [ "../README.md" ]
 [crate.der]
 extra_input_roots = [ "../README.md" ]
 
+[crate.deranged]
+license_files = ['LICENSE-Apache']
+
 [crate.derivation-path]
 license_files = ['../../../../../common/licenses/Apache-2.0']
 
@@ -301,11 +304,20 @@ if (epoch != "0.2") {
 }
 ''' }
 
+[crate.num-conv]
+license_files = ['LICENSE-Apache']
+
 [crate.num-traits]
 extra_kv = { rustflags = [ "--cfg", "has_i128", "--cfg", "has_to_int_unchecked", "--cfg", "has_reverse_bits", "--cfg", "has_leading_trailing_ones", "--cfg", "has_int_assignop_ref", "--cfg", "has_div_euclid", "--cfg", "has_copysign" ] }
 
 [crate.pkcs8]
 extra_input_roots = [ "../README.md" ]
+
+[crate.powerfmt]
+license_files = ['LICENSE-Apache']
+
+[crate.platforms]
+extra_src_roots = [ "target" ]
 
 [crate.poly1305]
 extra_kv = { raw_gn = '''
