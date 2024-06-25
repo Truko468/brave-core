@@ -24,6 +24,7 @@
 #include "brave/browser/skus/skus_service_factory.h"
 #include "brave/browser/ui/bookmark/brave_bookmark_tab_helper.h"
 #include "brave/components/ai_chat/core/common/buildflags/buildflags.h"
+#include "brave/components/ai_rewriter/common/buildflags/buildflags.h"
 #include "brave/components/brave_perf_predictor/browser/perf_predictor_tab_helper.h"
 #include "brave/components/brave_wayback_machine/buildflags/buildflags.h"
 #include "brave/components/greaselion/browser/buildflags/buildflags.h"
@@ -63,6 +64,11 @@
 #if BUILDFLAG(ENABLE_AI_CHAT)
 #include "brave/components/ai_chat/content/browser/ai_chat_tab_helper.h"
 #include "brave/components/ai_chat/core/browser/utils.h"
+#endif
+
+#if BUILDFLAG(ENABLE_AI_REWRITER)
+#include "brave/browser/ai_rewriter/ai_rewriter_tab_helper.h"
+#include "brave/components/ai_rewriter/common/features.h"
 #endif
 
 #if BUILDFLAG(ENABLE_WIDEVINE)
@@ -140,6 +146,12 @@ void AttachTabHelpers(content::WebContents* web_contents) {
         g_brave_browser_process->process_misc_metrics()->ai_chat_metrics(),
         skus_service_getter, g_browser_process->local_state(),
         std::string(version_info::GetChannelString(chrome::GetChannel())));
+  }
+#endif
+
+#if BUILDFLAG(ENABLE_AI_REWRITER)
+  if (ai_rewriter::features::IsAIRewriterEnabled()) {
+    ai_rewriter::AIRewriterTabHelper::CreateForWebContents(web_contents);
   }
 #endif
 
