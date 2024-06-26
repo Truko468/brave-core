@@ -9,6 +9,22 @@
 # registered.
 -VideoStreamCoordinatorTest.ConnectToFrameHandlerAndReceiveNoFrames
 
+# These tests crash due to TestingBraveBrowserProcess::process_misc_metrics()
+# returning nullptr.
+-AddressBubblesControllerTestToolbarPinningOnly.ToggleBubbleOnIconClick
+-All/ManagedUserProfileNoticeHandleProceedTest.HandleProceedWithDoneCallback/*
+-SaveCreditCardPromptResultMetricTest.EmitsSavePromptResultLocalHasNoCards/*
+-SaveCreditCardPromptResultMetricTest.EmitsSavePromptResultLocalHasSavedCards/*
+-SaveCreditCardPromptResultMetricTest.EmitsSavePromptResultUploadHasNoCards/*
+-SaveCreditCardPromptResultMetricTest.EmitsSavePromptResultUploadHasSavedCards/*
+-SyncConfirmationHandlerTest.*
+
+# These tests crash because brave.search.p3a_default_switch pref is not
+# registered.
+-TabListViewUnitTest.CloseButtonRemovesListItem
+-TabListViewUnitTest.CloseButtonShowsAndHides
+-TabListViewUnitTest.PopulateTabList
+
 # These tests crash due to TestingBraveBrowserProcess::greaselion_download_service()
 # having NOTREACHED which causes an immediate crash
 # https://github.com/brave/brave-browser/issues/25726
@@ -312,6 +328,9 @@
 -PermissionPromptBubbleTwoOriginsViewTest.DescriptionMentionsTwoOriginsAndPermission
 -PermissionPromptBubbleTwoOriginsViewTest.TitleMentionsRequestingOriginAndPermission
 -SavedTabGroupBarUnitTest.*
+
+# These tests fail because local_state passed to KeyringService is nullptr.
+-All/CookieControlsUserBypassTrackingProtectionUiTest.AddsActFeaturesToVectorBasedOnFeatureAndExceptionStatus/*
 
 # Prerender is disabled
 -PrerenderManagerBasicRequirementTest.*
