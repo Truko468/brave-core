@@ -5,6 +5,20 @@
 ## why the filter is required and create an associated tracking issue if needed.
 ##
 
+# These crash due to what looks like an upstream bug of 
+# AccessibilityLabelsServiceFactory missing the dependency on
+# MantaServiceFactory and/or MantaServiceFactory not being registered:
+# Trying to register KeyedService Factory: `MantaServiceFactory` after the call
+# to the main registration function `ChromeBrowserMainExtraPartsProfiles::
+# EnsureBrowserContextKeyedServiceFactoriesBuilt()`.
+-AccessibilityLabelsBrowserTest.EnabledByPreference
+-AccessibilityLabelsBrowserTest.EnableOnce
+-AccessibilityLabelsBrowserTest.ExistingWebContents
+-AccessibilityLabelsBrowserTest.NewWebContents
+-PersistentBackground/AutomationApiTestWithContextType.ImageLabels/0
+-ServiceWorker/AutomationApiTestWithContextType.ImageLabels/0
+
+
 # Client side phishing detection is disabled in Brave
 -PhishingClassifierDelegateTest.HasFlatBufferModel
 -PhishingClassifierDelegateTest.HasVisualTfLiteModel
@@ -543,10 +557,6 @@
 -ExtensionManagementApiTestSupervised.ParentPermissionGrantedForEnable
 -ExtensionManagementApiTestSupervised.ParentPermissionNotGrantedForEnable
 
-# These tests fail because "Isolated Web Apps are not enabled, or Isolated Web
-# App Developer Mode is not enabled or blocked by policy."
--GarbageCollectStoragePartitionsCommandBrowserTest.UninstalledAppsHaveStoragePartitionsCleanedUp
-
 # These tests fail because of the following failed DCHECK in web_view_guest.cc:
 # render_frame_host->IsActive() || (content::SiteIsolationPolicy::IsSiteIsolationForGuestsEnabled() && render_frame_host->IsInLifecycleState( RenderFrameHost::LifecycleState::kPendingDeletion))
 -ContentScriptTrackerAppBrowserTest.WebViewContentScript
@@ -865,7 +875,9 @@
 -ChromeSigninClientBrowserTest.ExtensionsMetricsRecordOnSignin_Sync
 -ComposeEnablingBrowserTest.EnableComposeViaSettings
 -DevToolsConsoleInsightsTest.CanBeDisabledByEnterprisePolicy
+-DevToolsConsoleInsightsTest.CanBeEnabledByEnterprisePolicy 
 -DevToolsConsoleInsightsTest.EnterprisePolicyEnabledByDefault
+-DevToolsConsoleInsightsTest.IsBlockedByGeo
 -DevToolsConsoleInsightsTest.IsNotEnabledForEduUsers
 -DevToolsConsoleInsightsTest.IsNotEnabledForEnterpriseUsers
 -DevToolsConsoleInsightsTest.IsNotEnabledForMinors
@@ -1373,18 +1385,37 @@
 -ControlledFrameApiTest.*
 -ControlledFrameAvailableChannels/*
 -ControlledFramePermissionsPolicyTest.*
+-ControlledFramePermissionRequestTest.*
 -ControlledFrameWebSocketApiTest.*
 -ControlledFrameWebTransportApiTest.*
 -PromiseAPIs/ControlledFramePromiseApiTest.*
 
 # These tests fail because we disable Isolated Web Apps
+-BorderlessIsolatedWebAppBrowserTest.*
 -BrowserNavigatorIwaNewTabTest.*
 -BrowserNavigatorIwaTest.*
+-BrowsingDataModelBrowserTest.IsolatedWebAppUsageInDefaultStoragePartitionModel
+-ChromeDirectSocketsTcpIsolatedWebAppTest.TcpReadWrite
+-ChromeDirectSocketsUdpIsolatedWebAppTest.UdpReadWrite
+-ChromeDirectSocketsUdpIsolatedWebAppTest.UdpServerReadWrite
 -ControlledFrameDisabledTest.*
 -ControlledFrameNotAvailableChannels/ControlledFrameNotAvailableChannelTest.*
+-ControlledFramePermissionRequestMediaTest.*
 -ExtensionWindowCreateIwaTest.*
+-GarbageCollectStoragePartitionsCommandBrowserTest.UninstalledAppsHaveStoragePartitionsCleanedUp
+-GetIsolatedWebAppBrowsingDataCommandBrowserTest.IsolatedWebAppWithControlledFrameData
+-GetIsolatedWebAppBrowsingDataCommandBrowserTest.IsolatedWebAppWithoutBrowsingData
+-GetIsolatedWebAppBrowsingDataCommandBrowserTest.IsolatedWebAppsWithBrowsingData
 -IsolatedWebAppApiAccessBrowserTest.*
 -IsolatedWebAppApplyUpdateCommandBrowserTest.*
+-IsolatedWebAppBrowserServiceWorkerPushTest.ServiceWorkerPartitionedWhenWakingUpDueToPushNotification
+-IsolatedWebAppBrowserServiceWorkerTest.ServiceWorkerPartitioned
+-IsolatedWebAppBrowsingDataClearingTest.*
+-IsolatedWebAppCspBrowserTest.*
+-IsolatedWebAppDevToolsTest.ErrorPage
+-IsolatedWebAppDevToolsTest.IwaIdentifiedAsApp
+-IsolatedWebAppErrorPageTest.SetsCorrectMessageForErrorCode
+-IsolatedWebAppErrorPageTest.UsesWebAppErrorPage
 -IsolatedWebAppExtensionBrowserTest.*
 -IsolatedWebAppInstallerBrowserTest.*
 -IsolatedWebAppInstallerViewUiPixelTest.*
@@ -1393,9 +1424,12 @@
 -IsolatedWebAppURLLoaderFactoryBrowserTest.*
 -IsolatedWebAppURLLoaderFactoryCSPBrowserTest.*
 -IsolatedWebAppURLLoaderFactoryFrameBrowserTest.*
+-IsolatedWebAppWebSocketCspBrowserTest.CheckCsp/Ws*
 -PopupAutomaticFullscreenTest.PopupFullscreenWithoutTransientActivation/*
 -SubAppsPermissionsPolicyBrowserTest.*
 -SubAppsServiceImplBrowserTest.*
+-WebAppTagIsolatedWebAppTest.IsolatedWebAppTaskCreated
+-WebAppTagIsolatedWebAppTest.IsolatedWebAppTaskTitleFallbackToAppName
 
 # These tests fail because we disable kPermissionStorageAccessAPI
 -StorageAccessAPIAutograntsWithFedCMBrowserTest.FedCMGrantsAllowCookieAccess*
@@ -1407,6 +1441,8 @@
 -StorageAccessHeadersWithFedCMBrowserTest.RetryHeader
 
 # This test fails because we disable FileSystemAccessAPI
+-FileSystemObserverTest.ErrorsAfterPermissionsAreRevoked
+-FileSystemObserverTest.StorageAccess*
 -PageInfoBubbleViewBrowserTest.InteractedWithFileSystemSubpage
 
 # This test fails because we disable RedirectHeuristicTabHelper (because it
@@ -1476,7 +1512,9 @@
 # pin button container. In production, this crash doesn't happen because that code path
 # is only effective if features::IsToolbarPinningEnabled(). That feature is disabled by
 # default.
+-BrowserActionsBrowserTest.ShowAddressesBubbleOrPage
 -BrowserCommandControllerBrowserTestToolbarPinningOnly.ShowTranslateStatusFrenchPage
+-PinnedToolbarActionsContainerBrowserTest.CustomizeToolbar
 
 # Tests below this point have not been diagnosed or had issues created yet.
 -_/WebrtcLoggingPrivateApiStartEventLoggingTestFeatureAndPolicyEnabled.*
