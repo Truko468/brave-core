@@ -522,6 +522,9 @@
 -ChromePingManagerFactoryTest.ShouldSendPersistedReport_Yes
 -ClientSideDetectionHostNotificationTest.*
 -ClientSideDetectionHostTest.*
+-ClientSideDetectionRTLookupResponseForceRequestTest.AsyncCheckTrackerNotTriggerClassificationRequestAlreadyPhishing
+-ClientSideDetectionRTLookupResponseForceRequestTest.AsyncCheckTrackerNotTriggerClassificationRequestNoEnforcedPing
+-ClientSideDetectionRTLookupResponseForceRequestTest.AsyncCheckTrackerTriggersClassificationRequest
 -DownloadBubblePrefsTest.EnhancedProtectionEnabled
 -DownloadBubbleRowViewInfoTest.ShouldShowNoticeForEnhancedProtectionScan
 -DownloadWarningDesktopHatsUtilsTest.ProductSpecificData_EnhancedSafeBrowsing
@@ -529,6 +532,7 @@
 -ImmediateDeepScanTest.ESBRequestScan
 -ImmediateDeepScanTest.EncryptedArchive
 -NotificationMetricsLoggerTest.PersistentNotificationSize
+-SafeBrowsingResultTest.GetState_EnabledEnhanced
 -SafeBrowsingServiceTest.WhenUserIsInEPNormallyReturnsFalse
 -SafetyHubHandlerTest.HandleGetSafeBrowsingCardData_EnabledEnhanced
 -SafetyHubHandlerTest.HandleGetSafeBrowsingState_EnabledEnhanced
@@ -625,6 +629,10 @@
 # of being randomly delayed.
 -IdleDetectionPermissionContextTest.TestDenyInIncognitoAfterDelay
 -IdleDetectionPermissionContextTest.TestParallelDenyInIncognito
+
+# These tests fail because we set content settings default values to
+# CONTENT_SETTING_BLOCK, instead of CONTENT_SETTING_ASK which the tests expect.
+-All/ChromeBrowsingDataRemoverDelegateRelatedWebsiteSetsTest.RemoveRelatedWebsiteSetsPermissions/*
 
 # This test fails because our search engine keywords use a shorter syntax than
 # is expected (:b vs search.brave.com)
