@@ -143,7 +143,6 @@ public class BraveTopToolbarCoordinator extends TopToolbarCoordinator {
                                         .getRootView()
                                         .findViewById(R.id.tab_switcher_toolbar_stub),
                                 overviewModeMenuButtonCoordinator,
-                                isTabToGtsAnimationEnabled,
                                 isIncognitoModeEnabledSupplier,
                                 mToolbarColorObserverManager);
             }
