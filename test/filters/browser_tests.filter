@@ -52,6 +52,7 @@
 -All/ContextMenuBrowserTest.OpenInReadingMode/LinkPreview*
 -ReadAnythingAppControllerTest.*
 -ReadAnythingAppModelTest.*
+-ReadAnythingReadAloudAppModelTest.*
 
 # Google translate is disabled
 -OverrideLanguagePrefsForAutoHrefTranslateBrowserTest.*
@@ -466,7 +467,9 @@
 -DisableReduceAcceptLanguageOTBrowserTest.*
 -SameOriginRedirectReduceAcceptLanguageOTBrowserTest.*
 -SameOriginReduceAcceptLanguageBrowserTest.EmptyUserAcceptLanguage
+-SameOriginReduceAcceptLanguageDeprecationOTBrowserTest.*
 -SameOriginReduceAcceptLanguageOTBrowserTest.*
+-ThirdPartyReduceAcceptLanguageDeprecationOTBrowserTest.IframeRequests
 -ThirdPartyReduceAcceptLanguageOTBrowserTest.*
 
 # These tests fail because the primary account consent level is null instead of
@@ -790,6 +793,7 @@
 -ContentSettingsWorkerModulesWithFencedFrameBrowserTest.WorkerImportModuleBlocked
 -ContextMenuFencedFrameTest.AutomaticBeaconSentAfterContextMenuNavigation
 -ContextMenuFencedFrameTest.MenuContentsVerification_Fencedframe
+-ContextMenuFencedFrameTest.Save*
 -ContextMenuFencedFrameTestNoTestingConfig.AutomaticBeaconSentAfterContextMenuNavigation
 -DeclarativeNetRequestApiFencedFrameTest/DeclarativeNetRequestApiFencedFrameTest.*
 -ExtensionWebRequestApiFencedFrameTest.DeclarativeSendMessage
@@ -1270,10 +1274,12 @@
 -ClientSideDetectionHostPrerenderExclusiveAccessBrowserTest.*
 -ClientSideDetectionHostVibrateTest.VibrationApiTriggersPreclassificationCheck
 -ExtensionTelemetryServiceBrowserTest.*
+-ExtensionTelemetryServiceBrowserTestWithInterceptRemoteHostsContactedInRendererEnabled.DetectsWebRequestFromContentScript
 -ExtensionTelemetryServiceBrowserTestWithInterceptRemoteHostsContactedInRendererEnabled.InterceptsRemoteHostContactedSignalInRenderer
 
 # These tests fail because we disable the
 # privacy_sandbox::kEnforcePrivacySandboxAttestations feature
+-All/PrivacySandboxAttestationPreInstallBrowserTest.PreinstalledAttestationListPresent/*
 -PrivacySandboxAttestationsBrowserTest.*
 -PrivacySandboxSettingsAttestPrivateAggregationInProtectedAudienceBrowserTest.*
 
@@ -1406,6 +1412,8 @@
 -GetIsolatedWebAppBrowsingDataCommandBrowserTest.IsolatedWebAppWithControlledFrameData
 -GetIsolatedWebAppBrowsingDataCommandBrowserTest.IsolatedWebAppWithoutBrowsingData
 -GetIsolatedWebAppBrowsingDataCommandBrowserTest.IsolatedWebAppsWithBrowsingData
+-InstallIsolatedWebAppFromCommandLineFromFileBrowserTest.AppFromCommandLineIsInstalled
+-InstallIsolatedWebAppFromCommandLineFromUrlBrowserTest.AppFromCommandLineIsInstalled
 -IsolatedWebAppApiAccessBrowserTest.*
 -IsolatedWebAppApplyUpdateCommandBrowserTest.*
 -IsolatedWebAppBrowserServiceWorkerPushTest.ServiceWorkerPartitionedWhenWakingUpDueToPushNotification
@@ -1487,6 +1495,9 @@
 
 # These tests fail because we intentionally disable features::kFedCm
 -FederatedIdentityApiPermissionContextTest.*
+
+# These tests fail because we disable kWebIdentityDigitalCredentials.
+-DigitalIdentitySafetyInterstitialIntegrationTest.*
 
 # These tests fail because we disable blink::features::kFileSystemAccessAPI and
 # they try to call showOpenFilePicker
