@@ -1,0 +1,12 @@
+diff --git a/third_party/tflite/BUILD.gn b/third_party/tflite/BUILD.gn
+index f11b0a89eca81b0d69803f1eb79fa80be7bf00e1..4be477c7291f4d246008398dbe2c959e3ac26146 100644
+--- a/third_party/tflite/BUILD.gn
++++ b/third_party/tflite/BUILD.gn
+@@ -201,6 +201,7 @@ tflite_static_library("tflite_builtin_op_resolver") {
+     ":tflite_benchmark",
+     "//services/webnn/*",
+     "//third_party/mediapipe/*",
++    "//third_party/tflite_support/*",
+   ]
+ 
+   conditional_deps = [ ":tflite" ]
