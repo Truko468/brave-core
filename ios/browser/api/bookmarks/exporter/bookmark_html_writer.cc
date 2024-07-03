@@ -470,13 +470,13 @@ BookmarkFaviconFetcher::BookmarkFaviconFetcher(
 void BookmarkFaviconFetcher::ExportBookmarks() {
   ExtractUrls(ios::LocalOrSyncableBookmarkModelFactory::GetForBrowserState(
                   browser_state_)
-                  ->bookmark_bar_node());
+                  ->subtle_bookmark_bar_node());
   ExtractUrls(ios::LocalOrSyncableBookmarkModelFactory::GetForBrowserState(
                   browser_state_)
-                  ->other_node());
+                  ->subtle_other_node());
   ExtractUrls(ios::LocalOrSyncableBookmarkModelFactory::GetForBrowserState(
                   browser_state_)
-                  ->mobile_node());
+                  ->subtle_mobile_node());
   if (!bookmark_urls_.empty())
     FetchNextFavicon();
   else
