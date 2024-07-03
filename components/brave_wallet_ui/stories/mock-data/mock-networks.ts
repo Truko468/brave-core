@@ -11,6 +11,13 @@ import {
   BTCIconUrl
 } from '../../assets/network_token_icons/network_token_icons'
 
+const mockProps: BraveWallet.NetworkProps = {
+  isKnown: true,
+  isCustom: true,
+  isHidden: false,
+  isDappDefault: false
+}
+
 export const mockEthMainnet: BraveWallet.NetworkInfo = {
   activeRpcEndpointIndex: 0,
   blockExplorerUrls: ['https://etherscan.io', 'https://etherchain.org'],
@@ -22,7 +29,8 @@ export const mockEthMainnet: BraveWallet.NetworkInfo = {
   iconUrls: [ETHIconUrl],
   rpcEndpoints: [{ url: 'https://mainnet.infura.io/v3/' }],
   symbol: 'ETH',
-  symbolName: 'Ethereum'
+  symbolName: 'Ethereum',
+  props: mockProps
 }
 
 export const mockGoerli: BraveWallet.NetworkInfo = {
@@ -39,7 +47,8 @@ export const mockGoerli: BraveWallet.NetworkInfo = {
     { url: 'wss://goerli.infura.io/ws/v3/' }
   ],
   symbol: 'ETH',
-  symbolName: 'Ethereum'
+  symbolName: 'Ethereum',
+  props: mockProps
 }
 
 export const mockSepolia: BraveWallet.NetworkInfo = {
@@ -53,7 +62,8 @@ export const mockSepolia: BraveWallet.NetworkInfo = {
   iconUrls: [ETHIconUrl],
   rpcEndpoints: [{ url: 'https://sepolia-infura.brave.com' }],
   symbol: 'ETH',
-  symbolName: 'Ethereum'
+  symbolName: 'Ethereum',
+  props: mockProps
 }
 
 export const mockEthLocalhost: BraveWallet.NetworkInfo = {
@@ -67,7 +77,8 @@ export const mockEthLocalhost: BraveWallet.NetworkInfo = {
   iconUrls: [ETHIconUrl],
   rpcEndpoints: [{ url: 'http://localhost:7545/' }],
   symbol: 'ETH',
-  symbolName: 'Ethereum'
+  symbolName: 'Ethereum',
+  props: mockProps
 }
 
 export const mockFilecoinMainnetNetwork: BraveWallet.NetworkInfo = {
@@ -82,6 +93,7 @@ export const mockFilecoinMainnetNetwork: BraveWallet.NetworkInfo = {
   iconUrls: [FILECOINIconUrl],
   coin: BraveWallet.CoinType.FIL,
   supportedKeyrings: [BraveWallet.KeyringId.kFilecoin],
+  props: mockProps
 }
 
 export const mockFilecoinTestnetNetwork: BraveWallet.NetworkInfo = {
@@ -96,6 +108,7 @@ export const mockFilecoinTestnetNetwork: BraveWallet.NetworkInfo = {
   iconUrls: [FILECOINIconUrl],
   coin: BraveWallet.CoinType.FIL,
   supportedKeyrings: [BraveWallet.KeyringId.kFilecoinTestnet],
+  props: mockProps
 }
 
 export const mockSolanaMainnetNetwork: BraveWallet.NetworkInfo = {
@@ -109,7 +122,8 @@ export const mockSolanaMainnetNetwork: BraveWallet.NetworkInfo = {
   iconUrls: [SOLIconUrl],
   rpcEndpoints: [{ url: 'https://api.testnet.solana.com' }],
   symbol: 'SOL',
-  symbolName: 'Solana'
+  symbolName: 'Solana',
+  props: mockProps
 }
 
 export const mockSolanaTestnetNetwork: BraveWallet.NetworkInfo = {
@@ -124,6 +138,7 @@ export const mockSolanaTestnetNetwork: BraveWallet.NetworkInfo = {
   iconUrls: [SOLIconUrl],
   coin: BraveWallet.CoinType.SOL,
   supportedKeyrings: [BraveWallet.KeyringId.kSolana],
+  props: mockProps
 }
 
 export const mockBitcoinMainnet: BraveWallet.NetworkInfo = {
@@ -137,7 +152,8 @@ export const mockBitcoinMainnet: BraveWallet.NetworkInfo = {
   iconUrls: [BTCIconUrl],
   rpcEndpoints: [{ url: 'https://bitcoin.rpc' }],
   symbol: 'BTC',
-  symbolName: 'Bitcoin'
+  symbolName: 'Bitcoin',
+  props: mockProps
 }
 
 export const mockBitcoinTestnet: BraveWallet.NetworkInfo = {
@@ -151,7 +167,8 @@ export const mockBitcoinTestnet: BraveWallet.NetworkInfo = {
   iconUrls: [BTCIconUrl],
   rpcEndpoints: [{ url: 'https://bitcoin.rpc/test' }],
   symbol: 'BTC',
-  symbolName: 'Bitcoin'
+  symbolName: 'Bitcoin',
+  props: mockProps
 }
 
 export const mockNetworks: BraveWallet.NetworkInfo[] = [

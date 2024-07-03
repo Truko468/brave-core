@@ -93,6 +93,13 @@ export const getMockedTransactionInfo =
     }
   }
 
+const mockProps: BraveWallet.NetworkProps = {
+  isKnown: true,
+  isCustom: true,
+  isHidden: false,
+  isDappDefault: false
+}
+
 export const mockNetwork: BraveWallet.NetworkInfo = {
   chainId: '0x1',
   chainName: 'Ethereum Main Net',
@@ -104,7 +111,8 @@ export const mockNetwork: BraveWallet.NetworkInfo = {
   decimals: 18,
   iconUrls: [ETHIconUrl],
   coin: BraveWallet.CoinType.ETH,
-  supportedKeyrings: [BraveWallet.KeyringId.kDefault]
+  supportedKeyrings: [BraveWallet.KeyringId.kDefault],
+  props: mockProps
 }
 
 export const mockFilecoinEVMMMainnetNetwork: BraveWallet.NetworkInfo = {
@@ -118,7 +126,8 @@ export const mockFilecoinEVMMMainnetNetwork: BraveWallet.NetworkInfo = {
   decimals: 18,
   iconUrls: [FILECOINIconUrl],
   coin: BraveWallet.CoinType.ETH,
-  supportedKeyrings: [BraveWallet.KeyringId.kDefault]
+  supportedKeyrings: [BraveWallet.KeyringId.kDefault],
+  props: mockProps
 }
 
 export const mockFilecoinEVMMTestnetNetwork: BraveWallet.NetworkInfo = {
@@ -132,7 +141,8 @@ export const mockFilecoinEVMMTestnetNetwork: BraveWallet.NetworkInfo = {
   decimals: 18,
   iconUrls: [FILECOINIconUrl],
   coin: BraveWallet.CoinType.ETH,
-  supportedKeyrings: [BraveWallet.KeyringId.kDefault]
+  supportedKeyrings: [BraveWallet.KeyringId.kDefault],
+  props: mockProps
 }
 
 export const mockFilecoinMainnetNetwork: BraveWallet.NetworkInfo = {
@@ -146,7 +156,8 @@ export const mockFilecoinMainnetNetwork: BraveWallet.NetworkInfo = {
   decimals: 18,
   iconUrls: [FILECOINIconUrl],
   coin: BraveWallet.CoinType.FIL,
-  supportedKeyrings: [BraveWallet.KeyringId.kFilecoin]
+  supportedKeyrings: [BraveWallet.KeyringId.kFilecoin],
+  props: mockProps
 }
 
 export const mockFilecoinTestnetNetwork: BraveWallet.NetworkInfo = {
@@ -160,7 +171,8 @@ export const mockFilecoinTestnetNetwork: BraveWallet.NetworkInfo = {
   decimals: 18,
   iconUrls: [FILECOINIconUrl],
   coin: BraveWallet.CoinType.FIL,
-  supportedKeyrings: [BraveWallet.KeyringId.kFilecoinTestnet]
+  supportedKeyrings: [BraveWallet.KeyringId.kFilecoinTestnet],
+  props: mockProps
 }
 
 export const mockSolanaMainnetNetwork: BraveWallet.NetworkInfo = {
@@ -174,7 +186,8 @@ export const mockSolanaMainnetNetwork: BraveWallet.NetworkInfo = {
   decimals: 9,
   iconUrls: [SOLIconUrl],
   coin: BraveWallet.CoinType.SOL,
-  supportedKeyrings: [BraveWallet.KeyringId.kSolana]
+  supportedKeyrings: [BraveWallet.KeyringId.kSolana],
+  props: mockProps
 }
 
 export const mockSolanaTestnetNetwork: BraveWallet.NetworkInfo = {
@@ -188,7 +201,8 @@ export const mockSolanaTestnetNetwork: BraveWallet.NetworkInfo = {
   decimals: 9,
   iconUrls: [SOLIconUrl],
   coin: BraveWallet.CoinType.SOL,
-  supportedKeyrings: [BraveWallet.KeyringId.kSolana]
+  supportedKeyrings: [BraveWallet.KeyringId.kSolana],
+  props: mockProps
 }
 
 export const mockBtcMainnetNetwork: BraveWallet.NetworkInfo = {
@@ -202,7 +216,8 @@ export const mockBtcMainnetNetwork: BraveWallet.NetworkInfo = {
   decimals: 8,
   iconUrls: [],
   coin: BraveWallet.CoinType.BTC,
-  supportedKeyrings: [BraveWallet.KeyringId.kBitcoin84]
+  supportedKeyrings: [BraveWallet.KeyringId.kBitcoin84],
+  props: mockProps
 }
 
 export const mockAccount: BraveWallet.AccountInfo = {
