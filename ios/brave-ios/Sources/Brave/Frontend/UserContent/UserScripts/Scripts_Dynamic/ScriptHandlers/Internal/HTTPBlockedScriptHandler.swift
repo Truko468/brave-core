@@ -75,7 +75,7 @@ class HTTPBlockedScriptHandler: TabContentScript {
     guard
       let listItem = tab?.backList?.reversed().first(where: {
         // It is not the blocked page or the internal page
-        $0.url.baseDomain != etldP1 && $0.url != tab?.webView?.url
+        $0.url.baseDomain != etldP1 && $0.url != tab?.webView?.lastCommittedURL
       })
     else {
       tab?.goBack()

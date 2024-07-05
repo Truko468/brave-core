@@ -257,7 +257,10 @@ extension BrowserViewController: TopToolbarDelegate {
 
     if let url = URL(string: text), url.scheme == "brave" || url.scheme == "chrome" {
       topToolbar.leaveOverlayMode()
-      return handleChromiumWebUIURL(url)
+
+      finishEditingAndSubmit(url, isUserDefinedURLNavigation: isUserDefinedURLNavigation)
+      return true
+//      return handleChromiumWebUIURL(url)
     }
 
     guard let fixupURL = URIFixup.getURL(text) else {
@@ -647,7 +650,7 @@ extension BrowserViewController: TopToolbarDelegate {
       return
     }
     // System components sit on top so we want to dismiss it
-    selectedTab.webView?.findInteraction?.dismissFindNavigator()
+    selectedTab.webView?.findInPageController.stopFindInPage()
     presentWalletPanel(from: selectedTab.getOrigin(), with: selectedTab.tabDappStore)
   }
 
@@ -995,8 +998,9 @@ extension BrowserViewController: ToolbarDelegate {
     guard let tab = tabManager.selectedTab, let url = tab.url,
       let secureContentStateButton = urlBar.locationView.secureContentStateButton
     else { return }
+    // FIXME: Certificate
     let hasCertificate =
-      (tab.webView?.serverTrust ?? (try? ErrorPageHelper.serverTrust(from: url))) != nil
+    (tab.webView?.underlyingWebView?.serverTrust ?? (try? ErrorPageHelper.serverTrust(from: url))) != nil
     let pageSecurityView = PageSecurityView(
       displayURL: urlBar.locationView.urlDisplayLabel.text ?? url.absoluteDisplayString,
       secureState: tab.lastKnownSecureContentState,
@@ -1011,7 +1015,7 @@ extension BrowserViewController: ToolbarDelegate {
   }
 
   func showBackForwardList() {
-    if let backForwardList = tabManager.selectedTab?.webView?.backForwardList {
+    if let backForwardList = tabManager.selectedTab?.webView?.underlyingWebView?.backForwardList {
       let backForwardViewController = BackForwardListViewController(
         profile: profile,
         backForwardList: backForwardList

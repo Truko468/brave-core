@@ -87,7 +87,7 @@ class SiteStateListenerScriptHandler: TabContentScript {
           )
           let script = try ScriptFactory.shared.makeScript(for: .selectorsPoller(setup))
 
-          try await webView.evaluateSafeJavaScriptThrowing(
+          try await webView.underlyingWebView?.evaluateSafeJavaScriptThrowing(
             functionName: script.source,
             frame: message.frameInfo,
             contentWorld: CosmeticFiltersScriptHandler.scriptSandbox,
