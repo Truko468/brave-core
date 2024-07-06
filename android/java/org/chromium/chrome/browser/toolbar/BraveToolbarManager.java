@@ -322,24 +322,25 @@ public class BraveToolbarManager extends ToolbarManager {
         }
     }
 
+    // The 3rd parameter at ToolbarManager.initializeWithNativ is
+    // OnClickListener newTabClickHandler, but at
+    // ChromeTabbedActivity.initializeToolbarManager
+    // `v -> onTabSwitcherClicked()` is passed.
+    // Also ToolbarManager.initializeWithNative calls
+    // TopToolbarCoordinator.initializeWithNative where 3rd parameter is
+    // `OnClickListener tabSwitcherClickHandler`. So it is a tabSwitcherClickHandler.
     @Override
     public void initializeWithNative(
             @NonNull LayoutManagerImpl layoutManager,
             @Nullable StripLayoutHelperManager stripLayoutHelperManager,
             OnClickListener tabSwitcherClickHandler,
-            OnClickListener newTabClickHandler,
             OnClickListener bookmarkClickHandler,
             OnClickListener customTabsBackClickHandler) {
-        OnClickListener wrappedNewTabClickHandler =
-                v -> {
-                    recordNewTabClick();
-                    newTabClickHandler.onClick(v);
-                };
+
         super.initializeWithNative(
                 layoutManager,
                 stripLayoutHelperManager,
                 tabSwitcherClickHandler,
-                wrappedNewTabClickHandler,
                 bookmarkClickHandler,
                 customTabsBackClickHandler);
 
@@ -351,6 +352,16 @@ public class BraveToolbarManager extends ToolbarManager {
                                 .getModel(mIncognitoStateProvider.isIncognitoSelected())
                                 .closeAllTabs();
                     };
+
+            assert (mActivity instanceof ChromeActivity);
+            OnClickListener wrappedNewTabClickHandler =
+                    v -> {
+                        recordNewTabClick();
+                        ((ChromeActivity) mActivity)
+                                .getMenuOrKeyboardActionController()
+                                .onMenuOrKeyboardAction(R.id.new_tab_menu_id, false);
+                    };
+
             assert (mBottomControlsCoordinatorSupplier.get()
                     instanceof BraveBottomControlsCoordinator);
             ((BraveBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
@@ -358,8 +369,8 @@ public class BraveToolbarManager extends ToolbarManager {
                             mActivity,
                             mCompositorViewHolder.getResourceManager(),
                             mCompositorViewHolder.getLayoutManager(),
-                            tabSwitcherClickHandler,
-                            wrappedNewTabClickHandler,
+                            /*tabSwitcherListener*/ tabSwitcherClickHandler,
+                            /*newTabClickListener*/ wrappedNewTabClickHandler,
                             mWindowAndroid,
                             mTabModelSelector,
                             mIncognitoStateProvider,
@@ -464,12 +475,17 @@ public class BraveToolbarManager extends ToolbarManager {
     }
 
     // TODO(alexeybarabash): WIP Upstream's cleanup legacy tab switcher code in toolbar
+    // isToolbarPhone method was removed along with BraveTopToolbarCoordinator class
     // private boolean isToolbarPhone() {
     //     assert (mToolbar instanceof BraveTopToolbarCoordinator);
     //     return mToolbar instanceof BraveTopToolbarCoordinator
     //             && ((BraveTopToolbarCoordinator) mToolbar).isToolbarPhone();
     // }
+    private boolean isToolbarPhone() {
+        return true;
+    }
 
+    // TODO(alexeybarabash): WIP Upstream's cleanup legacy tab switcher code in toolbar
     // private ObservableSupplier<Integer> getConstraintsProxy() {
     //     if (mToolbar instanceof BraveTopToolbarCoordinator) {
     //         return ((BraveTopToolbarCoordinator) mToolbar).getConstraintsProxy();
@@ -478,6 +494,10 @@ public class BraveToolbarManager extends ToolbarManager {
     //     assert false : "Wrong top toolbar type!";
     //     return null;
     // }
+    private ObservableSupplier<Integer> getConstraintsProxy() {
+        assert false : "Wrong top toolbar type!";
+        return null;
+    }
 
     @Override
     public LocationBar getLocationBar() {
