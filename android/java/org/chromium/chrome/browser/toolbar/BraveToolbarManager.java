@@ -62,7 +62,8 @@ import org.chromium.chrome.browser.toolbar.menu_button.BraveMenuButtonCoordinato
 import org.chromium.chrome.browser.toolbar.menu_button.MenuButtonCoordinator;
 import org.chromium.chrome.browser.toolbar.top.ActionModeController;
 import org.chromium.chrome.browser.toolbar.top.BottomTabSwitcherActionMenuCoordinator;
-import org.chromium.chrome.browser.toolbar.top.BraveTopToolbarCoordinator;
+// TODO(alexeybarabash): WIP Upstream's cleanup legacy tab switcher code in toolbar
+// import org.chromium.chrome.browser.toolbar.top.BraveTopToolbarCoordinator;
 import org.chromium.chrome.browser.toolbar.top.ToolbarActionModeCallback;
 import org.chromium.chrome.browser.toolbar.top.ToolbarControlContainer;
 import org.chromium.chrome.browser.toolbar.top.TopToolbarCoordinator;
@@ -453,9 +454,10 @@ public class BraveToolbarManager extends ToolbarManager {
         boolean isMenuFromBottom =
                 mIsBottomToolbarVisible && BottomToolbarConfiguration.isBottomToolbarEnabled();
         BraveMenuButtonCoordinator.setMenuFromBottom(isMenuFromBottom);
-        if (mToolbar instanceof BraveTopToolbarCoordinator) {
-            ((BraveTopToolbarCoordinator) mToolbar).onBottomToolbarVisibilityChanged(visible);
-        }
+        // TODO(alexeybarabash): WIP Upstream's cleanup legacy tab switcher code in toolbar
+        // if (mToolbar instanceof BraveTopToolbarCoordinator) {
+        //     ((BraveTopToolbarCoordinator) mToolbar).onBottomToolbarVisibilityChanged(visible);
+        // }
         if (mBottomControlsCoordinatorSupplier.get() instanceof BraveBottomControlsCoordinator) {
             ((BraveBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
                     .setBottomToolbarVisible(visible);
@@ -469,20 +471,21 @@ public class BraveToolbarManager extends ToolbarManager {
         setBottomToolbarVisible(isBottomToolbarVisible);
     }
 
-    private boolean isToolbarPhone() {
-        assert (mToolbar instanceof BraveTopToolbarCoordinator);
-        return mToolbar instanceof BraveTopToolbarCoordinator
-                && ((BraveTopToolbarCoordinator) mToolbar).isToolbarPhone();
-    }
+    // TODO(alexeybarabash): WIP Upstream's cleanup legacy tab switcher code in toolbar
+    // private boolean isToolbarPhone() {
+    //     assert (mToolbar instanceof BraveTopToolbarCoordinator);
+    //     return mToolbar instanceof BraveTopToolbarCoordinator
+    //             && ((BraveTopToolbarCoordinator) mToolbar).isToolbarPhone();
+    // }
 
-    private ObservableSupplier<Integer> getConstraintsProxy() {
-        if (mToolbar instanceof BraveTopToolbarCoordinator) {
-            return ((BraveTopToolbarCoordinator) mToolbar).getConstraintsProxy();
-        }
+    // private ObservableSupplier<Integer> getConstraintsProxy() {
+    //     if (mToolbar instanceof BraveTopToolbarCoordinator) {
+    //         return ((BraveTopToolbarCoordinator) mToolbar).getConstraintsProxy();
+    //     }
 
-        assert false : "Wrong top toolbar type!";
-        return null;
-    }
+    //     assert false : "Wrong top toolbar type!";
+    //     return null;
+    // }
 
     @Override
     public LocationBar getLocationBar() {
