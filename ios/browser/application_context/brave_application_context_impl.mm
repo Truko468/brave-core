@@ -66,6 +66,17 @@ BraveApplicationContextImpl::local_data_files_service() {
   return local_data_files_service_.get();
 }
 
+ai_chat::LeoLocalModelsUpdater*
+BraveApplicationContextImpl::leo_local_models_updater() {
+  if (!leo_local_models_updater_) {
+    // Won't be doing component cleanup on iOS for now
+    leo_local_models_updater_ =
+        std::make_unique<ai_chat::LeoLocalModelsUpdater>(
+            brave_component_updater_delegate(), base::FilePath());
+  }
+  return leo_local_models_updater_.get();
+}
+
 brave::URLSanitizerComponentInstaller*
 BraveApplicationContextImpl::url_sanitizer_component_installer() {
   if (!url_sanitizer_component_installer_) {
@@ -111,4 +122,6 @@ void BraveApplicationContextImpl::StartBraveServices() {
 
   brave_wallet::WalletDataFilesInstaller::GetInstance().SetDelegate(
       std::make_unique<brave_wallet::WalletDataFilesInstallerDelegateImpl>());
+
+  leo_local_models_updater();
 }
