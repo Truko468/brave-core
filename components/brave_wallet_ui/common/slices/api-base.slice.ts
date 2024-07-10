@@ -79,7 +79,10 @@ export function createWalletApiBase() {
       'ActiveOrigin',
       'MeldFiatCurrencies',
       'MeldCryptoCurrencies',
-      'DefaultCountryCode'
+      'DefaultCountryCode',
+      'MeldCountries',
+      'MeldServiceProviders',
+      'MeldCryptoQuotes'
     ],
     endpoints: ({ mutation, query }) => ({})
   })
