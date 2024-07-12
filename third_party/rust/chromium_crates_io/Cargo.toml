@@ -128,7 +128,7 @@ path = "../../../../third_party/rust/chromium_crates_io/vendor/libc-0.2.155"
 package = "libc"
 
 [patch.crates-io.log_v0_4]
-path = "../../../../third_party/rust/chromium_crates_io/vendor/log-0.4.21"
+path = "../../../../third_party/rust/chromium_crates_io/vendor/log-0.4.22"
 package = "log"
 
 [patch.crates-io.memchr_v2]
@@ -188,7 +188,7 @@ path = "../../../../third_party/rust/chromium_crates_io/vendor/serde_derive-1.0.
 package = "serde_derive"
 
 [patch.crates-io.serde_json_v1]
-path = "../../../../third_party/rust/chromium_crates_io/vendor/serde_json-1.0.117"
+path = "../../../../third_party/rust/chromium_crates_io/vendor/serde_json-1.0.120"
 package = "serde_json"
 
 [patch.crates-io.serde_v1]
@@ -204,7 +204,7 @@ path = "../../../../third_party/rust/chromium_crates_io/vendor/syn-1.0.109"
 package = "syn"
 
 [patch.crates-io.syn_v2]
-path = "../../../../third_party/rust/chromium_crates_io/vendor/syn-2.0.68"
+path = "../../../../third_party/rust/chromium_crates_io/vendor/syn-2.0.69"
 package = "syn"
 
 [patch.crates-io.unicode-ident_v1]
