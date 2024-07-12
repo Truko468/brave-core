@@ -2,7 +2,7 @@ diff --git a/chrome/browser/ui/android/toolbar/java/src/org/chromium/chrome/brow
 index cf04ad3c3662b8583ceaf08d8de181cccfd450b8..5af53557c03a2a206ab31d0ccc25b8b10f899940 100644
 --- a/chrome/browser/ui/android/toolbar/java/src/org/chromium/chrome/browser/toolbar/top/ToolbarPhone.java
 +++ b/chrome/browser/ui/android/toolbar/java/src/org/chromium/chrome/browser/toolbar/top/ToolbarPhone.java
-@@ -451,6 +451,7 @@ public class ToolbarPhone extends ToolbarLayout
+@@ -443,6 +443,7 @@ public class ToolbarPhone extends ToolbarLayout
          if (mOptionalButtonCoordinator != null) {
              mOptionalButtonCoordinator.setBackgroundColorFilter(color);
          }
@@ -27,7 +27,7 @@ index cf04ad3c3662b8583ceaf08d8de181cccfd450b8..5af53557c03a2a206ab31d0ccc25b8b1
      }
  
      @Override
-@@ -1108,6 +1110,7 @@ public class ToolbarPhone extends ToolbarLayout
+@@ -1083,6 +1085,7 @@ public class ToolbarPhone extends ToolbarLayout
       * Tab Page.
       */
      private void updateLocationBarLayoutForExpansionAnimation() {
@@ -35,7 +35,7 @@ index cf04ad3c3662b8583ceaf08d8de181cccfd450b8..5af53557c03a2a206ab31d0ccc25b8b1
          TraceEvent.begin("ToolbarPhone.updateLocationBarLayoutForExpansionAnimation");
          if (isInTabSwitcherMode()) return;
  
-@@ -1531,6 +1534,7 @@ public class ToolbarPhone extends ToolbarLayout
+@@ -1503,6 +1506,7 @@ public class ToolbarPhone extends ToolbarLayout
              canvas.restore();
          }
  
@@ -43,7 +43,7 @@ index cf04ad3c3662b8583ceaf08d8de181cccfd450b8..5af53557c03a2a206ab31d0ccc25b8b1
          // Draw the tab stack button and associated text if necessary.
          if (mTabSwitcherAnimationTabStackDrawable != null
                  && mToggleTabStackButton != null
-@@ -2347,6 +2351,7 @@ public class ToolbarPhone extends ToolbarLayout
+@@ -2264,6 +2268,7 @@ public class ToolbarPhone extends ToolbarLayout
          } else {
              populateUrlClearExpansionAnimatorSet(animators);
          }

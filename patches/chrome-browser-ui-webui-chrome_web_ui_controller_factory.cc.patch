@@ -1,8 +1,8 @@
 diff --git a/chrome/browser/ui/webui/chrome_web_ui_controller_factory.cc b/chrome/browser/ui/webui/chrome_web_ui_controller_factory.cc
-index 7b61f43d8c72ae469045ea619b4fe1d08042ccf9..41ef1961f53276a6650287aaff888746e96e9e90 100644
+index db0187e7496afeeb9bbcfc822b4bb97e482974a7..18ff37407d302e7530e7359d70bd4a4c9a49bb48 100644
 --- a/chrome/browser/ui/webui/chrome_web_ui_controller_factory.cc
 +++ b/chrome/browser/ui/webui/chrome_web_ui_controller_factory.cc
-@@ -890,6 +890,7 @@ void ChromeWebUIControllerFactory::GetFaviconForURL(
+@@ -871,6 +871,7 @@ void ChromeWebUIControllerFactory::GetFaviconForURL(
  
  // static
  ChromeWebUIControllerFactory* ChromeWebUIControllerFactory::GetInstance() {
