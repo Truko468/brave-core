@@ -1061,12 +1061,8 @@ extension BrowserViewController: WKNavigationDelegate {
         tab.emitEthereumEvent(.connect)
       }
 
-      #if compiler(>=6.0)
-      #if targetEnvironment(simulator)
-      #else
-      if #available(iOS 18.0, *),
-        let scriptHandler = tab.getContentScript(name: BraveTranslateScriptHandler.scriptName)
-          as? BraveTranslateScriptHandler
+      if let scriptHandler = tab.getContentScript(name: BraveTranslateScriptHandler.scriptName)
+        as? BraveTranslateScriptHandler
       {
         Task {
           translationHostingController.rootView = AnyView(EmptyView())
@@ -1078,14 +1074,11 @@ extension BrowserViewController: WKNavigationDelegate {
           }
           translationHostingController.rootView = AnyView(
             TranslationContainer(
-              configuration: .init(source: pageLanguage),
               scriptHandler: scriptHandler
             )
           )
         }
       }
-      #endif
-      #endif
     }
 
     // Added this method to determine long press menu actions better
