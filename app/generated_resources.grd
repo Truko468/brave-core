@@ -312,6 +312,10 @@ are declared in tools/grit/grit_rule.gni.
         <part file="shared_settings_strings.grdp" />
       </if>
 
+      <if expr="chrome_root_store_cert_management_ui">
+        <part file="certificate_manager.grdp" />
+      </if>
+
       <!-- Support Tool strings -->
       <if expr="not is_android">
         <part file="support_tool_strings.grdp" />
@@ -2476,8 +2480,36 @@ are declared in tools/grit/grit_rule.gni.
       <message name="IDS_DOWNLOAD_WARNING_BYPASS_DIALOG_TITLE" desc="On the downloads page, the title of the dialog to bypass a dangerous download warning.">
         This file could harm your device
       </message>
-      <message name="IDS_DOWNLOAD_WARNING_BYPASS_DIALOG_DESCRIPTION" desc="On the downloads page, the description in the dialog to bypass a dangerous download warning.">
-        This file contains malware or comes from a suspicious site
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_PROMPT_DESCRIPTION" desc="On the downloads page, the description in the prompt to bypass a dangerous download warning.">
+        This file contains malware or comes from a suspicious site.
+      </message>
+
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_TITLE" desc="On the downloads page, the title in the interstitial to bypass a dangerous download warning.">
+        Download warning
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_CONTINUE" desc="On the downloads page, the text for the continue anyway button in the interstitial to bypass a dangerous download warning.">
+        Continue anyway
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_CANCEL" desc="On the downloads page, the text for the back to safety button in the interstitial to bypass a dangerous download warning.">
+        Back to safety
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_DOWNLOAD" desc="On the downloads page, the text for the download button in the interstitial to bypass a dangerous download warning.">
+        Download
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_SURVEY_TITLE" desc="On the downloads page, the survey title in the interstitial to bypass a dangerous download warning.">
+        Tell us why you're downloading this file anyway
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_SURVEY_CREATED_FILE" desc="On the downloads page, the created file survey option in the interstitial to bypass a dangerous download warning.">
+        I created this file
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_SURVEY_TRUST_SITE_WITHOUT_URL" desc="On the downloads page, the trust site survey option within the interstitial to bypass a dangerous download warning.">
+        I trust the site
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_SURVEY_TRUST_SITE_WITH_URL" desc="On the downloads page, the trust site survey option with a url within the interstitial to bypass a dangerous download warning.">
+        I trust the site (<ph name="SITE_URL">$1<ex>https://example.com</ex></ph>)
+      </message>
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_INTERSTITIAL_SURVEY_ACCEPT_RISK" desc="On the downloads page, the accept risk survey option in the interstitial to bypass a dangerous download warning.">
+        I'm willing to accept the risk
       </message>
 
       <!-- Download Alerts for Accessibility -->
@@ -6659,9 +6691,6 @@ Keep your key file in a safe place. You will need it to create new versions of y
         <message name="IDS_PASSWORD_GENERATION_SUGGESTION_CONVENIENCE" desc="Text shown next to a generated password describing its convenience.">
           Quickly use a strong password
         </message>
-        <message name="IDS_PASSWORD_GENERATION_EDIT_PASSWORD" desc="Text shown below the generated password describing the action to edit it directly.">
-          Edit password
-        </message>
         <message name="IDS_PASSWORD_GENERATION_NUDGE_CANCEL_BUTTON" desc="Text shown on a cancel button in the password generation flow.">
           Choose your own
         </message>
@@ -6690,9 +6719,6 @@ Keep your key file in a safe place. You will need it to create new versions of y
         </message>
         <message name="IDS_PASSWORD_GENERATION_SUGGESTION_CONVENIENCE" desc="Text shown next to a generated password describing its convenience.">
           Quickly Use a Strong Password
-        </message>
-        <message name="IDS_PASSWORD_GENERATION_EDIT_PASSWORD" desc="Text shown below the generated password describing the action to edit it directly.">
-          Edit Password
         </message>
         <message name="IDS_PASSWORD_GENERATION_NUDGE_CANCEL_BUTTON" desc="Text shown on a cancel button in the password generation flow.">
           Choose Your Own
@@ -7368,6 +7394,9 @@ Keep your key file in a safe place. You will need it to create new versions of y
       <message name="IDS_GOOGLE_SEARCH_BOX_EMPTY_HINT_MULTIMODAL" desc="The text displayed in the multimodal searchbox when it is empty. It is meant to invite the user to add a text query to the existing image query in order to issue a 'multimodal' (image + text) query.">
         Add to your search
       </message>
+      <message name="IDS_GOOGLE_SEARCH_BOX_MULTIMODAL_IMAGE_THUMBNAIL" desc="Aria label for the Lens image selection thumbnail in the multimodal searchbox. Spoken by screen readers when the thumbnail is highlighted, and instructs the user to press enter or backspace to delete the selection.">
+        Your Google Lens selection. Press enter or backspace to delete your Google Lens selection
+      </message>
       <message name="IDS_NTP_CUSTOM_LINKS_ADD_SHORTCUT_TOOLTIP" desc="The tooltip for adding a custom link shortcut. (On the New Tab Page)">
         Add shortcut
       </message>
@@ -7953,75 +7982,6 @@ Keep your key file in a safe place. You will need it to create new versions of y
       <message name="IDS_NTP_MODULES_SHOPPING_TASKS_LOWER" desc="Name of the shopping tasks module in lowercase shown in various UIs.">
         shopping suggestions
       </message>
-      <message name="IDS_NTP_MODULES_RECIPE_INFO" desc="Text shown in the body of the info dialog of the recipe module.">
-        You’re seeing suggested recipes based on your recent Search activity for recipes.
-        <ph name="BREAK">&lt;br&gt;</ph>
-        <ph name="BREAK">&lt;br&gt;</ph>
-        You can manage settings from the card menu or see more options in Customize Brave.
-      </message>
-      <message name="IDS_NTP_MODULES_RECIPE_EXTENDED_INFO" desc="Text shown in the body of the info dialog of the recipe module for Recipes V1.1.">
-        You’re seeing recipes based on your recent Search activity for recipes.
-        <ph name="BREAK">&lt;br&gt;</ph>
-        <ph name="BREAK">&lt;br&gt;</ph>
-        You can manage settings from the card menu or see more options in Customize Brave.
-      </message>
-      <message name="IDS_NTP_MODULES_RECIPE_TASKS_SENTENCE" desc="Name of the recipe tasks module in sentence case shown in various UIs.">
-        Recipe ideas
-      </message>
-      <message name="IDS_NTP_MODULES_RECIPE_TASKS_LOWER" desc="Name of the recipe tasks module in lowercase shown in various UIs.">
-        recipe ideas
-      </message>
-      <message name="IDS_NTP_MODULES_RECIPE_TASKS_LOWER_THESE" desc="Name of the recipe tasks module in lowercase shown in various UIs.">
-        these recipe ideas
-      </message>
-      <message name="IDS_NTP_MODULES_RECIPE_VIEWED_TASKS_SENTENCE" desc="Name of the historical version of the recipe tasks module in sentence case shown in various UIs.">
-        Recently viewed recipes
-      </message>
-      <message name="IDS_NTP_MODULES_RECIPE_VIEWED_TASKS_LOWER" desc="Name of the historical version of the recipe tasks module in lowercase shown in various UIs.">
-        recently viewed recipes
-      </message>
-      <message name="IDS_NTP_MODULES_RECIPE_VIEWED_TASKS_LOWER_THESE" desc="Name of the historical veresion of the recipe tasks module in lowercase shown in various UIs.">
-        these recently viewed recipes
-      </message>
-      <message name="IDS_NTP_MODULES_CART_SENTENCE" desc="Name of the chrome cart module in sentence case shown in various UIs.">
-        Your carts
-      </message>
-      <message name="IDS_NTP_MODULES_CART_SENTENCE_V2" desc="Name of the chrome cart module V2 in sentence case shown in various UIs.">
-        In your shopping cart
-      </message>
-      <message name="IDS_NTP_MODULES_CART_LOWER" desc="Name of the chrome cart module in lowercase shown in various UIs.">
-        carts
-      </message>
-      <message name="IDS_NTP_MODULES_CART_LOWER_THESE" desc="Name of the chrome cart module in lowercase shown in various UIs.">
-        these carts
-      </message>
-      <message name="IDS_NTP_MODULES_CART_LOWER_YOUR" desc="Name of the chrome cart module in lowercase shown in various UIs.">
-        your carts
-      </message>
-      <message name="IDS_NTP_MODULES_QUEST_CART_ANNOTATION" desc="Annotation that shows in the BraveCart tile in Quest module to let users know that this tile is from pending items in their shopping cart.">
-        In your cart
-      </message>
-      <message name="IDS_NTP_MODULES_QUEST_CART_TILE_LABEL_PLURAL" desc="Label of the BraveCart tile in Quest module containing information of the tile that will be announced in accessibility mode. This is used when there is more than one product in cart.">
-        <ph name="PRODUCT_ITEM_COUNT">$1<ex>2</ex></ph> items in your cart <ph name="DISCOUNT_TEXT">$2<ex>15% off</ex></ph> from <ph name="MERCHANT_NAME">$3<ex>Amazon</ex></ph>, <ph name="MERCHANT_DOMAIN">$4<ex>amazon.com</ex></ph>, viewed <ph name="RELATIVE_TIME">$5<ex>3 days ago</ex></ph>
-      </message>
-      <message name="IDS_NTP_MODULES_QUEST_CART_TILE_LABEL_SINGULAR" desc="Label of the BraveCart tile in Quest module containing information of the tile that will be announced in accessibility mode. This is used when there is only one product in cart.">
-        1 item in your cart <ph name="DISCOUNT_TEXT">$1<ex>15% off</ex></ph> from <ph name="MERCHANT_NAME">$2<ex>Amazon</ex></ph>, <ph name="MERCHANT_DOMAIN">$3<ex>amazon.com</ex></ph>, viewed <ph name="RELATIVE_TIME">$4<ex>3 days ago</ex></ph>
-      </message>
-      <message name="IDS_NTP_MODULES_QUEST_CART_TILE_LABEL_DEFAULT" desc="Label of the BraveCart tile in Quest module containing information of the tile that will be announced in accessibility mode. This is used when we don't know the product count in cart.">
-        Items in your cart <ph name="DISCOUNT_TEXT">$1<ex>15% off</ex></ph> from <ph name="MERCHANT_NAME">$2<ex>Amazon</ex></ph>, <ph name="MERCHANT_DOMAIN">$3<ex>amazon.com</ex></ph>, viewed <ph name="RELATIVE_TIME">$4<ex>3 days ago</ex></ph>
-      </message>
-      <message name="IDS_NTP_MODULES_CART_INFO" desc="Text shown in the body of the info dialog of the cart module.">
-        You’re seeing carts that help you easily get back to items you left in shopping carts across the web.
-        <ph name="BREAK">&lt;br&gt;</ph>
-        <ph name="BREAK">&lt;br&gt;</ph>
-        You can manage settings from the card menu or see more options in Customize Brave.
-      </message>
-      <message name="IDS_NTP_MODULES_CART_ITEM_COUNT_SINGULAR" desc="Item count displayed on chrome cart module when there is a single item in a cart.">
-        <ph name="ITEM_COUNT_ONE">$1<ex>1</ex></ph> item
-      </message>
-      <message name="IDS_NTP_MODULES_CART_ITEM_COUNT_MULTIPLE" desc="Item count displayed on chrome cart module when there are multiple items in a cart.">
-        <ph name="ITEM_COUNT_MULTIPLE">$1<ex>2</ex></ph> items
-      </message>
       <message name="IDS_NTP_MODULES_DRIVE_DISABLE_BUTTON_TEXT" desc="Text shown on the disable button of a NTP Drive module v2.">
        Never show Drive files
       </message>
@@ -8081,6 +8041,9 @@ Keep your key file in a safe place. You will need it to create new versions of y
       </message>
       <message name="IDS_NTP_MODULES_OUTLOOK_CALENDAR_DISABLE_BUTTON_TEXT" desc="Text shown on the disable button of a NTP Outlook Calendar card." translateable="false">
         Don't show Outlook Calendar
+      </message>
+      <message name="IDS_NTP_MODULES_CALENDAR_DOUBLE_BOOKED" desc="Text displaying that the calendar event is booked at the same time as another." meaning="The meeting takes place at the same time as another.">
+        Double-Booked
       </message>
       <message name="IDS_NTP_MODULES_CALENDAR_JOIN_MEETING_BUTTON_TEXT" desc="Text shown on button on the NTP Calendar cards for joining a video conference." meaning="Click here to join your video conference meetings.">
         Join Meeting
@@ -8181,95 +8144,14 @@ Keep your key file in a safe place. You will need it to create new versions of y
       <message name="IDS_NTP_MODULES_SHOPPING_TASKS_RELATED" desc="Text shown in a tag on a shopping task module product indicating that it is related to a previous search.">
         Related to your search
       </message>
-      <message name="IDS_NTP_MODULES_RECIPE_TASKS_RECOMMENDED" desc="Text shown in a tag on a recipe task module recipe indicating that it is recommended.">
-        Recommended
-      </message>
-      <message name="IDS_NTP_MODULES_CART_WARM_WELCOME" desc="Text shown in the module header when module shows for the first couple of times. This is served as welcome message and user education.">
-        Find what you added to shopping carts and check out when you're ready
-      </message>
-      <message name="IDS_NTP_MODULES_CART_MODULE_MENU_HIDE_TOAST_MESSAGE" desc="Text shown in the toast confirming the cart module has been temporarily hidden.">
-        Carts hidden. They'll reappear when you make changes.
-      </message>
-      <message name="IDS_NTP_MODULES_CART_CART_MENU_HIDE_MERCHANT" desc="An option in the action menu of one cart in the chrome cart module. When clicked, cart from that merchant will be temporarily hidden. Note that the MERCHANT field can be either merchant name (e.g. Amazon) or domain (e.g. amazon.com). ">
-        Hide <ph name="MERCHANT">$1<ex>Amazon</ex></ph>
-      </message>
-      <message name="IDS_NTP_MODULES_CART_CART_MENU_HIDE_MERCHANT_TOAST_MESSAGE" desc="Text shown in the toast confirming the cart for a specific merchant has been temporarily hidden. Note that the MERCHANT field can be either merchant name (e.g. Amazon) or domain (e.g. amazon.com).">
-        <ph name="MERCHANT">$1<ex>Amazon</ex> hidden. You'll see it again when you revisit your cart.</ph>
-      </message>
-      <message name="IDS_NTP_MODULES_CART_CART_MENU_REMOVE_MERCHANT" desc="An option in the action menu of one cart in the chrome cart module. When clicked, cart from that merchant wil be permanently removed. Note that the MERCHANT field can be either merchant name (e.g. Amazon) or domain (e.g. amazon.com).">
-        Never show <ph name="MERCHANT">$1<ex>Amazon</ex></ph>
-      </message>
-      <message name="IDS_NTP_MODULES_CART_CART_MENU_REMOVE_MERCHANT_TOAST_MESSAGE" desc="Text shown in the toast confirming the cart for a specific merchant has been permanently removed. Note that the MERCHANT field can be either merchant name (e.g. Amazon) or domain (e.g. amazon.com).">
-        You won't see <ph name="MERCHANT">$1<ex>Amazon</ex></ph> again
-      </message>
       <message name="IDS_NTP_MODULES_CART_DISCOUNT_CHIP_AMOUNT" desc="Text shown on the chip that indicates there is a discount in the current cart of certain amount off. It can be either in percent (e.g. 15% off) or in dollar amount (e.g. 50$ off).">
         <ph name="DISCOUNT_AMOUNT">$1<ex>15%</ex></ph> off
       </message>
       <message name="IDS_NTP_MODULES_CART_DISCOUNT_CHIP_UP_TO_AMOUNT" desc="Text shown on the chip that indicates there is a discount in the current cart of up to certain amount off. It can be either in percent (e.g. Up to 15% off) or in dollar amount (e.g. Up to 50$ off).">
         Up to <ph name="DISCOUNT_UP_TO_AMOUNT">$1<ex>15%</ex></ph> off
       </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_CONTENT" desc="Text shown on the consent card for rule-based discount asking if users would like to give their consent to the feature.">
-        Let Brave find personalized discounts on your carts?
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_ACCEPT" desc="Text shown on the accept button of the consent card for rule-based discount. By clicking this button, users have chosen to opt in the feature and let Brave get discounts for them. See consent request in IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_CONTENT.">
-        Get discounts
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_ACCEPT_CONFIRMATION" desc="Text shown on snack bar after user has accepted the consent to opt in the feature and allow Brave to get discounts for them. See string about accepting consent in IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_ACCEPT.">
-        If Brave finds a discount, you will see it on this page
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_REJECT" desc="Text shown on the reject button of the consent card for rule-based discount. By clicking this button, users have chosen to opt out the feature that allows Brave get discounts for them. See consent request in IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_CONTENT.">
-        No thanks
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_REJECT_CONFIRMATION" desc="Text shown on snack bar after user has rejected the consent and opted out the feature that allows Brave to get discounts for them. See string about rejecting consent in IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_REJECT.">
-        Discounts are off. You can turn them on in the customize menu
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_CONFIRMATION_DISMISS" desc="Text shown on snack bar button. Clicking it indicates that users have understood the content of the snack bar.">
-        Got it
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_CONTENT_V2" desc="Text shown on the consent card for getting discount asking if users would like to give their consent to the feature.">
-        Let Brave find personalized discounts on your carts?
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_CONTENT_V3" desc="Text shown on the consent card for getting discount asking if users would like to give their consent to the feature.">
-        Let Brave use your cart to find available discounts?
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_STEP_1_WITH_MERCHANT_NAME" desc="Text shown on the consent card asking if users would like to give their consent to the feature.">
-        Get discounts for <ph name="MERCHANT_NAME">$1<ex>Amazon</ex></ph>
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_STEP_1_WITH_TWO_MERCHANT_NAMES" desc="Text shown on the consent card asking if users would like to give their consent to the feature.">
-        Get discounts for <ph name="MERCHANT_NAME_1">$1<ex>Amazon</ex></ph> and <ph name="MERCHANT_NAME_2">$2<ex>Walmart</ex></ph>
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_STEP_1_WITH_THREE_MERCHANT_NAMES" desc="Text shown on the consent card asking if users would like to give their consent to the feature.">
-        Get discounts for <ph name="MERCHANT_NAME_1">$1<ex>Amazon</ex></ph>, <ph name="MERCHANT_NAME_2">$2<ex>Walmart</ex></ph> and more
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_STEP_1_CONTINUE" desc="The consent flow is a 2-step process. This text shown on the continue button of the consent card in step 1. See consent request in IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_CONTENT_WITH_MERCHANT_NAME.">
-        Continue
-      </message>
-      <message name="IDS_NTP_MODULES_CART_DISCOUNT_CONSENT_TITLE" desc="The consent flow is a 2-step process. This text shown on the step 2 as the title description.">
-        Get discounts?
-      </message>
       <message name="IDS_NTP_MODULES_CUSTOMIZE_IPH" desc="The description of the IPH that shows for customizing NTP Desktop modules.">
         Customize what you see on this page
-      </message>
-      <message name="IDS_NTP_MODULES_NEW_TAG_LABEL" desc="Label for tag shown on new Modular NTP Desktop features.">
-        New
-      </message>
-      <message name="IDS_NTP_MODULES_FIRST_RUN_EXPERIENCE_TITLE" desc="Title for Modular NTP Desktop v1 First Run Experience.">
-        Your page, your way
-      </message>
-      <message name="IDS_NTP_MODULES_FIRST_RUN_EXPERIENCE_BODY_LINE_1" desc="Line 1 of Modular NTP Desktop v1 First Run Experience's body.">
-        Pick cards that keep you updated on things that matter to you
-      </message>
-      <message name="IDS_NTP_MODULES_FIRST_RUN_EXPERIENCE_BODY_LINE_2" desc="Line 2 of Modular NTP Desktop v1 First Run Experience's body.">
-        See all card options in <ph name="BEGIN_LINK">&lt;a is="action-link" id="customizeBraveLink" tabIndex=0 on-click="onCustomizeModuleFre_"&gt;</ph>Customize Brave<ph name="END_LINK">&lt;/a&gt;</ph>
-      </message>
-      <message name="IDS_NTP_MODULES_FIRST_RUN_EXPERIENCE_OPT_IN" desc="Opt in button for Modular NTP Desktop v1 First Run Experience.">
-        Got it
-      </message>
-      <message name="IDS_NTP_MODULES_FIRST_RUN_EXPERIENCE_OPT_OUT" desc="Opt out button for Modular NTP Desktop v1 First Run Experience.">
-       Don't show
-      </message>
-      <message name="IDS_NTP_MODULES_FIRST_RUN_EXPERIENCE_OPT_OUT_TOAST" desc="Opt out toast for Modular NTP Desktop v1 First Run Experience.">
-       You won't see cards on this page again
       </message>
       <message name="IDS_NTP_MODULES_FEED_TITLE" desc="Title shown in the header of the Following feed NTP module on the new tab page showing updates from sites followed by the user.">
         Following
@@ -10883,45 +10765,24 @@ Check your passwords anytime in <ph name="GOOGLE_PASSWORD_MANAGER">$1<ex>Brave P
         Data may be seen by trained reviewers to improve this feature
       </message>
       <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BODY_SIGNED_OUT" desc="The body text for the not started state in the tab organization UI, when not signed in">
-        Sign in and turn on sync to let Brave suggest tab groups and keep your tabs organized
-      </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BODY_UNSYNCED" desc="The body text for the not started state in the tab organization UI, when signed in but unsynced">
-        Turn on sync to let Brave suggest tab groups and keep your tabs organized
-      </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BODY_UNSYNCED_HISTORY" desc="The body text for the not started state in the tab organization UI, when history sync is disabled">
-        Turn on History sync in Settings to let Brave suggest tab groups and keep your tabs organized
-      </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BODY_SYNC_PAUSED" desc="The body text for the not started state in the tab organization UI, sync is paused">
         Sign in to let Brave suggest tab groups and keep your tabs organized
       </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON" desc="The label for the button in the not started state of the tab organization UI, when synced">
+      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON" desc="The label for the button in the not started state of the tab organization UI, when signed in">
         Check now
       </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_FRE" desc="The first run experience label for the button in the not started state of the tab organization UI, when synced">
+      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_FRE" desc="The first run experience label for the button in the not started state of the tab organization UI, when signed in">
         Let's go
       </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_UNSYNCED" desc="The label for the button in the not started state of the tab organization UI, when not signed in or signed in but unsynced">
-        Turn on sync
-      </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_UNSYNCED_HISTORY" desc="The label for the button in the not started state of the tab organization UI, when history sync is disabled">
-        Settings
-      </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_SYNC_PAUSED" desc="The label for the button in the not started state of the tab organization UI, when sync is paused">
+      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_SIGNED_OUT" desc="The label for the button in the not started state of the tab organization UI, when not signed in">
         Sign in
       </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_ARIA_LABEL" desc="The a11y label for the button in the not started state of the tab organization UI, when synced" is_accessibility_with_no_ui="true">
+      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_ARIA_LABEL" desc="The a11y label for the button in the not started state of the tab organization UI, when signed in" is_accessibility_with_no_ui="true">
         Check now if tabs can be organized
       </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_FRE_ARIA_LABEL" desc="The first run experience a11y label for the button in the not started state of the tab organization UI, when synced" is_accessibility_with_no_ui="true">
+      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_FRE_ARIA_LABEL" desc="The first run experience a11y label for the button in the not started state of the tab organization UI, when signed in" is_accessibility_with_no_ui="true">
         Let's go and organize your tabs
       </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_UNSYNCED_ARIA_LABEL" desc="The a11y label for the button in the not started state of the tab organization UI, when not signed in or signed in but unsynced" is_accessibility_with_no_ui="true">
-        Turn on sync to let Brave suggest tab groups
-      </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_UNSYNCED_HISTORY_ARIA_LABEL" desc="The a11y label for the button in the not started state of the tab organization UI, when history sync is disabled" is_accessibility_with_no_ui="true">
-        Open settings to let Brave suggest tab groups
-      </message>
-      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_SYNC_PAUSED_ARIA_LABEL" desc="The a11y label for the button in the not started state of the tab organization UI, when sync is paused" is_accessibility_with_no_ui="true">
+      <message name="IDS_TAB_ORGANIZATION_NOT_STARTED_BUTTON_SIGNED_OUT_ARIA_LABEL" desc="The a11y label for the button in the not started state of the tab organization UI, when not signed in" is_accessibility_with_no_ui="true">
         Sign in to let Brave suggest tab groups
       </message>
       <message name="IDS_TAB_ORGANIZATION_IN_PROGRESS_TITLE" desc="The header text for the in progress state in the tab organization UI">
@@ -10964,10 +10825,10 @@ Check your passwords anytime in <ph name="GOOGLE_PASSWORD_MANAGER">$1<ex>Brave P
         Launch tab group tutorial
       </message>
       <message name="IDS_TAB_ORGANIZATION_DISCLAIMER" desc="The disclaimer text in the tab organization UI results state for getting more information">
-        This is an experimental AI feature and won't always get it right.
+        Your tab titles and URLs are sent to Brave and may be seen by human reviewers to improve this feature.
       </message>
       <message name="IDS_TAB_ORGANIZATION_LEARN_MORE" desc="The actionable text in the tab organization UI results state for getting more information">
-        Learn more
+        Learn how to automatically organize your tabs
       </message>
       <message name="IDS_TAB_ORGANIZATION_LEARN_MORE_ARIA_LABEL" desc="The accessible label in the tab organization UI results state for getting more information" is_accessibility_with_no_ui="true">
         Learn more about this AI feature
@@ -13934,9 +13795,6 @@ Please help our engineers fix this problem. Tell us what happened right before y
         <message name="IDS_GEOLOCATION_TURNED_OFF_IN_MACOS" desc="Title for the geolocation bubble that is used when a site requests geolocation, but geolocation is blocked on an OS level in macOS.">
           Location is turned off in Mac System Preferences
         </message>
-        <message name="IDS_GEOLOCATION_TURNED_OFF_IN_MACOS_SETTINGS" desc="Title for the geolocation bubble that is used when a site requests geolocation, but geolocation is blocked on an OS level in macOS.">
-          Turn on "Brave" in Location Services on your Mac
-        </message>
       </if>
       <if expr="is_win">
         <message name="IDS_GEOLOCATION_TURNED_OFF_IN_WINDOWS" desc="Title for the geolocation bubble that is used when a site requests geolocation, but geolocation is blocked on an OS level in Windows.">
@@ -16049,9 +15907,6 @@ Please help our engineers fix this problem. Tell us what happened right before y
       <message name="IDS_WEBAUTHN_GPM_PASSKEY_SAVED_PIN_CREATED_TITLE" desc="The title of a bubble that is displayed as a confirmation that a passkey was saved in Brave Password Manager and the recovery PIN for Brave Password Manager was also created in the same flow. Refer to Glossary for the meaning of 'passkey'; do not translate it as 'password'">
         Passkey saved and PIN created
       </message>
-      <message name="IDS_WEBAUTHN_MANAGE_PASSWORDS_AND_PASSKEYS" desc="The label of a button in a passkey saved confirmation bubble that leads to password manager. Refer to Glossary for the meaning of 'passkey'; do not translate it as 'password'">
-        Manage passwords and passkeys
-      </message>
       <message name="IDS_WEBAUTHN_SHOW_PIN" desc="The tooltip of a button that is used to show the PIN.">
         Show PIN
       </message>
@@ -16073,6 +15928,12 @@ Please help our engineers fix this problem. Tell us what happened right before y
       <message name="IDS_WEBAUTHN_GPM_PIN_LENGTH_HINT" desc="The hint that is displayed during the creation of an alphanumeric Brave Password Manager PIN, explaining its minimal length requirement whenever the currently typed length is not enough.">
         Your PIN can be 4 characters or more
       </message>
+      <message name="IDS_WEBAUTHN_GPM_PASSKEY_SAVED_LABEL" desc="The label in a bubble that is displayed as a confirmation that a passkey was created and saved in Brave Password Manager, explaining that the passkeys can be managed in Brave Password Manager. Refer to Glossary for the meaning of 'passkey'; do not translate it as 'password'">
+        You can view and manage your passkeys saved in <ph name="GOOGLE_PASSWORD_MANAGER">$1<ex>Brave Password Manager</ex></ph>
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_PASSKEY_SAVED_LINK" desc="Link text within a bubble that is displayed as a confirmation that a passkey was created and saved in Brave Password Manager. See IDS_WEBAUTHN_GPM_PASSKEY_SAVED_LABEL for more details.">
+        Brave Password Manager
+      </message>
 
       <!-- Web-modal dialog shown during Digital Credential request -->
       <message name="IDS_WEB_DIGITAL_CREDENTIALS_QR_TITLE" translateable="false">
@@ -16090,22 +15951,22 @@ Please help our engineers fix this problem. Tell us what happened right before y
     <!-- Interstitial shown prior to making digital identity request to wallet -->
     <!-- Android strings are declared in android_chrome_strings.grd. -->
     <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_DIALOG_TITLE" translateable="false">
-      Caution
+      Make sure you trust this site with your data
     </message>
     <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_LOW_RISK_DIALOG_TEXT" translateable="false">
-      <ph name="WEBSITE_ORIGIN">$1<ex>www.cheapalcohol.com</ex></ph> would like to ask Android to give you options for sharing your identity information.
+      <ph name="WEBSITE_ORIGIN">$1<ex>www.cheapalcohol.com</ex></ph> wants to use personal info from your digital wallet. Only continue if you trust this site.
     </message>
-    <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_LOW_RISK_POSITIVE_BUTTON_TEXT" translateable="false">
-      Share
+    <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_LOW_RISK_NEGATIVE_BUTTON_TEXT" translateable="false">
+      Cancel
     </message>
     <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_HIGH_RISK_DIALOG_TEXT" translateable="false">
-      <ph name="WEBSITE_ORIGIN">$1<ex>www.cheapalcohol.com</ex></ph> would like to ask Android for access to your identity. Brave cannot determine what privacy risks this may pose.
+      <ph name="WEBSITE_ORIGIN">$1<ex>www.cheapalcohol.com</ex></ph> wants to use personal info from your digital wallet. Only continue if you trust this site. Dangerous sites might trick you into revealing things like your legal name or ID number.
     </message>
-    <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_HIGH_RISK_POSITIVE_BUTTON_TEXT" translateable="false">
-      Share Anyway
+    <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_HIGH_RISK_NEGATIVE_BUTTON_TEXT" translateable="false">
+      Back to safety
     </message>
-    <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_NEGATIVE_BUTTON_TEXT" translateable="false">
-      Do Not Share
+    <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_POSITIVE_BUTTON_TEXT" translateable="false">
+      Continue
     </message>
     <message name="IDS_WEB_DIGITAL_CREDENTIALS_INTERSTITIAL_REQUEST_ABORTED_DIALOG_TEXT" translateable="false">
       <ph name="WEBSITE_ORIGIN">$1<ex>www.cheapalcohol.com</ex></ph> has canceled the request for identity information.
@@ -16749,9 +16610,6 @@ Please help our engineers fix this problem. Tell us what happened right before y
     </message>
     <message name="IDS_ACCOUNT_SELECTION_SHEET_TITLE_EXPLICIT_CONTINUE" desc="Header for continue-to sheet. Sheet is shown to prompt user to continue using their identity from an identity provider on a website.">
       Continue to <ph name="SITE_ETLD_PLUS_ONE">$1<ex>rp.example</ex></ph> with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">$2<ex>idp.example</ex></ph>
-    </message>
-    <message name="IDS_ACCOUNT_SELECTION_SHEET_SUBTITLE" desc="Message shown when the user is shown the federated identity login prompt. This message is the subtitle for the sign in sheet, which contains the top-level domain of the page the user is visiting when the user is receiving a prompt from an iframe embedded on such page.">
-      on <ph name="MAIN_FRAME_ETLD_PLUS_ONE">$1<ex>main-frame.example</ex></ph>
     </message>
     <message name="IDS_ACCOUNT_SELECTION_CONTINUE" desc="Title of the button that continues filling with the only available set of credentials.">
       Continue as <ph name="NAME">$1<ex>Albus (or Albus Dumbledore)</ex></ph>
@@ -17397,6 +17255,13 @@ Please help our engineers fix this problem. Tell us what happened right before y
           =1 {Brave removed permissions for 1 unused site}
           other {Brave removed permissions for {NUM_SITES} ununsed sites}}
         </message>
+    </if>
+
+    <!-- Quick Delete elements. -->
+    <if expr="is_android">
+        <message name="IDS_QUICK_DELETE_PROMPT_SURVEY_CUSTOM_INVITATION" desc="The invitation shown to a user, which allows the user to accept taking a survey.">
+        You just deleted data in Brave. We’d love to hear about your experience to improve Brave.
+      </message>
     </if>
   </messages>
 </release>

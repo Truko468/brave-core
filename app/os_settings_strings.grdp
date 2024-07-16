@@ -14,6 +14,12 @@
   <message name="IDS_SETTINGS_DEVICE_ON" desc="In Settings pages, the label when a bluetooth, wifi, or mobile device is on (enabled)." meaning="Device is enabled.">
     On
   </message>
+  <message name="IDS_SETTINGS_DONE_BUTTON" desc="Generic 'Done' label for buttons (normally for dialogs)">
+    Done
+  </message>
+  <message name="IDS_SETTINGS_CANCEL_BUTTON" desc="Generic 'Cancel' label for buttons (normally for dialogs)">
+    Cancel
+  </message>
   <message name="IDS_SETTINGS_DISMISS" desc="Label to dismiss a shortcut reminder.">
     Dismiss
   </message>
@@ -1307,6 +1313,24 @@
   </message>
   <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_DESCRIPTION" desc="The description for the checkbox that enables controlling the mouse cursor and keyboard with face movements.">
     Use face and gaze movement to control cursor and keyboard
+  </message>
+  <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_PREVIOUS" desc="Label for previous button.">
+    Previous
+  </message>
+  <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_ACTIONS_SECTION_TITLE" desc="Title for action settings.">
+    Actions
+  </message>
+  <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_ACTIONS_ADD_ACTION" desc="Label description for button to add an action in the action settings.">
+    Add action
+  </message>
+  <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_ACTIONS_DIALOG_TITLE" desc="Title for dialog page to add an action in the action settings.">
+    Add an action
+  </message>
+  <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_ACTIONS_DIALOG_SELECT_GESTURE_TITLE" desc="Title for dialog page to select a gesture for a given action in the action settings.">
+    Select a gesture for <ph name="SELECTED_ACTION">$1<ex>Click a mouse button</ex></ph>
+  </message>
+  <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_ACTIONS_DIALOG_SELECT_GESTURE_SUBTITLE" desc="Subtitle for dialog page to select a gesture for a given action in the action settings.">
+    Selecting an already assigned gesture will remove it from its original action
   </message>
   <message name="IDS_OS_SETTINGS_ACCESSIBILITY_FACEGAZE_CURSOR_SPEED_SECTION_NAME" desc="The name of a section in settings for controlling the cursor speed.">
     Speed
@@ -5292,12 +5316,6 @@ Press an assigned switch or key to remove assignment.
   <message name="IDS_SETTINGS_PEOPLE_LOCK_SCREEN_CHANGE_PASSWORD_BUTTON" desc="Button that is used to change a password.">
     Change password
   </message>
-  <message name="IDS_SETTINGS_PEOPLE_LOCK_SCREEN_DEVICE_PASSWORD_OPTION_LABEL" desc="Label for the option to use a device password to sign in.">
-    Device password
-  </message>
-  <message name="IDS_SETTINGS_PEOPLE_LOCK_SCREEN_GOOGLE_ACCOUNT_PASSWORD_OPTION_LABEL" desc="Label for the option to use the Brave sync chain password to sign in.">
-    Brave sync chain password
-  </message>
   <message name="IDS_SETTINGS_PEOPLE_LOCK_SCREEN_OPTIONS_LOGIN_LOCK" desc="Text on the lock screen which is the subheader for the screen locking options.">
     Lock screen from sleep mode
   </message>
@@ -5309,6 +5327,9 @@ Press an assigned switch or key to remove assignment.
   </message>
   <message name="IDS_SETTINGS_PEOPLE_LOCK_SCREEN_PASSWORD_DESCRIPTION" desc="Description of the password authentication factor on the lock screen page.">
     Device password or Brave sync chain password
+  </message>
+  <message name="IDS_SETTINGS_PEOPLE_LOCK_SCREEN_SWITCH_LOCAL_PASSWORD_DESCRIPTION" desc="Description of the password authentication factor on the lock screen page.">
+    Currently using Brave sync chain password. You can set up a <ph name="DEVICE_TYPE">$1<ex>Chromebook</ex></ph> password to make it easier to sign in.
   </message>
   <message name="IDS_SETTINGS_PEOPLE_LOCK_SCREEN_PIN_LABEL" desc="Label for PIN authentication factor on the lock screen page.">
     PIN
@@ -6048,8 +6069,11 @@ Press an assigned switch or key to remove assignment.
   <message name="IDS_SETTINGS_PRIVACY_HUB_GEOLOCATION_DIALOG_TITLE" desc="Title for the dialog, that enables users to grant the system geolocation permission for system services. This pop-up is used in few places (e.g. Automatic Time Zone) to let users conveniently enable geolocation and make the underlying feature fucntional, without navigating to the settings page.">
     Allow system services to use your location?
   </message>
-  <message name="IDS_SETTINGS_PRIVACY_HUB_GEOLOCATION_DIALOG_BODY" desc="Description of the dialog that prompts the user to enable system geolocation access. This gives detailed explanation of the outcomes of enabling system geolocation access for system services.">
-    This allows system services to use Location Accuracy to determine your location. Location Accuracy uses information about wireless signals, such as Wi-Fi access points, cellular network towers, and GPS, along with device sensor data, such as accelerometer and gyroscope, to estimate device location. You can turn off location in Settings &gt; Privacy and security &gt; Privacy controls &gt; Location access. <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
+  <message name="IDS_SETTINGS_PRIVACY_HUB_GEOLOCATION_DIALOG_BODY_PARAGRAPH1" desc="Description of the dialog that prompts the user to enable system geolocation access. This gives detailed explanation of the outcomes of enabling system geolocation access for system services.">
+    This allows system services to use Location Accuracy to determine your location. Location Accuracy uses information about wireless signals and sensors to estimate device location.
+  </message>
+  <message name="IDS_SETTINGS_PRIVACY_HUB_GEOLOCATION_DIALOG_BODY_PARAGRAPH2" desc="Description of the dialog that prompts the user to enable system geolocation access. This gives detailed explanation of the outcomes of enabling system geolocation access for system services.">
+    You can turn off location in Settings &gt; Privacy and security &gt; Privacy controls &gt; Location access. <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
   </message>
   <message name="IDS_SETTINGS_PRIVACY_HUB_GEOLOCATION_DIALOG_CONFIRM_BUTTON" desc="Label of the confirm button for the geolocation dialog, that enables geolocation for ChromeOS system services.">
     Allow
@@ -6157,6 +6181,9 @@ Press an assigned switch or key to remove assignment.
   </message>
   <message name="IDS_SETTINGS_PER_DEVICE_ALL_POINTING_STICKS_DISCONNECTED_A11Y_LABEL" desc="The message announced to screen readers when all mice have been disconnected.">
     All TrackPoints have been disconnected
+  </message>
+  <message name="IDS_SETTINGS_PER_DEVICE_OPEN_APP_LABEL" translateable="false" desc="The label for the row in settings which when clicked, opens the companion app for the connected device.">
+    Open <ph name="APP_NAME">$1<ex>SteelSeries</ex></ph>
   </message>
 
   <!-- Device Keyboard page (OS settings) -->
@@ -6777,23 +6804,35 @@ Press &amp; hold keyboard keys to see accent marks and special characters. This 
   <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_AREA_DISALLOWED_SUBTEXT" desc="The subtext of the geolocation row under the Privacy controls (aka Privacy Hub) os-settings page. Shown when the system geolocation state is blocked, explaining how the system is affected.">
     Location access is blocked
   </message>
-  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_ALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. ">
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_ALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), shows the current state of system geolocation access. ">
     Allowed
   </message>
-  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_ONLY_ALLOWED_FOR_SYSTEM" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. Blocks access to all clients but system-services (such as PWAs or Android apps).">
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_ONLY_ALLOWED_FOR_SYSTEM" desc="In Geolocation setting subpage (under Privacy Controls), shows the current state of system geolocation access.">
     Only allowed for system services
   </message>
-  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DISALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. Blocks geolocation access to every geolocation client (including system services).">
-    Blocked for all
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DISALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), shows the current state of system geolocation access.">
+    Off
   </message>
-  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DESCRIPTION_ALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. ">
-    Apps and websites with the location permission, as well as system services, can use your location. <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_CHANGE_ACCESS_BUTTON_TEXT" desc="In Geolocation setting subpage (under Privacy Controls) the name of the button to launch a dialog where users can choose the system geolocation access level. ">
+    Change access
   </message>
-  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DESCRIPTION_ONLY_ALLOWED_FOR_SYSTEM" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. Blocks access to all clients but system-services (such as PWAs or Android apps).">
-    Only system services can use your location. However, your general area may still be visible to apps and websites through things like your IP address. <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DESCRIPTION_ALLOWED" desc="In Geolocation setting subpage (under Privacy Controls). The description of the 'Allow' radio-button when user launches the dialog to change the system geolocation state.">
+    Apps, websites, and system services can use your location
   </message>
-  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DESCRIPTION_DISALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. Blocks geolocation access to every geolocation client (including system services).">
-    Location is off. Your ChromeOS device doesn't access your location. However, your general area may still be visible to apps and websites through things like your IP address. <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DESCRIPTION_ONLY_ALLOWED_FOR_SYSTEM" desc="In Geolocation setting subpage (under Privacy Controls). The description of the 'Only allowed for system services' radio-button when user launches the dialog to change the system geolocation state.">
+    Your location may still be visible to apps and websites through your IP address
+  </message>
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DESCRIPTION_DISALLOWED" desc="In Geolocation setting subpage (under Privacy Controls). The description of the 'Off' radio-button when user launches the dialog to change the system geolocation state.">
+    Your location may still be visible to apps and websites through your IP address
+  </message>
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DIALOG_DESCRIPTION_ALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. ">
+    Apps and websites with the location permission, as well as system services, can use your location <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
+  </message>
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DIALOG_DESCRIPTION_ONLY_ALLOWED_FOR_SYSTEM" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. Blocks access to all clients but system-services (such as PWAs or Android apps).">
+    Only system services can use your location. However, your location may still be visible to apps and websites through your IP address. <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
+  </message>
+  <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCESS_LEVEL_DIALOG_DESCRIPTION_DISALLOWED" desc="In Geolocation setting subpage (under Privacy Controls), Dropdown list item to set system-wide geolocation access level. Blocks geolocation access to every geolocation client (including system services).">
+    Nothing can use your location. However, your location may still be visible to apps and websites through your IP address. <ph name="LINK_BEGIN">&lt;a&gt;</ph>Learn more<ph name="LINK_END">&lt;/a&gt;</ph>
   </message>
   <message name="IDS_OS_SETTINGS_PRIVACY_HUB_GEOLOCATION_ACCURACY_TOGGLE_TEXT" desc="In Geolocation setting advance subpage (under Privacy Controls), text description for the toggle settings that controls location accuracy toggle.">
     Location Accuracy provides more accurate location for apps and services. To do this, Brave periodically processes information about device sensors and wireless signals from your device to crowdsource wireless signal locations. These are used without identifying you to improve location accuracy and location-based services and to generally improve, provide, and maintain Brave's services based on Brave's and third parties' legitimate interests to serve users' needs.

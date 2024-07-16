@@ -585,6 +585,14 @@ For more settings that use data to improve your Brave experience, go to <ph name
       <message translateable="false" name="IDS_AUTOFILL_OPTIONS_UNDO_TOGGLE_CHANGE" desc="Description below switch toggling the use of third-party autofill in Brave." formatter_data="android_java">
         Undo setting change
       </message>
+      <!-- TODO(crbug.com/40898980): Use finalized string.-->
+      <message translateable="false" name="IDS_AUTOFILL_OPTIONS_HINT_POLICY" desc="Explanation that a policy prevents toggling the use of third-party autofill in Brave." formatter_data="android_java">
+        Disabled by the administrator of this device
+      </message>
+      <!-- TODO(crbug.com/40898980): Use finalized string.-->
+      <message translateable="false" name="IDS_AUTOFILL_OPTIONS_HINT_3P_SETTING" desc="Explanation that a 3P password manager must be selected to toggle the use of third-party autofill in Brave." formatter_data="android_java">
+        Disabled because a different password manager must be set up in <ph name="BEGIN_LINK">&lt;link&gt;</ph>Android System Settings<ph name="END_LINK">&lt;/link&gt;</ph> to use this setting.
+      </message>
       <message name="IDS_AUTOFILL_DELETE_SAVED_CVCS_CONFIRMATION_DIALOG_TITLE" desc="Title for the dialog where the user confirms their intention to delete their saved CVCs.">
         Delete saved security codes?
       </message>
@@ -1800,6 +1808,36 @@ Your Brave account may have other forms of browsing history like searches and ac
       <message name="IDS_SAFETY_HUB_AUTOREVOCATION_TOGGLE_SUMMARY" translateable="false">
         To protect your data, let Brave remove permissions from sites that you haven’t visited recently
       </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_TIPS_SAFETY_TOOLS_TITLE" translateable="false">
+        Learn about Brave's safety tools
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_TIPS_SAFETY_TOOLS_SUMMARY" translateable="false">
+        With tools from Brave, you can browse safely and stay in control
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_TIPS_INCOGNITO_TITLE" translateable="false">
+        Learn about Brave Private
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_TIPS_INCOGNITO_SUMMARY" translateable="false">
+        Private mode keeps your browsing private from others who use your device
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_TIPS_SAFE_BROWSING_TITLE" translateable="false">
+        Learn about Safe Browsing
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFETY_TIPS_SAFE_BROWSING_SUMMARY" translateable="false">
+        Brave warns you about unsafe sites and downloads
+      </message>
+      <message name="IDS_SAFETY_HUB_SAFE_BROWSER_STATE_TITLE" translateable="false">
+        Your browser looks good
+      </message>
+      <message name="IDS_SAFETY_HUB_CHECKED_RECENTLY" translateable="false">
+        Checked recently
+      </message>
+      <message name="IDS_SAFETY_HUB_NO_PASSWORDS_TITLE" translateable="false">
+        No saved passwords
+      </message>
+      <message name="IDS_SAFETY_HUB_NO_PASSWORDS_SUMMARY" translateable="false">
+        Brave can check your passwords when you save them
+      </message>
 
        <!-- Safe Browsing preferences -->
       <message name="IDS_PREFS_SAFE_BROWSING_TITLE" desc="Title for the Safe Browsing preferences. [CHAR_LIMIT=32]">
@@ -2354,6 +2392,12 @@ Your Brave account may have other forms of browsing history like searches and ac
       <message name="IDS_SIGN_OUT_UNSAVED_DATA_MESSAGE" desc="Body of a dialog shown to users when they sign out of Brave but Brave hasn't synced some data yet, which is permanently deleted if the user proceeds.">
         Some of your Brave data hasn\u2019t been saved in your Brave sync chain yet.\nTry waiting a few minutes before signing out. If you sign out now, this data will be deleted.
       </message>
+      <message name="IDS_SIGN_OUT_TITLE" desc="The text is displayed as the title of a dialog to confirm if the user wants to sign out of Brave. The user can cancel and stay signed in, or confirm and sign out.">
+        Sign out of Brave?
+      </message>
+      <message name="IDS_SIGN_OUT_MESSAGE" desc="Body of a dialog that is shown when the user starts to sign out. This string precedes the confirmation button 'Sign Out'. If the user chooses to continue to sign out, then the data in their Brave sync chain (such as bookmarks, passwords, history, settings, and more) won't be available on their device. If they sign back in to their Brave sync chain, their data will come back. The tone should be helpful and instructive.">
+        After you sign out, your bookmarks, passwords, and more in your Brave sync chain will be removed from this device.
+      </message>
       <message name="IDS_SIGN_OUT_UNSAVED_DATA_PRIMARY_BUTTON" desc="Button title of a dialog shown to users when they sign out of Brave but Brave hasn't synced some data yet, which is parmanently deleted if the user proceeds by pressing this button">
         Delete and sign out
       </message>
@@ -2503,7 +2547,7 @@ Your Brave account may have other forms of browsing history like searches and ac
       <message name="IDS_ACCOUNT_ANDROID_DEVICE_ACCOUNTS" desc="Title shown on the manage accounts on this device button item.">
         Manage accounts on this device
       </message>
-      <message name="IDS_SIGN_OUT" desc="The text for a preference row that signs out the user.">
+      <message name="IDS_SIGN_OUT" desc="Sign out button, visible if the user has authenticated. Clicking this clears authentication credentials and returns the web-app to the initial 'unauthenticated' state.">
         Sign out
       </message>
       <message name="IDS_SYNC_REVIEW_DATA" desc="Title for link to https://chrome.google.com/sync Dashboard to manage sync data.">
@@ -4928,6 +4972,12 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       <message name="IDS_GOOGLE_BOTTOM_BAR_PAGE_INSIGHTS_BUTTON_DESCRIPTION" desc="Content description for page insights button">
       View page insights
       </message>
+      <message name="IDS_GOOGLE_BOTTOM_BAR_SEARCH_BUTTON_DESCRIPTION" desc="Content description for search button">
+      Search
+      </message>
+      <message name="IDS_GOOGLE_BOTTOM_BAR_HOME_BUTTON_DESCRIPTION" desc="Content description for home button">
+      Go to Brave App Home
+      </message>
       <message name="IDS_GOOGLE_BOTTOM_BAR_SEARCHBOX_SUPER_G_BUTTON_DESCRIPTION" desc="Content description for super G button in a searchbox that opens Home tab in Brave App">
       Go to Brave App Home
       </message>
@@ -5975,7 +6025,7 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
 
       <!-- WebID Account Selection strings -->
       <message name="IDS_ACCOUNT_SELECTION_ADD_ACCOUNT" desc="Title of the button that lets the user sign in to an additional account" translateable="false">
-        Add Account
+        Use a different account
       </message>
       <message name="IDS_ACCOUNT_SELECTION_SHEET_TITLE_EXPLICIT_SIGNIN" desc="Header for sign in sheet. Sheet is shown to prompt user to sign in to a website using an account from an identity provider.">
         Sign in to <ph name="SITE_ETLD_PLUS_ONE">%1$s<ex>rp.example</ex></ph> with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%2$s<ex>idp.com</ex></ph>
@@ -6000,9 +6050,6 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       </message>
       <message name="IDS_ACCOUNT_SELECTION_SHEET_TITLE_EXPLICIT_CONTINUE" desc="Header for continue sheet. Sheet is shown to prompt user to continue to a website using an account from an identity provider.">
         Continue to <ph name="SITE_ETLD_PLUS_ONE">%1$s<ex>rp.example</ex></ph> with <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%2$s<ex>idp.com</ex></ph>
-      </message>
-      <message name="IDS_ACCOUNT_SELECTION_SHEET_SUBTITLE_EXPLICIT" desc="Message shown when the user is shown the federated identity login prompt. This message is the subtitle for the sign in sheet, which contains the top-level domain of the page the user is visiting when the user is receiving a prompt from an iframe embedded on such page.">
-        on <ph name="MAIN_FRAME_ETLD_PLUS_ONE">%1$s<ex>main-frame.example</ex></ph>
       </message>
       <message name="IDS_ACCOUNT_SELECTION_DATA_SHARING_CONSENT_NO_PP_OR_TOS" desc="The consent text shown to the user before sign up when there is no privacy policy or terms of service.">
       To continue, <ph name="IDENTITY_PROVIDER_ETLD_PLUS_ONE">%1$s<ex>idp.com</ex></ph> will share your name, email address, and profile picture with this site.
@@ -6450,22 +6497,19 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
 
       <!-- Interstitial shown prior to making digital identity request to wallet -->
       <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_DIALOG_TITLE" translateable="false">
-        Caution
+        Make sure you trust this site with your data
       </message>
       <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_LOW_RISK_DIALOG_TEXT" translateable="false">
-        <ph name="WEBSITE_ORIGIN">%1$s<ex>www.cheapalcohol.com</ex></ph> would like to ask Android to give you options for sharing your identity information.
+        <ph name="WEBSITE_ORIGIN">%1$s<ex>www.cheapalcohol.com</ex></ph> wants to use personal info from your digital wallet. Only continue if you trust this site.
       </message>
-      <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_LOW_RISK_POSITIVE_BUTTON_TEXT" translateable="false">
-        Share
+      <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_LOW_RISK_NEGATIVE_BUTTON_TEXT" translateable="false">
+        Cancel
       </message>
       <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_HIGH_RISK_DIALOG_TEXT" translateable="false">
-        <ph name="WEBSITE_ORIGIN">%1$s<ex>www.cheapalcohol.com</ex></ph> would like to ask Android for access to your identity. Brave cannot determine what privacy risks this may pose.
+        <ph name="WEBSITE_ORIGIN">%1$s<ex>www.cheapalcohol.com</ex></ph> wants to use personal info from your digital wallet. Only continue if you trust this site. Dangerous sites might trick you into revealing things like your legal name or ID number.
       </message>
-      <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_HIGH_RISK_POSITIVE_BUTTON_TEXT" translateable="false">
-        Share Anyway
-      </message>
-      <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_NEGATIVE_BUTTON_TEXT" translateable="false">
-        Do Not Share
+      <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_HIGH_RISK_NEGATIVE_BUTTON_TEXT" translateable="false">
+        Back to safety
       </message>
       <message name="IDS_DIGITAL_IDENTITY_INTERSTITIAL_REQUEST_ABORTED_DIALOG_TEXT" translateable="false">
         <ph name="WEBSITE_ORIGIN">%1$s<ex>www.cheapalcohol.com</ex></ph> has canceled the request for identity information.

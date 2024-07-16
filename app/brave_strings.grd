@@ -612,6 +612,9 @@ Permissions you've already given to websites and apps may apply to this account.
         <message name="IDS_PASSWORDS_PAGE_EXPORT_AUTHENTICATION_PROMPT" desc="Text for the dialog box that prompts the user for their OS account password before exporting passwords to a file.">
           Brave wants to export your passwords. Type your Windows password to allow this.
         </message>
+        <message name="IDS_PASSWORDS_PAGE_DELETE_ALL_DATA_AUTHENTICATION_PROMPT" desc="Text for the dialog box that prompts the user for their OS account password before deleting all data from Brave Password Manager.">
+          Brave wants to delete your Password Manager data. Type your Windows password to allow this.
+        </message>
         <message name="IDS_PASSWORDS_PAGE_IMPORT_AUTHENTICATION_PROMPT" desc="Text for the dialog box that prompts the user for their OS account password before overriding passwords during Import.">
           Brave is trying to replace existing passwords. Type your Windows password to allow this.
         </message>
@@ -673,25 +676,6 @@ Permissions you've already given to websites and apps may apply to this account.
       <message name="IDS_DEFAULT_BROWSER_INFOBAR_REFRESH_TEXT" desc="Text to show in an infobar when Brave is not the current default browser.">
         Brave isn't your default browser
       </message>
-      <if expr="is_win">
-        <!-- Try Brave Toast Dialog -->
-        <message name="IDS_TRY_TOAST_HEADING" desc="Top line of the try-chrome-again dialog">
-          There is a new version of Brave available.
-        </message>
-        <message name="IDS_TRY_TOAST_HEADING2" desc="Top line of the try-chrome-again dialog">
-          There's a new version of Brave available, and it's faster than ever.
-        </message>
-        <message name="IDS_TRY_TOAST_HEADING3" desc="Top line of the try-chrome-again dialog">
-          There's a new, safer version of Brave available.
-        </message>
-        <message name="IDS_TRY_TOAST_HEADING4" desc="Top line of the try-chrome-again dialog">
-          Brave has been updated, but you haven't used it for at least 30 days.
-        </message>
-        <message name="IDS_TRY_TOAST_HEADING_SKYPE" desc="Top line of the try-chrome-again dialog">
-          Brave lets you click a phone number on the web and call it with Skype!
-        </message>
-      </if>
-
       <!-- Download Bubble Items -->
       <message name="IDS_DOWNLOAD_BUBBLE_SUBPAGE_SUMMARY_UNKNOWN_SOURCE" desc="Summary of dangerous warning for a file (like an extension) from an unknown source.">
         Extensions, apps, and themes from unknown sources can harm your device. Brave recommends only installing them from the <ph name="IDS_EXTENSION_WEB_STORE_TITLE">$1<ex>Web Store</ex></ph>
@@ -751,8 +735,8 @@ Permissions you've already given to websites and apps may apply to this account.
         Brave blocked this download because you turned Safe Browsing off and the file can't be verified
       </message>
 
-      <!-- chrome://downloads page bypass dangerous download warning dialog -->
-      <message name="IDS_DOWNLOAD_WARNING_BYPASS_DIALOG_LEARN_MORE_LINK" desc="On the downloads page, the label for the link to the help center in the dialog to bypass a dangerous download warning.">
+      <!-- chrome://downloads page bypass dangerous download warning prompt-->
+      <message name="IDS_DOWNLOAD_WARNING_BYPASS_PROMPT_LEARN_MORE_LINK" desc="On the downloads page, the label for the link to the help center in the prompt to bypass a dangerous download warning.">
         Learn why Brave blocks some files
       </message>
 
@@ -1969,6 +1953,9 @@ Permissions you've already given to websites and apps may apply to this account.
         <message name="IDS_BUNDLE_INSTALLED_SUCCESSFULLY" desc="Installation complete message.">
           Installation complete.
         </message>
+        <message name="IDS_UPDATER_OS_NOT_SUPPORTED" desc="Error displayed if the OS is not supported">
+          Installation failed because your version of Windows is not supported.
+        </message>
 
         <!--extra code-->
         <message name="IDS_EXTRA_CODE" desc="The optional extra code for any of the errors below">
@@ -2032,6 +2019,9 @@ Permissions you've already given to websites and apps may apply to this account.
         </message>
 
         <!--Service errors.-->
+        <message name="IDS_SERVICE_ERROR_CANCELLED" desc="Error message displayed in the main dialog when the installation is cancelled.">
+          The installation has been cancelled.
+        </message>
         <message name="IDS_GENERIC_SERVICE_ERROR" desc="Error message displayed in the main dialog for runtime errors that occur in the update client service.">
           Service error: <ph name="SERVICE_ERROR">$1<ex>error-internal</ex></ph>.
         </message>
@@ -2059,6 +2049,14 @@ Permissions you've already given to websites and apps may apply to this account.
         </message>
         <message name="IDS_INSTALLER_TIMED_OUT" desc="Error message displayed in the main dialog when the application installer does not complete in the allowed amount of time.">
           Install error: The installer did not complete. The installation has been aborted.
+        </message>
+
+        <!--Metainstaller errors.-->
+        <message name="IDS_GENERIC_METAINSTALLER_ERROR" desc="Error message displayed when the metainstaller returns an error.">
+          Setup error: <ph name="METAINSTALLER_EXIT_CODE">$1<ex>error-internal</ex></ph>. <ph name="WINDOWS_ERROR">$2<ex>windows-error-description</ex></ph>
+        </message>
+        <message name="IDS_FAILED_TO_ELEVATE_METAINSTALLER" desc="Error displayed if the metainstaller could not be run with elevated privileges for a system install">
+          Failed to run setup with elevated privileges. <ph name="METAINSTALLER_ERROR">$1<ex>error-internal</ex></ph>
         </message>
       </if>
       <!-- Memory Saver Chip strings -->
