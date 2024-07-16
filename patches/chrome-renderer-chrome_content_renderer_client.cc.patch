@@ -1,8 +1,8 @@
 diff --git a/chrome/renderer/chrome_content_renderer_client.cc b/chrome/renderer/chrome_content_renderer_client.cc
-index c1e868949edb3eef2574b100bf55c5ba79b88969..b006d47ca21f0d7fb977e2879febc92b3aca819f 100644
+index 12f33ab933b62c92f549cedeff907fab26968f6e..b520159dd55bca38186d6801879fc2edb8bd3805 100644
 --- a/chrome/renderer/chrome_content_renderer_client.cc
 +++ b/chrome/renderer/chrome_content_renderer_client.cc
-@@ -595,7 +595,7 @@ void ChromeContentRendererClient::RenderFrameCreated(
+@@ -596,7 +596,7 @@ void ChromeContentRendererClient::RenderFrameCreated(
        ChromeExtensionsRendererClient::GetInstance()->extension_dispatcher());
  #endif
    content_settings::ContentSettingsAgentImpl* content_settings =
@@ -11,7 +11,7 @@ index c1e868949edb3eef2574b100bf55c5ba79b88969..b006d47ca21f0d7fb977e2879febc92b
            render_frame, should_allow_for_content_settings,
            std::move(content_settings_delegate));
    if (chrome_observer_.get()) {
-@@ -775,6 +775,7 @@ void ChromeContentRendererClient::RenderFrameCreated(
+@@ -776,6 +776,7 @@ void ChromeContentRendererClient::RenderFrameCreated(
    }
  #endif
  

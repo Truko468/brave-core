@@ -1,8 +1,8 @@
 diff --git a/base/BUILD.gn b/base/BUILD.gn
-index a9159e6d98b2e127aa65cf554351c27c22ce80ed..73d9edff55f3383e340e273a60129aa9889775ff 100644
+index 94b8827ba3f7e7ce5ef8966b166bc69c9b545645..4187ca72f7a082889fad8e67421f01a53bf8c6e4 100644
 --- a/base/BUILD.gn
 +++ b/base/BUILD.gn
-@@ -4427,6 +4427,7 @@ if (is_android) {
+@@ -4408,6 +4408,7 @@ if (is_android) {
        "android/java/src/org/chromium/base/ValueChangedCallback.java",
        "android/java/src/org/chromium/base/WrappedClassLoader.java",
      ]
@@ -10,7 +10,7 @@ index a9159e6d98b2e127aa65cf554351c27c22ce80ed..73d9edff55f3383e340e273a60129aa9
  
      if (use_clang_profiling) {
        sources += [
-@@ -4893,6 +4894,7 @@ if (is_android) {
+@@ -4874,6 +4875,7 @@ if (is_android) {
        "android/java/src/org/chromium/base/shared_preferences/SharedPreferencesManager.java",
        "android/java/src/org/chromium/base/shared_preferences/StrictPreferenceKeyChecker.java",
      ]
@@ -18,7 +18,7 @@ index a9159e6d98b2e127aa65cf554351c27c22ce80ed..73d9edff55f3383e340e273a60129aa9
    }
  
    android_library("base_cached_flags_java") {
-@@ -4919,6 +4921,7 @@ if (is_android) {
+@@ -4900,6 +4902,7 @@ if (is_android) {
        "android/java/src/org/chromium/base/cached_flags/ValuesOverridden.java",
        "android/java/src/org/chromium/base/cached_flags/ValuesReturned.java",
      ]

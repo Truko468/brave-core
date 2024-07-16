@@ -1,8 +1,8 @@
 diff --git a/ios/chrome/browser/shared/model/prefs/browser_prefs.mm b/ios/chrome/browser/shared/model/prefs/browser_prefs.mm
-index e9610dca94cd455f7948d1ac559f9d95c8349dde..ee8b2a14ba3649569c9ffd8b8260988ff65f2f13 100644
+index 4793ab3fafbf66493a027255e0cc0de090737993..5c4fb29a529e33ccb5da6212cbdc8ce97dbd96bf 100644
 --- a/ios/chrome/browser/shared/model/prefs/browser_prefs.mm
 +++ b/ios/chrome/browser/shared/model/prefs/browser_prefs.mm
-@@ -569,6 +569,7 @@ void RegisterLocalStatePrefs(PrefRegistrySimple* registry) {
+@@ -574,6 +574,7 @@ void RegisterLocalStatePrefs(PrefRegistrySimple* registry) {
    // Bottom omnibox preferences.
    registry->RegisterBooleanPref(prefs::kBottomOmnibox, false);
    registry->RegisterBooleanPref(prefs::kBottomOmniboxByDefault, false);
@@ -10,7 +10,7 @@ index e9610dca94cd455f7948d1ac559f9d95c8349dde..ee8b2a14ba3649569c9ffd8b8260988f
  }
  
  void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
-@@ -869,6 +870,7 @@ void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
+@@ -874,6 +875,7 @@ void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
  
    registry->RegisterBooleanPref(
        kObsoleteBookmarksAndReadingListAccountStorageOptIn, false);

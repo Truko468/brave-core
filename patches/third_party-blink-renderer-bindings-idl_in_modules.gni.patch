@@ -1,8 +1,8 @@
 diff --git a/third_party/blink/renderer/bindings/idl_in_modules.gni b/third_party/blink/renderer/bindings/idl_in_modules.gni
-index 1184028b20a7da091d36e0913d28ad4cbb1cbb06..185a9c3a28f40336150b547451fd05783d22016e 100644
+index 9a7ee40274541c94a13cda9297f4e6c2c52d018a..b42c3227112195b0a926a11a5d7063bc6a6ef668 100644
 --- a/third_party/blink/renderer/bindings/idl_in_modules.gni
 +++ b/third_party/blink/renderer/bindings/idl_in_modules.gni
-@@ -1272,6 +1272,7 @@ static_idl_files_in_modules = [
+@@ -1274,6 +1274,7 @@ static_idl_files_in_modules = [
    "//third_party/blink/renderer/modules/xr/xr_webgl_layer_init.idl",
    "//third_party/blink/renderer/modules/xr/xr_webgl_sub_image.idl",
  ]

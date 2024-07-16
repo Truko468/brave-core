@@ -1,8 +1,8 @@
 diff --git a/ios/chrome/browser/flags/about_flags.mm b/ios/chrome/browser/flags/about_flags.mm
-index f1fd2cbdedc75294ecc29a17646ffdc5121b5af3..9aa9078c529ba737b29202c61bfda691b1a5c88b 100644
+index 8819a1dcffcd77574468e37fefe19ba30df4070b..322b5ca463b89749acf2ab3a37422594f5d60822 100644
 --- a/ios/chrome/browser/flags/about_flags.mm
 +++ b/ios/chrome/browser/flags/about_flags.mm
-@@ -958,6 +958,7 @@ const FeatureEntry::FeatureVariation kSaveToPhotosImprovementsVariations[] = {
+@@ -950,6 +950,7 @@ const FeatureEntry::FeatureVariation kSaveToPhotosImprovementsVariations[] = {
  //
  // When adding a new choice, add it to the end of the list.
  const flags_ui::FeatureEntry kFeatureEntries[] = {
