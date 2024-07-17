@@ -1,8 +1,8 @@
 diff --git a/chrome/browser/ui/views/location_bar/location_bar_view.cc b/chrome/browser/ui/views/location_bar/location_bar_view.cc
-index 149a5ab26a83096b5ac406591ba93a0faff357ab..e19f236f904226a031677c188eeff57a81b65531 100644
+index 71c5084d92161ebab8c85aea4fcf4c8b427f0bc9..a988d0370a84e1cd48507611c92799365f6c9d9b 100644
 --- a/chrome/browser/ui/views/location_bar/location_bar_view.cc
 +++ b/chrome/browser/ui/views/location_bar/location_bar_view.cc
-@@ -710,6 +710,7 @@ void LocationBarView::Layout(PassKey) {
+@@ -719,6 +719,7 @@ void LocationBarView::Layout(PassKey) {
    // Indentation add padding when the permission chip is visible and replacing
    // the LHS icon.
    int text_overriding_permission_chip_indent = 0;
@@ -10,7 +10,7 @@ index 149a5ab26a83096b5ac406591ba93a0faff357ab..e19f236f904226a031677c188eeff57a
    if (should_indent) {
      icon_left += icon_indent;
      text_left += text_indent;
-@@ -796,6 +797,7 @@ void LocationBarView::Layout(PassKey) {
+@@ -806,6 +807,7 @@ void LocationBarView::Layout(PassKey) {
      }
    };
  
@@ -18,7 +18,7 @@ index 149a5ab26a83096b5ac406591ba93a0faff357ab..e19f236f904226a031677c188eeff57a
    add_trailing_decoration(page_action_icon_container_,
                            /*intra_item_padding=*/0);
    for (ContentSettingImageView* view : base::Reversed(content_setting_views_)) {
-@@ -809,6 +811,7 @@ void LocationBarView::Layout(PassKey) {
+@@ -819,6 +821,7 @@ void LocationBarView::Layout(PassKey) {
    }
  
    add_trailing_decoration(clear_all_button_, /*intra_item_padding=*/0);

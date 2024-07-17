@@ -1,8 +1,8 @@
 diff --git a/chrome/browser/ui/webui/extensions/extensions_ui.cc b/chrome/browser/ui/webui/extensions/extensions_ui.cc
-index 9f71e26c834a0a59c2a8bdce8aa0e58d952467b2..7b0f2ec6b73001c45836d2a3f17c6487f23bcf17 100644
+index c93c0a62da1be4a0b69d7a29b4970f0e1fe53e4c..b407cb1c99938f418891aed96d8f4a711ec0f82c 100644
 --- a/chrome/browser/ui/webui/extensions/extensions_ui.cc
 +++ b/chrome/browser/ui/webui/extensions/extensions_ui.cc
-@@ -488,7 +488,7 @@ content::WebUIDataSource* CreateAndAddExtensionsSource(Profile* profile,
+@@ -489,7 +489,7 @@ content::WebUIDataSource* CreateAndAddExtensionsSource(Profile* profile,
    source->AddBoolean("isLacrosEnabled",
                       crosapi::browser_util::IsLacrosEnabled());
  #endif

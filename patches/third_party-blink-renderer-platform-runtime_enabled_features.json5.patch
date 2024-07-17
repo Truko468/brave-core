@@ -1,8 +1,8 @@
 diff --git a/third_party/blink/renderer/platform/runtime_enabled_features.json5 b/third_party/blink/renderer/platform/runtime_enabled_features.json5
-index 4189b8f8c6766ea5954aad4f002a924985b5d6da..fccdfed2f1161d9478af220230dec1558bcfe8af 100644
+index c76f62cd0f1eabe274ddee8ce5274da91463b47c..7780c7482d3b15726047b28a572119bfff12ac0e 100644
 --- a/third_party/blink/renderer/platform/runtime_enabled_features.json5
 +++ b/third_party/blink/renderer/platform/runtime_enabled_features.json5
-@@ -1773,6 +1773,7 @@
+@@ -1783,6 +1783,7 @@
        // In-development features for the File System Access API.
        name: "FileSystemAccessAPIExperimental",
        status: "experimental",
@@ -10,7 +10,7 @@ index 4189b8f8c6766ea5954aad4f002a924985b5d6da..fccdfed2f1161d9478af220230dec155
      },
      {
        // The FileSystemHandle.getCloudIdentifiers() method (see
-@@ -1788,6 +1789,7 @@
+@@ -1798,6 +1799,7 @@
        // Non-OPFS File System Access API.
        name: "FileSystemAccessLocal",
        status: {"Android": "test", "default": "stable"},
@@ -18,7 +18,7 @@ index 4189b8f8c6766ea5954aad4f002a924985b5d6da..fccdfed2f1161d9478af220230dec155
      },
      {
        name: "FileSystemAccessLockingScheme",
-@@ -2598,6 +2600,7 @@
+@@ -2608,6 +2610,7 @@
      {
        name: "MiddleClickAutoscroll",
        status: "test",
@@ -26,7 +26,7 @@ index 4189b8f8c6766ea5954aad4f002a924985b5d6da..fccdfed2f1161d9478af220230dec155
      },
      {
        name: "MobileLayoutTheme",
-@@ -3626,6 +3629,7 @@
+@@ -3636,6 +3639,7 @@
      {
        name: "Serial",
        status: {"Android": "", "default": "stable"},

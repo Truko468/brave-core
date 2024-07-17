@@ -1,5 +1,5 @@
 diff --git a/third_party/blink/renderer/core/loader/frame_fetch_context.cc b/third_party/blink/renderer/core/loader/frame_fetch_context.cc
-index 0ee9113121e2285a4817f771f5d88a7f4f51e7a5..372d671eccc5fdb0c8c102ed8e3a696b7bdc1f87 100644
+index d50020c8b1ee583e41dcb2cee10705319cdb1aef..248540ef100a0c167da57441903e3b49d3c9543e 100644
 --- a/third_party/blink/renderer/core/loader/frame_fetch_context.cc
 +++ b/third_party/blink/renderer/core/loader/frame_fetch_context.cc
 @@ -455,6 +455,7 @@ void FrameFetchContext::AddClientHintsIfNecessary(
