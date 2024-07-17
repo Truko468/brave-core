@@ -1686,7 +1686,7 @@ Your Brave account may have other forms of browsing history like searches and ac
         Review permissions
       </message>
       <message name="IDS_SAFETY_HUB_PERMISSIONS_PAGE_HEADER" translateable="false">
-        To protect your data, permissions were removed from sites you haven’t visited recently
+        To protect your data, permissions were removed from sites that abuse notifications or that you haven’t visited recently
       </message>
       <message name="IDS_SAFETY_HUB_SINGLE_PERMISSION_SNACKBAR" translateable="false">
         Permissions allowed again for <ph name="SITE_NAME">%1$s<ex>https://example.com:443</ex></ph>
@@ -1837,6 +1837,30 @@ Your Brave account may have other forms of browsing history like searches and ac
       </message>
       <message name="IDS_SAFETY_HUB_NO_PASSWORDS_SUMMARY" translateable="false">
         Brave can check your passwords when you save them
+      </message>
+      <message name="IDS_SAFETY_HUB_NO_PASSWORDS_SUMMARY_MANAGED" translateable="false">
+        Your organization turned off saving passwords
+      </message>
+      <message name="IDS_SAFETY_HUB_UPDATES_OUTDATED_SUMMARY" translateable="false">
+        New version of Brave is available
+      </message>
+      <message name="IDS_SAFETY_HUB_VERSION_SUMMARY" translateable="false">
+        Version <ph name="VERSION_NUMBER">%1$s<ex>123.0.5678.90</ex></ph>
+      </message>
+      <message name="IDS_SAFETY_HUB_UPDATE_UNAVAILABLE_TITLE" translateable="false">
+        Can’t check Brave version
+      </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_REVIEW_OK_SUMMARY" translateable="false">
+        Brave will let you know about sites that may be sending too many notifications
+      </message>
+      <message name="IDS_SAFETY_HUB_NOTIFICATIONS_REVIEW_WARNING_SUMMARY" translateable="false">
+        You can stop these sites from sending future notifications
+      </message>
+      <message name="IDS_SAFETY_HUB_PERMISSIONS_OK_SUMMARY" translateable="false">
+        Brave automatically removes permissions from abusive and unused sites
+      </message>
+      <message name="IDS_SAFETY_HUB_PERMISSIONS_WARNING_SUMMARY" translateable="false">
+        To protect your data, permissions were removed from abusive and unused sites
       </message>
 
        <!-- Safe Browsing preferences -->
@@ -6530,6 +6554,12 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
         {INACTIVE_TIME_DAYS, plural,
           =1 {Not used for 1 day or more}
           other {Not used for # days or more}}
+      </message>
+      <message name="IDS_ARCHIVED_TAB_IPH_CARD_SUBTITLE" desc="In product help shown as a message in the archived tabs dialog.">
+        Tabs you haven’t used for <ph name="DAYS_INACTIVE">%1$d<ex>14</ex></ph> days are moved here and closed after <ph name="DAYS_ARCHIVED">%2$d<ex>60</ex></ph> days. You can change this anytime in <ph name="SETTINGS_TITLE">%3$s<ex>Settings</ex></ph>.
+      </message>
+      <message name="IDS_ARCHIVED_TAB_IPH_CARD_SUBTITLE_SETTINGS_TITLE" desc="The word for settings, used in IDS_ARCHIVED_TAB_IPH_CARD_SUBTITLE.">
+        Settings
       </message>
     </messages>
   </release>
