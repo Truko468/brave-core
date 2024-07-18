@@ -1015,7 +1015,7 @@ extension BrowserViewController: ToolbarDelegate {
   }
 
   func showBackForwardList() {
-    if let backForwardList = tabManager.selectedTab?.webView?.underlyingWebView?.backForwardList {
+    if let backForwardList = tabManager.selectedTab?.webView?.backForwardList {
       let backForwardViewController = BackForwardListViewController(
         profile: profile,
         backForwardList: backForwardList

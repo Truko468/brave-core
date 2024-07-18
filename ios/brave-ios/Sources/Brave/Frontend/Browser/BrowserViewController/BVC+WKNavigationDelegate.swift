@@ -171,7 +171,7 @@ extension BrowserViewController: CWVNavigationDelegate {
     }
 
     updateUIForReaderHomeStateForTab(tab)
-//    updateBackForwardActionStatus(for: webView as? BraveWebView)
+    updateBackForwardActionStatus(for: tab.webView)
   }
 
   public func webViewDidStartProvisionalNavigation(_ webView: CWVWebView) {
