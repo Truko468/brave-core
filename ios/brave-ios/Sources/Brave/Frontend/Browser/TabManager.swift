@@ -738,7 +738,7 @@ class TabManager: NSObject {
       Preferences.Privacy.persistentPrivateBrowsing.value ? allTabs : tabs(withType: .regular)
     SessionTab.updateAll(
       tabs: tabs.compactMap({
-        if let sessionData = $0.webView?.underlyingWebView?.sessionData {
+        if let sessionData = $0.webView?.sessionData {
           return ($0.id, sessionData, $0.title, $0.url ?? TabManager.ntpInteralURL)
         }
         return nil
@@ -754,7 +754,7 @@ class TabManager: NSObject {
     }
     SessionTab.update(
       tabId: tab.id,
-      interactionState: tab.webView?.underlyingWebView?.sessionData ?? Data(),
+      interactionState: tab.webView?.sessionData ?? Data(),
       title: tab.title,
       url: tab.url ?? TabManager.ntpInteralURL
     )
@@ -1468,7 +1468,7 @@ class TabManager: NSObject {
     return SavedRecentlyClosed(
       url: fetchedTabURL,
       title: tab.displayTitle,
-      interactionState: tab.webView?.underlyingWebView?.sessionData,
+      interactionState: tab.webView?.sessionData,
       order: -1
     )
   }
