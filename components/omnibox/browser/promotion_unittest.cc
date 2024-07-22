@@ -28,6 +28,7 @@
 #include "components/omnibox/browser/test_scheme_classifier.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/testing_pref_service.h"
+#include "components/search_engines/search_engines_test_environment.h"
 #include "components/search_engines/template_url_data_util.h"
 #include "components/search_engines/template_url_service.h"
 #include "content/public/test/browser_task_environment.h"
@@ -96,7 +97,7 @@ class OmniboxPromotionTest : public testing::Test {
         TemplateURLPrepopulateData::brave_bing);
     auto bing_template_url = std::make_unique<TemplateURL>(*bing_data);
     auto template_url_service =
-        std::make_unique<TemplateURLService>(nullptr, 0);
+        search_engines_test_environment_.ReleaseTemplateURLService();
     template_url_service->Load();
     template_url_service->SetUserSelectedDefaultSearchProvider(
         bing_template_url.get());
@@ -136,6 +137,7 @@ class OmniboxPromotionTest : public testing::Test {
   }
 
   content::BrowserTaskEnvironment browser_task_environment_;
+  search_engines::SearchEnginesTestEnvironment search_engines_test_environment_;
   TestSchemeClassifier classifier_;
   TestingPrefServiceSimple pref_service_;
   std::unique_ptr<AutocompleteController> controller_;
