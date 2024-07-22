@@ -472,7 +472,8 @@ class Tab: NSObject {
 
       webView.accessibilityLabel = Strings.webContentAccessibilityLabel
       webView.allowsBackForwardNavigationGestures = true
-      webView.underlyingWebView?.allowsLinkPreview = true
+      // FIXME: Link previews
+//      webView.underlyingWebView?.allowsLinkPreview = true
 
       // Turning off masking allows the web content to flow outside of the scrollView's frame
       // which allows the content appear beneath the toolbars in the BrowserViewController
@@ -684,7 +685,8 @@ class Tab: NSObject {
   }
 
   var currentInitialURL: URL? {
-    return self.webView?.underlyingWebView?.backForwardList.currentItem?.initialURL
+    // FIXME: This may be different than WKBackForwardItem.initialURL which may more closely resemble web::NavigationItem::GetOriginalRequestURL()
+    return self.webView?.backForwardList.currentItem?.url
   }
 
   var displayFavicon: Favicon? {
