@@ -1,8 +1,8 @@
 diff --git a/tools/metrics/histograms/metadata/page/histograms.xml b/tools/metrics/histograms/metadata/page/histograms.xml
-index b61fafda4f94ca7557a08e7aba3cbaef96f00e99..b0d030e8443f8c719408e90cbdfde5f0f851d51b 100644
+index a602c3a4200a0816d8381a32c8d2db96b669ad28..8160ccfadb0ebd008e0891a11f3626eb7b1c1c69 100644
 --- a/tools/metrics/histograms/metadata/page/histograms.xml
 +++ b/tools/metrics/histograms/metadata/page/histograms.xml
-@@ -163,6 +163,17 @@ chromium-metrics-reviews@google.com.
+@@ -176,6 +176,17 @@ chromium-metrics-reviews@google.com.
    <variant name=".ShoppingInsightsSidePanel"/>
    <variant name=".TabSearch"/>
    <variant name=".UserNotesSidePanel"/>
@@ -19,4 +19,4 @@ index b61fafda4f94ca7557a08e7aba3cbaef96f00e99..b0d030e8443f8c719408e90cbdfde5f0
 +  <variant name=".WalletPanel"/>
  </variants>
  
- <variants name="Window">
+ <!-- LINT.ThenChange(//tools/metrics/histograms/metadata/others/histograms.xml:TopChromeWebUIName) -->

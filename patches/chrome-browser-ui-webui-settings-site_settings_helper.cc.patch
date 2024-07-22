@@ -1,16 +1,16 @@
 diff --git a/chrome/browser/ui/webui/settings/site_settings_helper.cc b/chrome/browser/ui/webui/settings/site_settings_helper.cc
-index bfd488077b36fb4e0c1ef75d3d22e3719311658e..3530aef4c92fa22079d2f0d0519f4ed2f302437c 100644
+index ba1a3b2ef273d6da214ed157a0d031c306b2bbd6..cde89a84cd51e1101850ece4d5fa1186a00df8f0 100644
 --- a/chrome/browser/ui/webui/settings/site_settings_helper.cc
 +++ b/chrome/browser/ui/webui/settings/site_settings_helper.cc
-@@ -231,6 +231,7 @@ const ContentSettingsTypeNameEntry kContentSettingsTypeGroupNames[] = {
-     {ContentSettingsType::REVOKED_ABUSIVE_NOTIFICATION_PERMISSIONS, nullptr},
+@@ -232,6 +232,7 @@ const ContentSettingsTypeNameEntry kContentSettingsTypeGroupNames[] = {
      {ContentSettingsType::TOP_LEVEL_TPCD_ORIGIN_TRIAL, nullptr},
      {ContentSettingsType::DISPLAY_MEDIA_SYSTEM_AUDIO, nullptr},
+     {ContentSettingsType::STORAGE_ACCESS_HEADER_ORIGIN_TRIAL, nullptr},
 +    BRAVE_CONTENT_SETTINGS_TYPE_GROUP_NAMES_LIST
  };
  
  static_assert(
-@@ -475,6 +476,7 @@ bool HasRegisteredGroupName(ContentSettingsType type) {
+@@ -476,6 +477,7 @@ bool HasRegisteredGroupName(ContentSettingsType type) {
  }
  
  ContentSettingsType ContentSettingsTypeFromGroupName(std::string_view name) {

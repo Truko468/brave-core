@@ -1,8 +1,8 @@
 diff --git a/chrome/browser/ui/BUILD.gn b/chrome/browser/ui/BUILD.gn
-index d8bd9a2635df4ee54d26c7025648e79666c2449f..7d27a4e5f6a44c4239b3663aaeb824d9ffd10368 100644
+index 26b4e3cb9ccab8c264566a5486e566b2c16ff1da..1a79781001c32db5c2891d6b60c75d5ac5292eb6 100644
 --- a/chrome/browser/ui/BUILD.gn
 +++ b/chrome/browser/ui/BUILD.gn
-@@ -782,6 +782,7 @@ static_library("ui") {
+@@ -771,6 +771,7 @@ static_library("ui") {
      # TODO(crbug.com/344921703): Remove circular dependencies.
      "//chrome/browser/sync",
    ]
@@ -10,7 +10,7 @@ index d8bd9a2635df4ee54d26c7025648e79666c2449f..7d27a4e5f6a44c4239b3663aaeb824d9
  
    if (enable_vr && is_win) {
      deps += [ "//chrome/browser/vr:vr_base" ]
-@@ -5114,7 +5115,10 @@ static_library("ui") {
+@@ -4590,7 +4591,10 @@ static_library("ui") {
        ]
        deps += [ "//chrome/updater/app/server/win:updater_legacy_idl" ]
      } else {
@@ -20,5 +20,5 @@ index d8bd9a2635df4ee54d26c7025648e79666c2449f..7d27a4e5f6a44c4239b3663aaeb824d9
 +        sources += [ "webui/help/version_updater_basic.cc" ]
 +      }
      }
-   } else {  # 'OS!="win"
-     if (toolkit_views) {
+   }
+ 
