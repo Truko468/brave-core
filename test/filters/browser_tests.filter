@@ -288,6 +288,7 @@
 -All/PrerenderNewTabPageBrowserTest.DestroyedOnNavigatedAway/*
 -All/PrerenderNewTabPageBrowserTest.NewTabPagePrerenderNonHttps/*
 -All/PrerenderNewTabPageBrowserTest.PrerenderTriggeredByNewTabPageAndActivate/*
+-All/PrerenderNewTabPageBrowserTest.PrerenderTriggeredByNewTabPageMouseDownAfterHoverAndActivate/*
 -All/PrerenderNewTabPageBrowserTest.PrerenderTriggeredCancelAndRetrigger/*
 -All/PrerenderNewTabPageBrowserTest.PrerenderTriggeredCanceled/*
 -All/PrerenderOmniboxSearchSuggestionReloadBrowserTest.*
@@ -623,6 +624,7 @@
 -EventPage/ExtensionPreferenceApiEventPageTest.ThirdPartyCookiesAllowed/0
 -HTTPErrProcBrowserTest.*
 -ManagerBrowserTest.TpcdDtGracePeriodEnforced_InValidDtToken
+-ManagerBrowserTest.TpcdDtGracePeriodEnforced_EntryPrecedence_*
 -PageLoadMetricsPre3pcdBrowserTest.NoStatePrefetchMetrics
 -PageSpecificSiteDataDialogPre3pcdBrowserTest.PartitionedCookiesAndAllowedThirdParty
 -ProfileNetworkContextServiceResourceBlocklistBrowsertest.ThirdPartyCookiesAllowed
@@ -843,6 +845,7 @@
 -DiceBrowserTestWithWebAuthFlowInBrowserTabOff.NoDiceExtensionConsent_LaunchWebAuthFlow
 -DiceBrowsingDataRemoverBrowserTest.*
 -DiceExplicitSigninBrowserTest.Migration
+-DiceExplicitSigninBrowserTest.MigrationWithSettings
 -DiceManageAccountBrowserTest.*
 -DiceSigninUiUtilBrowserTest.*
 -DiceWebSigninInterceptionBubbleBrowserTest.*
@@ -1149,6 +1152,7 @@
 -RequestStorageAccessForWithFirstPartySetsBrowserTest.RequestStorageAccessForTopLevelScoping
 -RequestStorageAccessForWithFirstPartySetsBrowserTest.RequestStorageAccessForTopLevelScopingWhenRequestedFromSubdomain
 -StorageAccessAPIOriginIsolationBrowserTest.*
+-StorageAccessHeadersBrowserTest.RequestHeadersCookiesBlocked
 -StorageAccessHeadersBrowserTest.RequestHeaderRetryToActive
 -StorageAccessHeadersBrowserTest.RequestHeadersInactive
 
@@ -1297,6 +1301,7 @@
 # This test fails because we disable
 # content_settings::features::kTrackingProtection3pcd
 -All/ExperimentManagerImplSyntheticTrialTest.RegistersSyntheticTrial/*
+-TrackingProtectionReminderDesktopUiController*
 
 # These tests fail because we enable features::kDestroyProfileOnBrowserClose
 -WebAppProfileDeletionTest_WebContentsGracefulShutdown.DataRetrieverWebAppInfoFetching
