@@ -40,7 +40,6 @@ void EnsureBrowserStateKeyedServiceFactoriesBuilt() {
   ConsentAuditorFactory::GetInstance();
   ios::AccountConsistencyServiceFactory::GetInstance();
   ios::BookmarkModelFactory::GetInstance();
-  ios::LocalOrSyncableBookmarkModelFactory::GetInstance();
   ios::BookmarkUndoServiceFactory::GetInstance();
   ios::FaviconServiceFactory::GetInstance();
   ios::HistoryServiceFactory::GetInstance();
