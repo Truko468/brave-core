@@ -368,6 +368,7 @@
 -PrerenderBookmarkBarOnHoverNavigationTest.PrerenderActivation
 -PrerenderBookmarkBarOnHoverNavigationTest.PrerenderMouseExitedCancellationAndPrerenderActivation
 -PrerenderBookmarkBarOnPressedNavigationTest.PrerenderActivation
+-PrerenderBookmarkBarOnPressedNavigationTest.PrerenderNonHttps
 -PrerenderBookmarkBarOnPressedNavigationTestNoTestingConfig.PrerenderActivation
 -PrerenderBrowserTest.*
 -PrerenderDownloadTest.*
@@ -479,6 +480,7 @@
 -All/ParentApprovalRequestTest.RequestToInstallApprovedExtension/WithParentalControlsOnExtensionsManagedBy*
 -All/SupervisedUserURLFilterPrerenderingTest.OnURLChecked/*
 -All/SupervisedUserURLFilterTest.*
+-AvatarToolbarButtonWithExplicitBrowserSigninBrowserTest.AccessibilityLabels
 -ContextMenuForSupervisedUsersBrowserTest.SaveLinkAsEntryIsDisabledForUrlsBlockedByAsyncCheckerForChild
 -ContextMenuForSupervisedUsersBrowserTest.SaveLinkAsEntryIsDisabledForUrlsNotAccessibleForChild
 -ContextMenuForSupervisedUsersBrowserTest.SaveLinkAsEntryIsEnabledForUrlsAllowedByAsyncCheckerForChild
@@ -902,6 +904,7 @@
 -GaiaRemoteConsentFlowParamBrowserTest.*
 -GraduatedComposeEnablingBrowserTest.GraduatedCompose
 -PasswordRevampedManagementBubbleBrowserTest.InvokeUi_ManagePasswordBubbleWithRevampedDesign/*
+-PlusAddressServiceBrowserTest.VerifyShouldShowManualFallback
 -PlusAddressServiceBrowserTest.VerifySupportsPlusAddresses
 -PrivacyBudgetMetaExperimentBrowserTestWithUkmRecording.ReportsEncounteredSurfacesAndDocumentCreatedMetrics
 -ProfileMenuClickTest_WithPendingAccount_UnoEnabled.ProfileMenuClickTest_WithPendingAccount_UnoEnabled/*
@@ -943,6 +946,7 @@
 -PersonalizedHintsFetcherBrowserTest.UserSignedIn
 -PlusAddressContextMenuManagerTest.*
 -PlusAddressCreationDialogTest.*
+-ProfilePickerUIPixelTest.InvokeUi_default/*
 -SigninInterceptFirstRunExperienceDialogWithUnoParamBrowserTest.*
 -SupervisedUserExtensionWebstorePrivateApiTest.InstallBlockedWhenPermissionsToggleOff
 -SupervisedUserExtensionWebstorePrivateApiTest.NoParentPermissionRequiredForTheme
@@ -960,6 +964,7 @@
 -SupervisedUserNavigationThrottleTest.NoNavigationObserverBlock/ProtoApiForClassifyUrlEnabled
 -SupervisedUserNavigationThrottleWithPrerenderingTest.DisallowPrerendering/*
 -SupervisionRemovalExtensionTest.RemoveCustodianApprovalRequirement
+-SyncConfirmationUITest.RecordConsentWithEscapedHtmlCharacters/*
 
 # These tests fail or time out because IdentityManager never loads refresh
 # tokens
@@ -1143,6 +1148,9 @@
 -RequestStorageAccessForWithFirstPartySetsBrowserTest.Permission_AutograntedWithinFirstPartySet
 -RequestStorageAccessForWithFirstPartySetsBrowserTest.RequestStorageAccessForTopLevelScoping
 -RequestStorageAccessForWithFirstPartySetsBrowserTest.RequestStorageAccessForTopLevelScopingWhenRequestedFromSubdomain
+-StorageAccessAPIOriginIsolationBrowserTest.*
+-StorageAccessHeadersBrowserTest.RequestHeaderRetryToActive
+-StorageAccessHeadersBrowserTest.RequestHeadersInactive
 
 # SignedExchange is disabled.
 -SignedExchangePageLoadMetricsBrowserTest.*
@@ -1392,15 +1400,18 @@
 
 # These tests fail because we disable features::kControlledFrame
 -ControlledFrameApiTest.*
+-ControlledFrameAvailabilityTest.Verify/*
 -ControlledFrameAvailableChannels/*
 -ControlledFramePermissionsPolicyTest.*
 -ControlledFramePermissionRequestTest.*
+-ControlledFramePermissionRequestWebHidTest.*
 -ControlledFrameWebSocketApiTest.*
 -ControlledFrameWebTransportApiTest.*
 -PromiseAPIs/ControlledFramePromiseApiTest.*
 
 # These tests fail because we disable Isolated Web Apps
 -BorderlessIsolatedWebAppBrowserTest.*
+-BorderlessIsolatedWebAppBrowserTestDisabledFlag.AppCannotUseFeatureWhenBorderlessFlagIsDisabled
 -BrowserNavigatorIwaNewTabTest.*
 -BrowserNavigatorIwaTest.*
 -BrowsingDataModelBrowserTest.IsolatedWebAppUsageInDefaultStoragePartitionModel
@@ -1469,6 +1480,9 @@
 
 # These tests fail because we disable kPageContentAnnotations
 -HistoryEmbeddingsBrowserTest.*
+-HistoryEmbeddingsWithLowAggregationBrowserTest.PassageContextSelectionLimitedByWordCount
+-HistoryEmbeddingsWithUrlFilterBrowserTest.DoesNotFilterUrlNotOnBlocklist
+-HistoryEmbeddingsWithUrlFilterBrowserTest.FilterUrlOnBlocklist
 
 # These tests fail because our profile menu doesn't match Chromium's
 -ProfileMenuClickTest_MultipleProfiles_UnoDisabled.*
@@ -1527,8 +1541,10 @@
 # is only effective if features::IsToolbarPinningEnabled(). That feature is disabled by
 # default.
 -BrowserActionsBrowserTest.ShowAddressesBubbleOrPage
+-BrowserActionsBrowserTest.ShowPaymentsBubbleOrPage
 -BrowserCommandControllerBrowserTestToolbarPinningOnly.ShowTranslateStatusFrenchPage
 -PinnedToolbarActionsContainerBrowserTest.CustomizeToolbar
+-PinnedToolbarActionsContainerBrowserTest.TranslateStatusIndicator
 
 # Tests below this point have not been diagnosed or had issues created yet.
 -_/WebrtcLoggingPrivateApiStartEventLoggingTestFeatureAndPolicyEnabled.*
