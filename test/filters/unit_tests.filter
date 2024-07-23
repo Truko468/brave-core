@@ -603,6 +603,7 @@
 
 # This test times out because we Disable "Use a prediction service to load
 # pages more quickly" (via prefetch::prefs::kNetworkPredictionOptions pref)
+-NavigationPredictorUserInteractionsTest.MLModelMaxHoverTime
 -NavigationPredictorUserInteractionsTest.ProcessPointerEventUsingMLModel
 
 # These tests fail a CalledOnValidSequence check when calling FindPreference
