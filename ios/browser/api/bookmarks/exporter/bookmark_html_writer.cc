@@ -466,18 +466,15 @@ BookmarkFaviconFetcher::BookmarkFaviconFetcher(
 }
 
 void BookmarkFaviconFetcher::ExportBookmarks() {
-  ExtractUrls(ios::LocalOrSyncableBookmarkModelFactory::GetForBrowserState(
-                  browser_state_)
+  ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
                   ->subtle_bookmark_bar_node());
-  ExtractUrls(ios::LocalOrSyncableBookmarkModelFactory::GetForBrowserState(
-                  browser_state_)
+  ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
                   ->subtle_other_node());
-  ExtractUrls(ios::LocalOrSyncableBookmarkModelFactory::GetForBrowserState(
-                  browser_state_)
+  ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
                   ->subtle_mobile_node());
-  if (!bookmark_urls_.empty())
+  if (!bookmark_urls_.empty()) {
     FetchNextFavicon();
-  else
+  } else
     ExecuteWriter();
 }
 
