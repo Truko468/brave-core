@@ -466,16 +466,22 @@ BookmarkFaviconFetcher::BookmarkFaviconFetcher(
 }
 
 void BookmarkFaviconFetcher::ExportBookmarks() {
+  // bookmark_bar and other are children of the root node.
   ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
-                  ->subtle_bookmark_bar_node());
+                  ->root_node());
   ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
-                  ->subtle_other_node());
+                  ->mobile_node());
   ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
-                  ->subtle_mobile_node());
+                  ->account_bookmark_bar_node());
+  ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
+                  ->account_other_node());
+  ExtractUrls(ios::BookmarkModelFactory::GetForBrowserState(browser_state_)
+                  ->account_mobile_node());
   if (!bookmark_urls_.empty()) {
     FetchNextFavicon();
-  } else
+  } else {
     ExecuteWriter();
+  }
 }
 
 void BookmarkFaviconFetcher::ExtractUrls(const BookmarkNode* node) {
