@@ -1352,9 +1352,6 @@ are declared in tools/grit/grit_rule.gni.
           <message name="IDS_SAVE_AND_SHARE_MENU" desc="The text label of the Save and share sub menu item">
             &amp;Save and share
           </message>
-          <message name="IDS_SAVE_SHARE_AND_CAST_MENU" desc="The text label of the Save, share, and cast sub menu item">
-            Save, share, and cast
-          </message>
           <message name="IDS_CAST_SAVE_AND_SHARE_MENU" desc="The text label of the Cast, save, and share sub menu item">
             Cast, save, and share
           </message>
@@ -7540,6 +7537,9 @@ Keep your key file in a safe place. You will need it to create new versions of y
       <message name="IDS_NTP_CUSTOMIZE_CHROME_CHANGE_THEME_LABEL" desc="The label for the action button for changing Brave theme in the New Tab Page customize chrome side panel.">
         Change theme
       </message>
+      <message name="IDS_NTP_CUSTOMIZE_CHROME_MANAGED_NEW_TAB_PAGE" desc="The string that shows on the customize chrome UI when a 3rd party manages the new tab page.">
+        <ph name="THIRD_PARTY_NTP_MANAGER">$1<ex>ZomboCom</ex></ph> is managing your new tab page
+      </message>
       <message name="IDS_NTP_CUSTOMIZE_CHROME_RESET_TO_CLASSIC_CHROME_LABEL" desc="The label for the button for resetting theme back to default chrome in the New Tab Page customize chrome side panel.">
         Reset to Default Brave
       </message>
@@ -8158,6 +8158,36 @@ Keep your key file in a safe place. You will need it to create new versions of y
       <message name="IDS_NTP_WALLPAPER_SEARCH_MOOD_WHIMSICAL" desc="The label for a wallpaper search mood (ex Chaotic).">
         Whimsical
       </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_MOOD_WILD" desc="The label for a wallpaper search mood (ex Chaotic).">
+        Wild
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_1" desc="Accessibility label describing a wallpaper search inspiration image.">
+        A serene oil painting showcasing a yellow-hued meadow, evoking a sense of tranquility and intellectual reflection.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_2" desc="Accessibility label describing a wallpaper search inspiration image.">
+        A contemplative oil painting portraying an intellectual immersed in thought amidst a yellow meadow.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_3" desc="Accessibility label describing a wallpaper search inspiration image.">
+        A vibrant oil painting depicting a sun-drenched meadow.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_4" desc="Accessibility label describing a wallpaper search inspiration image.">
+        Aurora Borealis at night, over a small cottage house.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_5" desc="Accessibility label describing a wallpaper search inspiration image.">
+        Aurora Borealis, stylized in purple and green colors, over a city.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_6" desc="Accessibility label describing a wallpaper search inspiration image.">
+        Bright streams of Aurora Borealis, over a forest.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_7" desc="Accessibility label describing a wallpaper search inspiration image.">
+        Crashing waves in the sea, with a fantastical city and castle in the background, in a dark mood.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_8" desc="Accessibility label describing a wallpaper search inspiration image.">
+        Large waves splashing in the sea, with land in the distant background. Hints of orange light are just beyond the horizon, in an otherwise dark moody sky.
+      </message>
+      <message name="IDS_NTP_WALLPAPER_SEARCH_INSPIRATION_DESCRIPTION_9" desc="Accessibility label describing a wallpaper search inspiration image.">
+        A large wave engulfs the ocean, with a dark forest ashore.
+      </message>
       <message name="IDS_NTP_CUSTOMIZE_TOOLBAR_CHOOSE_ICONS_LABEL" desc="Label for the description of the functionality of the section of Customize Brave for selecting toolbar icons.">
         Choose what buttons show in the toolbar
       </message>
@@ -8296,6 +8326,12 @@ Keep your key file in a safe place. You will need it to create new versions of y
       <message name="IDS_NTP_MODULES_GOOGLE_CALENDAR_DISABLE_TOAST_MESSAGE" desc="Text shown on the toast on the NTP indicating that the Brave Calendar card has been disabled.">
         You won't see Brave Calendar on this page again
       </message>
+      <message name="IDS_NTP_MODULES_GOOGLE_CALENDAR_INFO" desc="Text shown in the body of the info dialog of the google calendar module.">
+        You’re seeing your calendar to help you easily navigate to your next event in Brave Calendar.
+        <ph name="BREAK">&lt;br&gt;</ph>
+        <ph name="BREAK">&lt;br&gt;</ph>
+        You can manage settings from the card menu or see more options in Customize Brave.
+      </message>
       <message name="IDS_NTP_MODULES_GOOGLE_CALENDAR_MORE_ACTIONS" desc="Text shown on the tooltip for the 3 dot menu on the Brave Calendar card on the NTP.">
         More actions for Brave Calendar
       </message>
@@ -8328,72 +8364,6 @@ Keep your key file in a safe place. You will need it to create new versions of y
       </message>
       <message name="IDS_NTP_MODULES_CALENDAR_SEE_MORE" desc="Text for a link to the user's calendar." meaning="Click here to view more of the calendar.">
         See more
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_TITLE" desc="Title shown in the header of the photos module.">
-        From your Google Photos
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_TITLE" desc="Title shown for Google Photos Memories in the list of available cards for the new tab page.">
-        Google Photos memories
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_HIDE_TODAY" desc="Part of label (combined with IDS_NTP_MODULES_DISMISS_BUTTON_TEXT) used to hide Google Photos Memories from the new tab page for today.">
-        your memories for today
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_HIDDEN_TODAY" desc="Confirmation text shown when Google Photos Memories were hidden from the new tab page for today.">
-        Memories hidden for today
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_SOFT_OPT_OUT" desc="Confirmation text shown when Google Photos Memories is soft disabled">
-        Memories hidden for two days
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_DISABLE" desc="Part of label (combined with IDS_NTP_MODULES_DISABLE_BUTTON_TEXT) used to disable Google Photos Memories from the new tab page.">
-        memories
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_DISABLED" desc="Part of confirmation text (combined with IDS_NTP_MODULES_DISABLE_TOAST_MESSAGE) shown when the Google Photos Memories module is disabled from the new tab page.">
-        memories from Google Photos
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_INFO" desc="Text shown in the body of the info dialog of the Photos module.">
-        You’re seeing photo and video highlights from your Google Photos library. You can control what shows up in your highlights at <ph name="BEGIN_LINK">&lt;a href="https://photos.google.com/settings?referrer=CHROME_NTP" target="_blank"&gt;</ph>photos.google.com/settings<ph name="END_LINK">&lt;/a&gt;</ph>.
-        <ph name="BREAK">&lt;br&gt;</ph>
-        <ph name="BREAK">&lt;br&gt;</ph>
-        You can manage settings for this card from the card menu or see more options in Customize Brave.
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_EXPLORE" desc="Text to encourage users to explore Google Photos in the new tab page.">
-        Explore more of your memories in Google Photos
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_WELCOME_TITLE" desc="Title of the opt-in UI for Google Photos in the new tab page.">
-        See your memories here
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_PERSONALIZED_WELCOME_TITLE_TEMPLATE" desc="Personalized title of the opt-in UI for Google Photos in the new tab page.">
-        See "<ph name="PERSONALIZED_MEMORY_TITLE">$1<ex>Recent Highlights</ex></ph>" and other memories here
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_RH_WELCOME_TITLE" desc="Title of the opt-in UI for Google Photos in the new tab page emphasizing on recent highlights.">
-        See "Recent Highlights" and other memories here
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_FAVORITE_PEOPLE_WELCOME_TITLE" desc="Title of the opt-in UI for Google Photos in the new tab page emphasizing on favorite profiles.">
-        See memories of your favorite profiles and more
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_TRIPS_WELCOME_TITLE" desc="Title of the opt-in UI for Google Photos in the new tab page emphasizing on trips.">
-        See memories of your recent trips and more
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_WELCOME_TEXT" desc="Text for the opt-in UI for Google Photos in the new tab page.">
-        Start exploring your memories from Google Photos, whenever you’re signed in.
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_WELCOME_BUTTON_OPT_IN" desc="Label of the button to opt-in of Google Photos in the new tab page.">
-        See memories
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_WELCOME_BUTTON_OPT_OUT" desc="Label of the button to opt-out of Google Photos in the new tab page.">
-        No thanks
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_WELCOME_BUTTON_SOFT_OPT_OUT" desc="Label of the button to soft opt-out of Google Photos in the new tab page.">
-        Ask me later
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_MEMORIES_WELCOME_EXAMPLE" desc="Example of a memory title for the Google Photos module in the new tab page.">
-        2 years ago
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_BALOON_ILLUSTRATION_TITLE" desc="Memory title for the Baloon illustration shown in Google Photos module in the new tab page.">
-        Your trip
-      </message>
-      <message name="IDS_NTP_MODULES_PHOTOS_NEW" desc="Text shown on the header chip of Google Photos module.">
-        New
       </message>
       <message name="IDS_NTP_MODULES_KALEIDOSCOPE_TITLE" desc="Title shown in the header of the Kaleidoscope module.">
         Top picks for you
@@ -11046,7 +11016,7 @@ Check your passwords anytime in <ph name="GOOGLE_PASSWORD_MANAGER">$1<ex>Brave P
         Grouping your tabs…
       </message>
       <message name="IDS_TAB_ORGANIZATION_SUCCESS_MISSING_ACTIVE_TAB_TITLE" desc="The header text for the success state in the tab organization UI, when there were no groups found for the selected tab">
-        There's no group for that tab but check out these groups
+        There are no similar tabs to organize, but you might like these groups
       </message>
       <message name="IDS_TAB_ORGANIZATION_SUCCESS_TITLE" desc="The header text for the MVP success state in the tab organization UI">
         Tab group suggestion
@@ -12842,9 +12812,6 @@ This can include information about installed software, files, your browser, and 
             Got it
           </message>
         </if>
-        <message name="IDS_SIGNIN_DICE_WEB_INTERCEPT_BUBBLE_CHROME_SIGNIN_IPH_SETTINGS_BUTTON" desc="This button appears on a confirmation message, which is intended to help users understand that they have been signed in to Brave. The user previously signed in to a Brave service (like Gmail or Maps), and saw the Brave Signin Bubble intercept; when asked whether the user wanted to sign in to Brave as well, the user selected yes. Now, this confirmation appears at the top right of Brave (pointing at the Profile Menu) to confirm that their choice was effective. This button string comes after the 'Welcome, Elisa' and 'When you sign in on this device, you get your passwords and more from your Brave sync chain' strings. Users click 'Settings' to convey that they don't want Brave to follow their choice in the future, so the user wants to go to Brave's settings in order to change their choice.">
-          Settings
-        </message>
 
         <!-- Brave Signout Confirmation Prompt -->
         <message name="IDS_CHROME_SIGNOUT_CONFIRMATION_PROMPT_TITLE" desc="This is the title of an error message dialog that appears when the user opens the Brave Profile Menu and chooses 'Sign out of Brave'. The error message appears when the user has saved some data (like a password or payment method) to Brave, but Brave wasn't able to save the data to the user's Brave sync chain due to a sign-in error; but, the data has been saved locally to Brave. This title is before the 'Brave needs to verify it’s you before some data can be saved in your Brave sync chain and used on all your devices. If you sign out, this data will stay on this device.' string. The tone should be cautionary.">
@@ -16138,14 +16105,35 @@ Please help our engineers fix this problem. Tell us what happened right before y
       <message name="IDS_WEBAUTHN_GPM_PIN_OPTION_ALPHANUMERIC" desc="A label on the pin options dropdown menu that allows to choose an alphanumeric Brave Password Manager pin.">
         Letters &amp;&amp; Numbers
       </message>
-      <message name="IDS_WEBAUTHN_GPM_CREATE_PIN_TITLE" desc="The title of a dialog that is shown when a user is creating a new Brave Password Manager PIN. Refer to Glossary for the meaning of 'passkey'; do not translate it as 'password'">
-        Create a recovery PIN for Brave Password Manager
+      <message name="IDS_WEBAUTHN_GPM_CREATE_PIN_TITLE" desc="The title of a dialog that is shown when a user is creating a new Brave Password Manager PIN.">
+        Create a recovery PIN
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_CREATE_ALPHANUMERIC_PIN_ACCESSIBILITY" desc="The accessibility label that is announced by a screen reader when a focus lands on a Brave Password Manager PIN textfield during creation of an alphanumeric pin.">
+        Create an alphanumeric recovery PIN for Brave Password Manager
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_CREATE_SIX_DIGIT_PIN_ACCESSIBILITY" desc="The accessibility label that is announced by a screen reader when a focus lands on a Brave Password Manager PIN textfield during creation of a 6-digit pin.">
+        Create a 6-digit recovery PIN for Brave Password Manager
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_CREATE_SIX_DIGIT_PIN_ACCESSIBILITY_WITH_FOCUSED_DIGIT" desc="The accessibility label that is announced by a screen reader when a focus lands on a Brave Password Manager PIN textfield during creation of a 6-digit pin, additionally informing which digit needs to be typed.">
+        Create a 6-digit recovery PIN for Brave Password Manager, PIN digit <ph name="NUM_DIGIT">$1<ex>3</ex></ph> of 6
       </message>
       <message name="IDS_WEBAUTHN_GPM_CREATE_PIN_DESC" desc="The description of a dialog that is shown when a user is creating a Brave Password Manager PIN explaining that it will be used to access their passkeys on all devices. Refer to Glossary for the meaning of 'passkey'; do not translate it as 'password'">
-        A recovery PIN helps you access your saved passkeys on any device
+        This helps you access your saved passkeys on any device
       </message>
       <message name="IDS_WEBAUTHN_GPM_ENTER_PIN_TITLE" desc="The title of a dialog that is shown when a user has to verify their presence in passkey creation / sign-in flows by using their Brave Password Manager PIN.">
-        Enter your PIN for Brave Password Manager
+        Enter your PIN
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_ENTER_ALPHANUMERIC_PIN_ACCESSIBILITY" desc="The accessibility label that is announced by a screen reader when a focus lands on a Brave Password Manager PIN textfield when entering an alphanumeric pin for user verification.">
+        Enter your alphanumeric PIN for Brave Password Manager
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_ENTER_ALPHANUMERIC_PIN_ACCESSIBILITY_WITH_WEBSITE" desc="The accessibility label that is announced by a screen reader when a focus lands on a Brave Password Manager PIN textfield when entering an alphanumeric pin for user verification, additionally informing about the reason for user verification.">
+        <ph name="SITE">$1<ex>example.com</ex></ph> wants to verify it's you. Enter your alphanumeric PIN for Brave Password Manager
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_ENTER_SIX_DIGIT_PIN_ACCESSIBILITY" desc="The accessibility label that is announced by a screen reader when a focus lands on a Brave Password Manager PIN textfield when entering a 6-digit pin for user verification.">
+        Enter your 6-digit PIN for Brave Password Manager
+      </message>
+      <message name="IDS_WEBAUTHN_GPM_ENTER_SIX_DIGIT_PIN_ACCESSIBILITY_WITH_FOCUSED_DIGIT" desc="The accessibility label that is announced by a screen reader when a focus lands on a Brave Password Manager PIN textfield when entering a 6-digit pin for user verification, additionally informing about the reason for user verification and which digit needs to be typed.">
+        <ph name="SITE">$1<ex>example.com</ex></ph> wants to verify it's you. Enter your 6-digit PIN for Brave Password Manager, PIN digit <ph name="NUM_DIGIT">$2<ex>3</ex></ph> of 6
       </message>
       <message name="IDS_WEBAUTHN_GPM_ENTER_PIN_DESC" desc="The description of a dialog that is shown when a user is verifying their presence in passkey creation / sign-in flows explaining that the website requires that.">
         <ph name="SITE">$1<ex>example.com</ex></ph> wants to verify it's you
@@ -16967,6 +16955,9 @@ Please help our engineers fix this problem. Tell us what happened right before y
     <message name="IDS_MULTI_IDP_ACCOUNT_SELECTION_SHEET_TITLE_EXPLICIT" desc="Header for sign in sheet when there are multiple identity providers. Sheet is shown to prompt user for sign in consent.">
       Sign in to <ph name="SITE_ETLD_PLUS_ONE">$1<ex>rp.example</ex></ph>
     </message>
+    <message name="IDS_MULTI_IDP_CHOOSE_AN_ACCOUNT_TITLE" desc="Header for sign in sheet where all sign in options are shown, once the user clicks on the 'Choose an account' button.">
+      Choose an account to sign in to <ph name="SITE_ETLD_PLUS_ONE">$1<ex>rp.example</ex></ph>
+    </message>
     <message name="IDS_MULTI_IDP_ACCOUNT_ORIGIN_AND_LAST_USED" desc="The origin of an account as well as how long ago it was used for federation in the RP, separated by a symbol. In this case the separator is a bullet •, with a white space before it and a white space after it. If the bullet • resembles another symbol in the language, please translate the bullet • as a symbol (A) that is not easily mistaken for a number or letter in the language and (B) that is typically used to separate elements">
       <ph name="SITE_ETLD_PLUS_ONE">$1<ex>idp.example</ex></ph> • <ph name="LAST_USED">$2<ex>used 1 month ago</ex></ph>
     </message>
@@ -17283,6 +17274,17 @@ Please help our engineers fix this problem. Tell us what happened right before y
         <message name="IDS_PERFORMANCE_INTERVENTION_DIALOG_TITLE_V3" desc="Title text for a dialog with information on tabs that could be causing performance issues.">
         Keep performance speedy
         </message>
+        <message name="IDS_PERFORMANCE_INTERVENTION_CLOSE_BUTTON_ACCNAME" desc="The accessibility text for the performance intervention close button that removes an item from the list of tabs to deactivate when clicked.">
+        Remove <ph name="SITE_NAME">$1<ex>Brave</ex></ph> from list of tabs to make inactive
+        </message>
+        <message name="IDS_PERFORMANCE_INTERVENTION_SINGLE_SUGGESTED_ROW_ACCNAME" desc="The accessibility text for a suggested tab in the performance intervention dialog when the user have removed all but one suggested tab.">
+          You can make this tab inactive or refresh to see the full list again
+        </message>
+        <message name="IDS_PERFORMANCE_INTERVENTION_TAB_LIST_ACCNAME" desc="The accessbility text for the tab list in the performance intervention dialog.">
+          {NUM_TABS, plural,
+          =1 {List box with 1 item}
+          other {List box with {NUM_TABS} items}}
+        </message>
       <if expr="use_titlecase">
         <message name="IDS_PERFORMANCE_INTERVENTION_DEACTIVATE_TABS_BUTTON_V1" desc="In Title Case: Label on a dialog button that deactivate the specified tabs in the dialog when clicked.">
         Fix Now
@@ -17500,23 +17502,28 @@ Please help our engineers fix this problem. Tell us what happened right before y
     <!-- Safety Hub elements. -->
     <!-- TODO(crbug.com/324562205): Make strings translateable once finalized. -->
     <if expr="is_android">
-        <message name="IDS_SETTINGS_SAFETY_HUB_SAFE_BROWSING_MENU_NOTIFICATION" translateable="false">
+        <message name="IDS_SETTINGS_SAFETY_HUB_SAFE_BROWSING_MENU_NOTIFICATION" desc="Summary for the Safe Browsing module of Safety Check in the Magic Stack. Shown when Safe Browsing is turned off by the user.">
           Get protection against dangerous sites
         </message>
-        <message name="IDS_SETTINGS_SAFETY_HUB_REVIEW_NOTIFICATION_PERMISSIONS_MENU_NOTIFICATION" translateable="false">
+        <message name="IDS_SETTINGS_SAFETY_HUB_REVIEW_NOTIFICATION_PERMISSIONS_MENU_NOTIFICATION" desc="Summary for the notification review Safety Check module on the Magic Stack. Shown when Safety Check has identified several sites that sent lots of notifications.">
           {NUM_SITES, plural,
           =1 {Found 1 site with lots of notifications}
           other {Found {NUM_SITES} sites with lots of notifications}}
         </message>
-        <message name="IDS_SETTINGS_SAFETY_HUB_REVOKED_PERMISSIONS_MENU_NOTIFICATION" translateable="false">
+        <message name="IDS_SETTINGS_SAFETY_HUB_REVOKED_PERMISSIONS_MENU_NOTIFICATION" desc="Title for the permissions review Safety Check module on the Magic Stack. Shown when Safety Check has identified several sites that send abusive notifications.">
           {NUM_SITES, plural,
           =1 {Brave removed permissions for 1 site}
           other {Brave removed permissions for {NUM_SITES} sites}}
         </message>
-        <message name="IDS_SETTINGS_SAFETY_HUB_UNUSED_SITE_PERMISSIONS_MENU_NOTIFICATION" translateable="false">
+        <message name="IDS_SETTINGS_SAFETY_HUB_UNUSED_SITE_PERMISSIONS_MENU_NOTIFICATION" desc="Title for the permissions review Safety Check module on the Magic Stack. Shown when Safety Check has identified several unused sites that have granted permissions.">
           {NUM_SITES, plural,
-          =1 {Brave removed permissions for 1 unused site}
-          other {Brave removed permissions for {NUM_SITES} ununsed sites}}
+          =1 {Brave removed permissions for 1 site}
+          other {Brave removed permissions for {NUM_SITES} sites}}
+        </message>
+        <message name="IDS_SETTINGS_SAFETY_HUB_COMPROMISED_PASSWORDS_MENU_NOTIFICATION" translateable="false">
+          {NUM_SITES, plural,
+          =1 {Found 1 compromised password}
+          other {Found {NUM_SITES} compromised passwords}}
         </message>
     </if>
 

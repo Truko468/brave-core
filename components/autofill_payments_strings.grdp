@@ -830,8 +830,13 @@
     Virtual card
   </message>
   <message name="IDS_AUTOFILL_VIRTUAL_CARD_ENROLL_LOADING_THROBBER_ACCESSIBLE_NAME" desc="Accessible name announced by the screenreader for virtual card prompt in loading state showing a throbber.">
-      Turning on virtual card
+    Turning on virtual card
   </message>
+  <if expr="is_ios">
+    <message name="IDS_AUTOFILL_VIRTUAL_CARD_ENROLLED_ACCESSIBILITY_ANNOUNCEMENT" desc="Accessible text announced by the screenreader when the virtual card enrollment bottom shows the confirmation checkmark.">
+      Virtual card turned on
+    </message>
+  </if>
   <if expr="is_android">
     <message name="IDS_AUTOFILL_VIRTUAL_CARD_CONTAINER_ACCESSIBILITY_DESCRIPTION" desc="The accessibility description for a UI element that contains the credit card icon, the card name and last four digits (in placeholder), and the text 'Virtual card'. This UI element is in the dialog that lets users enroll their credit card into the virtual card number feature.">
       <ph name="IDS_AUTOFILL_VIRTUAL_CARD_NAME_AND_LAST_FOUR_DIGITS">$1<ex>Visa **** 1234</ex></ph>, virtual card
@@ -1182,7 +1187,7 @@
     Card saved
   </message>
   <message name="IDS_AUTOFILL_SAVE_CARD_CONFIRMATION_FAILURE_TITLE_TEXT" desc="Title text for confirmation shown after save card upload to the server was unsuccessful.">
-    Card saved only to device
+    Card saved to device only
   </message>
   <message name="IDS_AUTOFILL_VIRTUAL_CARD_ENROLL_CONFIRMATION_SUCCESS_TITLE_TEXT" desc="Title text for confirmation shown after virtual card enrollment is successful.">
     Virtual card turned on
@@ -1195,7 +1200,7 @@
     This card is saved in your Brave sync chain so you can use it across Brave services.
   </message>
   <message name="IDS_AUTOFILL_SAVE_CARD_CONFIRMATION_FAILURE_DESCRIPTION_TEXT" desc="Description text for confirmation shown after save card upload to the server was unsuccessful.">
-    This card could not be saved in your Brave sync chain. It's been saved to Brave on this device instead.
+    This card couldn't be saved in your Brave sync chain. It's saved to Brave on this device instead.
   </message>
   <message name="IDS_AUTOFILL_VIRTUAL_CARD_ENROLL_CONFIRMATION_SUCCESS_DESCRIPTION_TEXT" desc="Description text for confirmation shown after virtual card enrollment is successful.">
     You can now use a virtual card to check out more securely with autofill.
@@ -1213,5 +1218,10 @@
   <message name="IDS_AUTOFILL_VIRTUAL_CARD_ENROLL_CONFIRMATION_FAILURE_OK_BUTTON_ACCESSIBLE_NAME" desc="Accessible name announced by the screenreader for virtual card enrollment failure confirmation prompt's ok button.">
     Confirming virtual card can't be turned on
   </message>
+  <if expr="is_ios">
+    <message name="IDS_AUTOFILL_SAVE_CARD_CONFIRMATION_SUCCESS_ACCESSIBLE_NAME" desc="Accessible name announced by the screenreader for a checkmark shown on save card infobar modal for card upload success ">
+      Card info saved
+    </message>
+  </if>
 
 </grit-part>

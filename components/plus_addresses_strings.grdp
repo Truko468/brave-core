@@ -7,6 +7,12 @@
     <message name="IDS_PLUS_ADDRESS_FALLBACK_LABEL_CONTEXT_MENU" desc="Label for the context menu entry that serves as a fallback to trigger plus address suggestions on a field." translateable="false">
       Lorem Ipsum
     </message>
+    <message name="IDS_PLUS_ADDRESS_CREATE_NEW_PLUS_ADDRESSES_LINK_ANDROID" desc="The text of the link in the address sheet that opens the plus address creation bottom sheet." translateable="false">
+      Create new plus addresses placeholder
+    </message>
+    <message name="IDS_PLUS_ADDRESS_SELECT_PLUS_ADDRESS_LINK_ANDROID" desc="The text of the link in the address sheet that opens the bottom sheet with all user plus addresses." translateable="false">
+      Select Plus Address placeholder
+    </message>
 
     <!-- Creation dialog strings -->
     <!-- Android strings -->
@@ -42,9 +48,6 @@
     </message>
     <message name="IDS_PLUS_ADDRESS_BOTTOMSHEET_NOTICE_ANDROID" desc="The notice text on the creation dialog for plus addresses on Android when the dialog is shown for the first time." translateable="false">
       First time usage notice placeholder (<ph name="GAIA_EMAIL">$1<ex>foo@gmail.com</ex></ph>), which includes the redirection link <ph name="BEGIN_LINK">&lt;link&gt;</ph>link placeholder<ph name="END_LINK">&lt;/link&gt;</ph>.
-    </message>
-    <message name="IDS_PLUS_ADDRESS_CREATE_NEW_PLUS_ADDRESSES_LINK_ANDROID" desc="The text of the link in the address sheet that opens the plus address creation bottom sheet." translateable="false">
-      Create new plus addresses placeholder
     </message>
 
     <!-- iOS strings -->
@@ -130,8 +133,11 @@
     </message>
 
     <!-- Settings strings -->
-    <message name="IDS_PLUS_ADDRESS_SETTINGS_LABEL" desc="A button in settings for management of experimental enterprise plus addresses" translateable="false">
+    <message name="IDS_PLUS_ADDRESS_SETTINGS_LABEL" desc="The label for the link in settings to manage plus addresses" translateable="false">
       Plus Address
+    </message>
+    <message name="IDS_PLUS_ADDRESS_SETTINGS_SUBLABEL" desc="The description of the link in settings to manage plus addresses" translateable="false">
+      Manage plus addresses you've created
     </message>
 
     <!-- Suggestion strings -->
@@ -157,6 +163,24 @@
     </message>
     <message name="IDS_PLUS_ADDRESS_CREATE_SUGGESTION_IPH_ANDROID" desc="Text shown in the IPH bubble for educating the user on creating plus addresses on Android." translateable="false">
       Placeholder Plus Address Create Suggestion IPH String.
+    </message>
+    <message name="IDS_PLUS_ADDRESS_CREATE_SUGGESTION_IPH_IOS" desc="Text shown in the IPH bubble for educating the user on creating plus addresses in iOS." translateable="false">
+      Placeholder Plus Address Create Suggestion IPH String
+    </message>
+    <message name="IDS_PLUS_ADDRESS_CREATE_SUGGESTION_IPH_SCREENREADER_IOS" is_accessibility_with_no_ui="true" desc="Screenreader text shown in the IPH bubble for educating the user on creating plus addresses in iOS." translateable="false">
+      Placeholder Plus Address Create Suggestion IPH Screenreader String
+    </message>
+
+    <!-- All plus addresses bottom sheet strings -->
+    <!-- Android strings -->
+    <message name="IDS_PLUS_ADDRESS_ALL_PLUS_ADDRESSES_BOTTOMSHEET_TITLE_ANDROID" desc="The title text of the bottom sheet that shows the user the list of all plus addresses." translateable="false">
+      Select Plus Address placeholder
+    </message>
+    <message name="IDS_PLUS_ADDRESS_ALL_PLUS_ADDRESSES_BOTTOMSHEET_WARNING_ANDROID" desc="The user warning text of the bottom sheet that shows the user the list of all plus addresses." translateable="false">
+      Select Plus Address warning placeholder.
+    </message>
+    <message name="IDS_PLUS_ADDRESS_ALL_PLUS_ADDRESSES_BOTTOMSHEET_QUERY_HINT_ANDROID" desc="The text shown in the search field of the bottom sheet that shows the user the list of all plus addresses." translateable="false">
+      Search hint placeholder
     </message>
 
 </grit-part>
