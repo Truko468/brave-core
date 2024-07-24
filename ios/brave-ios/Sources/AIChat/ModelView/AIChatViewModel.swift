@@ -32,7 +32,7 @@ public class AIChatViewModel: NSObject, ObservableObject {
   @Published var currentModel: AiChat.Model!
 
   @Published var requestInProgress: Bool = false
-  @Published var apiError: AiChat.APIError = .none
+  @Published var apiError: AiChat.APIError? = nil
 
   public var slashActions: [AiChat.ActionGroup] {
     return api.slashActions
@@ -71,7 +71,7 @@ public class AIChatViewModel: NSObject, ObservableObject {
   }
 
   public var shouldShowSuggestions: Bool {
-    api.currentAPIError == .none && api.isAgreementAccepted && api.shouldSendPageContents
+    api.currentAPIError == nil && api.isAgreementAccepted && api.shouldSendPageContents
       && (!api.suggestedQuestions.isEmpty || api.suggestionsStatus == .canGenerate
         || api.suggestionsStatus == .isGenerating)
   }
@@ -142,7 +142,7 @@ public class AIChatViewModel: NSObject, ObservableObject {
   }
 
   func clearConversationHistory() {
-    apiError = .none
+    apiError = nil
     api.clearConversationHistory()
   }
 
@@ -158,17 +158,17 @@ public class AIChatViewModel: NSObject, ObservableObject {
   }
 
   func submitSuggestion(_ suggestion: String) {
-    apiError = .none
+    apiError = nil
     submitQuery(suggestion)
   }
 
   func submitQuery(_ text: String) {
-    apiError = .none
+    apiError = nil
     api.submitHumanConversationEntry(text)
   }
 
   func submitSelectedText(_ text: String, action: AiChat.ActionType) {
-    apiError = .none
+    apiError = nil
     api.submitSelectedText(text, actionType: action)
   }
 
@@ -178,7 +178,7 @@ public class AIChatViewModel: NSObject, ObservableObject {
     onSuggestion: @escaping (String?) -> Void,
     onCompleted: @escaping (String?, AiChat.APIError) -> Void
   ) {
-    apiError = .none
+    apiError = nil
     api.submitSelectedText(
       text,
       actionType: action,
@@ -194,7 +194,7 @@ public class AIChatViewModel: NSObject, ObservableObject {
     onSuggestion: @escaping (String?) -> Void,
     onCompleted: @escaping (String?, AiChat.APIError) -> Void
   ) {
-    apiError = .none
+    apiError = nil
     api.submitSelectedText(
       text,
       question: question,
