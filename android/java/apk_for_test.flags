@@ -356,6 +356,7 @@
 
 -keep class org.chromium.chrome.browser.toolbar.top.ToolbarPhone {
     *** mLocationBarBackgroundColorForNtp;
+    *** mToolbarBackgroundColorForNtp;
 }
 
 -keep class org.chromium.components.permissions.PermissionDialogModelFactory {
@@ -870,4 +871,13 @@
 
 -keep class org.chromium.chrome.browser.hub.HubManagerImpl {
     *** ensureHubCoordinatorIsInitialized(...);
+}
+
+-keep class org.chromium.chrome.browser.ui.system.StatusBarColorController {
+    public <init>(...);
+    *** mBackgroundColorForNtp;
+}
+
+-keep class org.chromium.chrome.browser.ui.system.BraveStatusBarColorController {
+    public <init>(...);
 }
