@@ -1,5 +1,5 @@
 diff --git a/services/network/public/cpp/BUILD.gn b/services/network/public/cpp/BUILD.gn
-index f31ae3dcf2074faa118d6bd7d5c5553955388b0c..4e7759a02f3a672c78a651fef9607fee71dd842b 100644
+index f2142b3835b1b097da16509687bc15292e988811..3ea852088f97552fccaf7758cb9fa91ca4bb6a14 100644
 --- a/services/network/public/cpp/BUILD.gn
 +++ b/services/network/public/cpp/BUILD.gn
 @@ -191,6 +191,7 @@ component("cpp") {

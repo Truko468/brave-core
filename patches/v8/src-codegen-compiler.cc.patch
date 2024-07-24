@@ -1,8 +1,8 @@
 diff --git a/src/codegen/compiler.cc b/src/codegen/compiler.cc
-index 66dd3eac7b5a71a44d83b37fb2bc76147c29d617..eeb1b3e2e3da8f5407d5e43e88c0411a0beed852 100644
+index 0a95368d3b904eb0baa133390e9f315aaec1961f..02e1e6b9bd447d309a68ab5d44c717b73921b2b7 100644
 --- a/src/codegen/compiler.cc
 +++ b/src/codegen/compiler.cc
-@@ -3102,6 +3102,7 @@ MaybeHandle<JSFunction> Compiler::GetFunctionFromEval(
+@@ -3104,6 +3104,7 @@ MaybeHandle<JSFunction> Compiler::GetFunctionFromEval(
      }
    }
    DCHECK(is_compiled_scope.is_compiled());
