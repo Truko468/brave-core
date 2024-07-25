@@ -216,7 +216,6 @@ public class BrowserViewController: UIViewController {
   /// A boolean to determine if OpenInPlaylistActivity should be shown
   var openInPlaylistActivityItem: (enabled: Bool, item: PlaylistInfo?)?
   var shouldDownloadNavigationResponse: Bool = false
-  var pendingDownloads = [WKDownload: PendingDownload]()
 
   var navigationToolbar: ToolbarProtocol {
     return toolbar ?? topToolbar
@@ -226,12 +225,6 @@ public class BrowserViewController: UIViewController {
   // that we can obtain the originating `URLRequest` when a `URLResponse` is received. This will
   // allow us to re-trigger the `URLRequest` if the user requests a file to be downloaded.
   var pendingRequests = [String: URLRequest]()
-
-  // This is set when the user taps "Download Link" from the context menu. We then force a
-  // download of the next request through the `WKNavigationDelegate` that matches this web view.
-  weak var pendingDownloadWebView: WKWebView?
-
-  let downloadQueue = DownloadQueue()
 
   private var cancellables: Set<AnyCancellable> = []
 
@@ -482,7 +475,6 @@ public class BrowserViewController: UIViewController {
     tabManager.addDelegate(self)
     tabManager.addNavigationDelegate(self)
     UserScriptManager.shared.fetchWalletScripts(from: braveCore.braveWalletAPI)
-    downloadQueue.delegate = self
 
     // Observe some user preferences
     Preferences.Privacy.privateBrowsingOnly.observe(from: self)

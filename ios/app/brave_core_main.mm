@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#include <memory>
+
 #include "base/apple/bundle_locations.h"
 #include "base/apple/foundation_util.h"
 #include "base/compiler_specific.h"
@@ -79,6 +81,7 @@
 #include "ios/public/provider/chrome/browser/overrides/overrides_api.h"
 #include "ios/public/provider/chrome/browser/ui_utils/ui_utils_api.h"
 #include "ios/web/public/init/web_main.h"
+#include "ios/web_view/internal/web_view_download_manager.h"
 #include "services/network/public/cpp/shared_url_loader_factory.h"
 
 #if BUILDFLAG(IOS_CREDENTIAL_PROVIDER_ENABLED)
@@ -107,6 +110,8 @@ const BraveCoreLogSeverity BraveCoreLogSeverityVerbose =
   std::unique_ptr<web::WebMain> _webMain;
   std::unique_ptr<Browser> _browser;
   std::unique_ptr<Browser> _otr_browser;
+  std::unique_ptr<ios_web_view::WebViewDownloadManager> _downloadManager;
+  std::unique_ptr<ios_web_view::WebViewDownloadManager> _otrDownloadManager;
   BrowserList* _browserList;
   BrowserList* _otr_browserList;
   ChromeBrowserState* _mainBrowserState;
@@ -234,6 +239,13 @@ const BraveCoreLogSeverity BraveCoreLogSeverityVerbose =
     _otr_browser = Browser::Create(otrChromeBrowserState, {});
     _otr_browserList->AddBrowser(_otr_browser.get());
 
+    // Setup download managers for CWVWebView
+    _downloadManager = std::make_unique<ios_web_view::WebViewDownloadManager>(
+        _mainBrowserState);
+    _otrDownloadManager =
+        std::make_unique<ios_web_view::WebViewDownloadManager>(
+            otrChromeBrowserState);
+
     // Initialize the provider UI global state.
     ios::provider::InitializeUI();
 
@@ -277,6 +289,9 @@ const BraveCoreLogSeverity BraveCoreLogSeverityVerbose =
   _syncAPI = nil;
   _tabGeneratorAPI = nil;
   _webImageDownloader = nil;
+
+  _downloadManager.reset();
+  _otrDownloadManager.reset();
 
   _otr_browserList =
       BrowserListFactory::GetForBrowserState(_otr_browser->GetBrowserState());
