@@ -817,14 +817,14 @@ void TorControl::ReadDone(int rv) {
         // CRLF seen, so we must have i >= 2.  Emit a line and advance
         // to the next one, unless anything went wrong with the line.
         assert(i >= 1);
-        std::string line(readiobuf_->StartOfBuffer() + read_start_,
-                         readiobuf_->offset() + i - 1 - read_start_);
-        read_start_ = readiobuf_->offset() + i + 1;
-        read_cr_ = false;
-        if (!ReadLine(line)) {
-          reading_ = false;
-          return;
-        }
+        // std::string line(readiobuf_->StartOfBuffer() + read_start_,
+        //                  readiobuf_->offset() + i - 1 - read_start_);
+        // read_start_ = readiobuf_->offset() + i + 1;
+        // read_cr_ = false;
+        // if (!ReadLine(line)) {
+        //   reading_ = false;
+        //   return;
+        // }
       } else {
         // CR seen, but not LF.  Bad.
         VLOG(1) << "tor: stray carriage return";
@@ -845,9 +845,9 @@ void TorControl::ReadDone(int rv) {
       Error();
       return;
     }
-    memmove(readiobuf_->StartOfBuffer(),
-            readiobuf_->StartOfBuffer() + read_start_,
-            readiobuf_->offset() - read_start_ + rv);
+    // memmove(readiobuf_->StartOfBuffer(),
+    //         readiobuf_->StartOfBuffer() + read_start_,
+    //         readiobuf_->offset() - read_start_ + rv);
     readiobuf_->set_offset(readiobuf_->offset() - read_start_ + rv);
     read_start_ = 0;
   } else {
