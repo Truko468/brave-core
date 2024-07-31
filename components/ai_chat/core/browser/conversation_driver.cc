@@ -238,7 +238,7 @@ ConversationDriver::ConversationDriver(
                        weak_ptr_factory_.GetWeakPtr()));
   }
 
-  if (leo_local_models_updater_) {
+  if (leo_local_models_updater_ && features::IsPageContentRefineEnabled()) {
     leo_local_models_updater_->Register();
   }
 }
@@ -1072,7 +1072,9 @@ void ConversationDriver::PerformAssistantGeneration(
       page_content.length() > GetCurrentModel()
                                   .options->get_leo_model_options()
                                   ->max_page_content_length &&
-      input != l10n_util::GetStringUTF8(IDS_AI_CHAT_QUESTION_SUMMARIZE_PAGE);
+      input != l10n_util::GetStringUTF8(IDS_AI_CHAT_QUESTION_SUMMARIZE_PAGE) &&
+      features::IsPageContentRefineEnabled();
+  ;
   if (!text_embedder_ && should_refine_page_content) {
     if (universal_qa_model_path_.empty()) {
       universal_qa_model_path_ =
