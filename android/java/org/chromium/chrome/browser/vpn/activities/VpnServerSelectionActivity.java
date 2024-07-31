@@ -10,13 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.materialswitch.MaterialSwitch;
 
 import org.chromium.base.Log;
@@ -68,9 +68,11 @@ public class VpnServerSelectionActivity extends BraveVpnParentActivity {
         mServerRegionList = (RecyclerView) findViewById(R.id.server_selection_list);
 
         LinearLayout automaticLayout = (LinearLayout) findViewById(R.id.automatic_server_layout);
-        MaterialSwitch automaticSwitch = (MaterialSwitch) findViewById(R.id.automatic_server_switch);
-        boolean isAutomatic = BraveVpnPrefUtils.getServerRegion()
-                .equals(BraveVpnPrefUtils.PREF_BRAVE_VPN_AUTOMATIC);
+        MaterialSwitch automaticSwitch =
+                (MaterialSwitch) findViewById(R.id.automatic_server_switch);
+        boolean isAutomatic =
+                BraveVpnPrefUtils.getServerRegion()
+                        .equals(BraveVpnPrefUtils.PREF_BRAVE_VPN_AUTOMATIC);
         mServerRegionList.setVisibility(isAutomatic ? View.GONE : View.VISIBLE);
         automaticSwitch.setOnClickListener(
                 new View.OnClickListener() {
@@ -140,7 +142,8 @@ public class VpnServerSelectionActivity extends BraveVpnParentActivity {
                                     .compareToIgnoreCase(braveVpnServerRegion2.getNamePretty());
                         }
                     });
-            mBraveVpnServerSelectionAdapter = new BraveVpnServerSelectionAdapter();
+            mBraveVpnServerSelectionAdapter =
+                    new BraveVpnServerSelectionAdapter(VpnServerSelectionActivity.this);
             mBraveVpnServerSelectionAdapter.setVpnServerRegions(braveVpnServerRegions);
             mBraveVpnServerSelectionAdapter.setOnServerRegionSelection(
                     new OnServerRegionSelection() {

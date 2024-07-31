@@ -2407,6 +2407,12 @@ If you don't accept this request, VPN will not reconnect and your internet conne
     <message name="IDS_AUTOMATIC_SERVER_SELECTION_TEXT" desc="Vpn server selection text">
       Auto-select the VPN server region closest to you based on your timezone. This option is recommended to maximize Internet speeds.
     </message>
+    <message name="IDS_CITY_SERVER_TEXT" desc="Vpn server selection city/server text">
+      2 cities - 5 servers
+    </message>
+    <message name="IDS_SERVERS" desc="Vpn server selection servers text">
+      Servers
+    </message>
     <message name="IDS_OTHER_ISSUES" desc="Brave Vpn support text">
       Select Issue
     </message>
