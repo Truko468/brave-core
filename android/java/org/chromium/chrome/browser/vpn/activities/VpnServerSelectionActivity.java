@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
@@ -64,16 +65,14 @@ public class VpnServerSelectionActivity extends BraveVpnParentActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(getResources().getString(R.string.change_location));
 
-        TextView automaticText = (TextView) findViewById(R.id.automatic_server_text);
-        automaticText.setText(getResources().getString(R.string.automatic));
-        if (BraveVpnPrefUtils.getServerRegion()
-                .equals(BraveVpnPrefUtils.PREF_BRAVE_VPN_AUTOMATIC)) {
-            automaticText.setCompoundDrawablesWithIntrinsicBounds(
-                    0, 0, R.drawable.ic_checkbox_checked, 0);
-        } else {
-            automaticText.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-        }
-        automaticText.setOnClickListener(
+        mServerRegionList = (RecyclerView) findViewById(R.id.server_selection_list);
+
+        LinearLayout automaticLayout = (LinearLayout) findViewById(R.id.automatic_server_layout);
+        MaterialSwitch automaticSwitch = (MaterialSwitch) findViewById(R.id.automatic_server_switch);
+        boolean isAutomatic = BraveVpnPrefUtils.getServerRegion()
+                .equals(BraveVpnPrefUtils.PREF_BRAVE_VPN_AUTOMATIC);
+        mServerRegionList.setVisibility(isAutomatic ? View.GONE : View.VISIBLE);
+        automaticSwitch.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -86,7 +85,6 @@ public class VpnServerSelectionActivity extends BraveVpnParentActivity {
         mServerSelectionListLayout = (LinearLayout) findViewById(R.id.server_selection_list_layout);
         mServerSelectionProgress = (ProgressBar) findViewById(R.id.server_selection_progress);
 
-        mServerRegionList = (RecyclerView) findViewById(R.id.server_selection_list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mServerRegionList.addItemDecoration(
                 new DividerItemDecoration(
