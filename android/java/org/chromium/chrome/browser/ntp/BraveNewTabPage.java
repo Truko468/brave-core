@@ -162,7 +162,6 @@ public class BraveNewTabPage extends NewTabPage {
                         /* overScrollDisabled= */ false,
                         /* viewportView= */ null,
                         /* actionDelegate= */ null,
-                        HelpAndFeedbackLauncherImpl.getForProfile(profile),
                         mTabStripHeightSupplier);
 
         mFeedSurfaceProvider = feedSurfaceCoordinator;

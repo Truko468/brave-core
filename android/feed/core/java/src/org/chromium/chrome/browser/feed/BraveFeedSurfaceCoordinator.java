@@ -59,7 +59,6 @@ public class BraveFeedSurfaceCoordinator extends FeedSurfaceCoordinator {
             boolean overScrollDisabled,
             @Nullable ViewGroup viewportView,
             FeedActionDelegate actionDelegate,
-            HelpAndFeedbackLauncher helpAndFeedbackLauncher,
             @NonNull ObservableSupplier<Integer> tabStripHeightSupplier) {
         super(
                 activity,
@@ -83,7 +82,6 @@ public class BraveFeedSurfaceCoordinator extends FeedSurfaceCoordinator {
                 overScrollDisabled,
                 viewportView,
                 actionDelegate,
-                helpAndFeedbackLauncher,
                 tabStripHeightSupplier);
     }
 
