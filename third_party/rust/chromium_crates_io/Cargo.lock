@@ -2811,6 +2811,7 @@ dependencies = [
  "cxx",
  "orchard",
  "rand 0.8.5",
+ "zcash_note_encryption",
  "zcash_primitives",
 ]
 
