@@ -19,6 +19,10 @@ import { ContentSettingsType } from 'gen/components/content_settings/core/common
 
 import Toggle from '../../../../../web-components/toggle'
 
+interface WebcompatSettingsMap {[index: ContentSettingsType]: boolean}
+
+const kLearnMoreLink = 'https://support.brave.com/'
+
 interface Props {
   blockedList: Url[]
   allowedList?: Url[]
@@ -45,7 +49,7 @@ function generateWebcompatEntries (invokedWebcompatList: Number[] | undefined) :
 }
 
 function countActiveProtections (
-  webcompatSettings: Map<ContentSettingsType, boolean>,
+  webcompatSettings: WebcompatSettingsMap,
   invokedWebcompatList: number[] | undefined) {
   if (invokedWebcompatList === undefined) {
     return 0;
@@ -193,7 +197,15 @@ function TreeList (props: Props) {
   )
 }
 
-export function ToggleList (props: { webcompatSettings: Map<ContentSettingsType, boolean>, totalBlockedTitle: string }) {
+const handleLearnMoreClick = () => {
+  chrome.tabs.create({ url: kLearnMoreLink, active: true })
+}
+
+export function ToggleList (props: {
+  webcompatSettings: WebcompatSettingsMap,
+  totalBlockedTitle: string,
+  learnMoreText: string
+}) {
   const { siteBlockInfo, getSiteSettings } = React.useContext(DataContext)
   const invokedWebcompatList = siteBlockInfo?.invokedWebcompatList;
   const count = countActiveProtections(props.webcompatSettings, invokedWebcompatList);
@@ -206,6 +218,7 @@ export function ToggleList (props: { webcompatSettings: Map<ContentSettingsType,
     <ScriptsInfo>
       <span id='active-protection-count'>{count}</span>
       <span>{props.totalBlockedTitle}</span>
+      <span><a href="#" onClick={handleLearnMoreClick}>{props.learnMoreText}</a></span>
     </ScriptsInfo>
     <ToggleListContainer>
       {entries.map(([name, value]: [string, number]) => (
