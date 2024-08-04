@@ -56,7 +56,7 @@ function countActiveProtections (
   }
   let count = 0;
   for (const invokedItem of invokedWebcompatList) {
-    if (webcompatSettings[invokedItem] === false) {
+    if (!webcompatSettings[invokedItem]) {
       count++;
     }
   }
@@ -226,7 +226,7 @@ export function ToggleList (props: {
           <span>{name}</span>
           <Toggle
             onChange={(isEnabled: boolean) => handleWebcompatToggle(value, isEnabled)}
-            isOn={props.webcompatSettings[value] !== true}
+            isOn={!props.webcompatSettings[value]}
             size='sm'
             accessibleLabel={name}
             disabled={false}
