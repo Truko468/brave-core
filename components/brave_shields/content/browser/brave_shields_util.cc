@@ -17,6 +17,7 @@
 #include "brave/components/constants/url_constants.h"
 #include "brave/components/content_settings/core/common/content_settings_util.h"
 #include "brave/components/https_upgrade_exceptions/browser/https_upgrade_exceptions_service.h"
+#include "brave/components/webcompat/content/browser/webcompat_exceptions_service.h"
 #include "components/content_settings/core/browser/cookie_settings.h"
 #include "components/content_settings/core/browser/host_content_settings_map.h"
 #include "components/content_settings/core/common/content_settings.h"
@@ -66,6 +67,22 @@ ContentSetting GetDefaultBlockFromControlType(ControlType type) {
 
   return type == ControlType::ALLOW ? CONTENT_SETTING_ALLOW
                                     : CONTENT_SETTING_BLOCK;
+}
+
+ContentSetting ModifyContentSettingIfRedundant(
+    const ContentSettingsPattern& primary_pattern,
+    ContentSettingsType webcompat_settings_type,
+    ContentSetting raw_setting) {
+  auto* svc = webcompat::WebcompatExceptionsService::GetInstance();
+  if (!svc) {
+    return raw_setting;
+  }
+  const auto patterns = svc->GetPatterns(webcompat_settings_type);
+  bool patternExists = std::find(patterns.begin(), patterns.end(),
+                                 primary_pattern) != patterns.end();
+  bool allow = raw_setting == CONTENT_SETTING_ALLOW;
+  bool redundant = (!allow && !patternExists) || (allow && patternExists);
+  return redundant ? CONTENT_SETTING_DEFAULT : raw_setting;
 }
 
 class BraveCookieRules {
@@ -587,7 +604,10 @@ void SetFingerprintingControlType(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_FINGERPRINTING_V2, content_setting);
+      ContentSettingsType::BRAVE_FINGERPRINTING_V2,
+      ModifyContentSettingIfRedundant(
+          primary_pattern, ContentSettingsType::BRAVE_FINGERPRINTING_V2,
+          content_setting));
   if (!map->IsOffTheRecord()) {
     // Only report to P3A if not a guest/incognito profile
     RecordShieldsSettingChanged(local_state);
@@ -867,9 +887,12 @@ void SetWebcompatEnabled(HostContentSettingsMap* map,
 
   ContentSetting setting =
       enabled ? CONTENT_SETTING_ALLOW : CONTENT_SETTING_BLOCK;
-  map->SetContentSettingCustomScope(primary_pattern,
-                                    ContentSettingsPattern::Wildcard(),
-                                    webcompat_settings_type, setting);
+
+  map->SetContentSettingCustomScope(
+      primary_pattern, ContentSettingsPattern::Wildcard(),
+      webcompat_settings_type,
+      ModifyContentSettingIfRedundant(primary_pattern, webcompat_settings_type,
+                                      setting));
   RecordShieldsSettingChanged(local_state);
 }
 

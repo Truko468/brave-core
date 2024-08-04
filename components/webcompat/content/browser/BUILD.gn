@@ -7,6 +7,7 @@ import("//brave/build/config.gni")
 
 source_set("browser") {
   sources = [
+    "webcompat_exceptions_observer.h",
     "webcompat_exceptions_service.cc",
     "webcompat_exceptions_service.h",
   ]
