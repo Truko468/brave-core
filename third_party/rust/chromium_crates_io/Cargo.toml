@@ -204,7 +204,7 @@ path = "../../../../third_party/rust/chromium_crates_io/vendor/syn-1.0.109"
 package = "syn"
 
 [patch.crates-io.syn_v2]
-path = "../../../../third_party/rust/chromium_crates_io/vendor/syn-2.0.71"
+path = "../../../../third_party/rust/chromium_crates_io/vendor/syn-2.0.72"
 package = "syn"
 
 [patch.crates-io.unicode-ident_v1]
