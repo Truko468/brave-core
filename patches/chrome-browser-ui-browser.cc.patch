@@ -1,8 +1,8 @@
 diff --git a/chrome/browser/ui/browser.cc b/chrome/browser/ui/browser.cc
-index 5513b0d21ea63e53088cd815f13b51174bf06d19..9b371cc51a4da61bb61d1383f3564eed261e9fb3 100644
+index 8b53ab304ab2f6dee6eef40a2d1c7fe0b13842ce..eb2379e2efb24e40811d13b4231fe516025cba8e 100644
 --- a/chrome/browser/ui/browser.cc
 +++ b/chrome/browser/ui/browser.cc
-@@ -528,6 +528,7 @@ Browser* Browser::Create(const CreateParams& params) {
+@@ -529,6 +529,7 @@ Browser* Browser::Create(const CreateParams& params) {
    // not possible, e.g. using the wrong profile or during shutdown. The caller
    // should handle this; see e.g. crbug.com/1141608 and crbug.com/1261628.
    CHECK_EQ(CreationStatus::kOk, GetCreationStatusForProfile(params.profile));
@@ -10,7 +10,7 @@ index 5513b0d21ea63e53088cd815f13b51174bf06d19..9b371cc51a4da61bb61d1383f3564eed
    return new Browser(params);
  }
  
-@@ -538,7 +539,7 @@ Browser::Browser(const CreateParams& params)
+@@ -539,7 +540,7 @@ Browser::Browser(const CreateParams& params)
        window_(nullptr),
        tab_strip_model_delegate_(
            std::make_unique<chrome::BrowserTabStripModelDelegate>(this)),
@@ -19,3 +19,12 @@ index 5513b0d21ea63e53088cd815f13b51174bf06d19..9b371cc51a4da61bb61d1383f3564eed
            tab_strip_model_delegate_.get(),
            params.profile,
            params.are_tab_groups_enabled ? TabGroupModelFactory::GetInstance()
+@@ -569,7 +570,7 @@ Browser::Browser(const CreateParams& params)
+       synced_window_delegate_(new BrowserSyncedWindowDelegate(this)),
+       app_controller_(web_app::MaybeCreateAppBrowserController(this)),
+       bookmark_bar_state_(BookmarkBar::HIDDEN),
+-      browser_actions_(new BrowserActions(*this)),
++      browser_actions_(new BraveBrowserActions(*this)),
+       command_controller_(new chrome::BrowserCommandController(this)),
+       tab_group_deletion_dialog_controller_(
+           std::make_unique<tab_groups::DeletionDialogController>(this)),
