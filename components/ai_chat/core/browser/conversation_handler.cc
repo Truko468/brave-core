@@ -233,9 +233,13 @@ void ConversationHandler::SetAssociatedContentDelegate(
   if (archive_content_) {
     associated_content_delegate_ = nullptr;
     archive_content_ = nullptr;
-  } else {
-    CHECK(chat_history_.empty()) << "Cannot associate new content with a "
-                                    "conversation which already has messages";
+  } else if (chat_history_.empty()) {
+    // Cannot associate new content with a conversation which already has
+    // messages but this is ok since we're probably just defaulting this
+    // conversation to be "alongside" this target content (e.g. sidebar). The
+    // service will do the association and we can ignore the request to
+    // associate content.
+    return;
   }
 
   associated_content_delegate_ = delegate;

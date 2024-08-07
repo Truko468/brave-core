@@ -133,11 +133,11 @@ export function AIChatContextProvider(props: React.PropsWithChildren<Props>) {
   const store: AIChatContext = {
     ...context,
     ...props,
-    goPremium: UIHandler.goPremium,
-    managePremium: UIHandler.managePremium,
-    dismissPremiumPrompt: Service.dismissPremiumPrompt,
-    userRefreshPremiumSession: UIHandler.refreshPremiumSession,
-    handleAgreeClick: Service.markAgreementAccepted,
+    goPremium: () => UIHandler.goPremium(),
+    managePremium: () => UIHandler.managePremium(),
+    dismissPremiumPrompt: () => Service.dismissPremiumPrompt(),
+    userRefreshPremiumSession: () => UIHandler.refreshPremiumSession(),
+    handleAgreeClick: () => Service.markAgreementAccepted(),
     uiHandler: UIHandler
   }
 
