@@ -8,7 +8,7 @@ import Button from '@brave/leo/react/button'
 import { getLocale } from '$web-common/locale'
 import AlertCenter from '@brave/leo/react/alertCenter'
 import classnames from '$web-common/classnames'
-import getAPI, * as mojom from '../../api'
+import * as mojom from '../../api'
 import { useConversation } from '../../state/conversation_context'
 import { useAIChat } from '../../state/ai_chat_context'
 import { isLeoModel } from '../../model_utils'
@@ -35,6 +35,8 @@ const SCROLL_BOTTOM_THRESHOLD = 10.0
 function Main() {
   const aiChatContext = useAIChat()
   const conversationContext = useConversation()
+  const [isConversationListOpen, setIsConversationListOpen] = React.useState(false)
+
   const shouldShowPremiumSuggestionForModel =
     aiChatContext.hasAcceptedAgreement &&
     !aiChatContext.isPremiumStatusFetching && // Avoid flash of content
@@ -102,13 +104,21 @@ function Main() {
 
   return (
     <main className={styles.main}>
-      {aiChatContext.isConversationListOpen && (
+      {isConversationListOpen && (
         <div className={styles.conversationList}>
-          <SidebarNav enableBackButton={true} />
+          <SidebarNav
+            enableBackButton={true}
+            isConversationListOpen={isConversationListOpen}
+            setIsConversationListOpen={setIsConversationListOpen}
+          />
         </div>
       )}
-      {context.showAgreementModal && <PrivacyMessage />}
-      <PageTitleHeader />
+      {showAgreementModal && <PrivacyMessage />}
+      <PageTitleHeader
+        isConversationListOpen={isConversationListOpen}
+        setIsConversationListOpen={setIsConversationListOpen}
+        title={aiChatContext.selectedConversationId}
+      />
       <div className={classnames({
         [styles.scroller]: true,
         [styles.flushBottom]: !aiChatContext.hasAcceptedAgreement
@@ -118,7 +128,7 @@ function Main() {
       >
         <AlertCenter position='top-left' className={styles.alertCenter} />
         <div className={styles.conversationContent}>
-          {aiChatContext.isHistoryEnabled &&
+          {/* {aiChatContext.isHistoryEnabled &&
           <ul>
             <li onClick={() => aiChatContext.onSelectConversationId(undefined)}>This page's conversation</li>
           {aiChatContext.visibleConversations.map(conversation => (
@@ -128,7 +138,7 @@ function Main() {
             </li>
           ))}
           </ul>
-          }
+          } */}
           {aiChatContext.hasAcceptedAgreement && <>
             <ModelIntro />
             <ConversationList
