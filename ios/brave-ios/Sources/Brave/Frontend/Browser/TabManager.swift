@@ -1458,7 +1458,7 @@ class TabManager: NSObject {
     // Convert any internal URLs to their real URL for the Recently Closed item
     var fetchedTabURL = tabUrl
     if let url = InternalURL(fetchedTabURL),
-      let actualURL = url.extractedUrlParam ?? url.originalURLFromErrorPage
+      let actualURL = url.extractedUrlParam
     {
       fetchedTabURL = actualURL
     }

@@ -25,6 +25,7 @@
 #include "ios/chrome/browser/history/model/history_service_factory.h"
 #include "ios/chrome/browser/history/model/top_sites_factory.h"
 #include "ios/chrome/browser/history/model/web_history_service_factory.h"
+#include "ios/chrome/browser/https_upgrades/model/https_upgrade_service_factory.h"
 #include "ios/chrome/browser/invalidation/model/ios_chrome_profile_invalidation_provider_factory.h"
 #include "ios/chrome/browser/metrics/model/google_groups_manager_factory.h"
 #include "ios/chrome/browser/optimization_guide/model/optimization_guide_service_factory.h"
@@ -37,6 +38,7 @@
 #include "ios/chrome/browser/plus_addresses/model/plus_address_service_factory.h"
 #include "ios/chrome/browser/plus_addresses/model/plus_address_setting_service_factory.h"
 #include "ios/chrome/browser/power_bookmarks/model/power_bookmark_service_factory.h"
+#include "ios/chrome/browser/prerender/model/prerender_service_factory.h"
 #include "ios/chrome/browser/push_notification/model/push_notification_browser_state_service_factory.h"
 #include "ios/chrome/browser/reading_list/model/reading_list_model_factory.h"
 #include "ios/chrome/browser/safe_browsing/model/safe_browsing_client_factory.h"
@@ -108,12 +110,14 @@ void EnsureBrowserStateKeyedServiceFactoriesBuilt() {
   IOSChromeProfileInvalidationProviderFactory::GetInstance();
   IOSPasskeyModelFactory::GetInstance();
   IOSUserEventServiceFactory::GetInstance();
+  HttpsUpgradeServiceFactory::GetInstance();
   ListFamilyMembersServiceFactory::GetInstance();
   OptimizationGuideServiceFactory::GetInstance();
   ModelTypeStoreServiceFactory::GetInstance();
   PlusAddressServiceFactory::GetInstance();
   PlusAddressSettingServiceFactory::GetInstance();
   PowerBookmarkServiceFactory::GetInstance();
+  PrerenderServiceFactory::GetInstance();
   PushNotificationBrowserStateServiceFactory::GetInstance();
   SupervisedUserServiceFactory::GetInstance();
   SyncServiceFactory::GetInstance();
