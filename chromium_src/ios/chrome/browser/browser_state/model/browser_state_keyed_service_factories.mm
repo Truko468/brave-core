@@ -6,6 +6,7 @@
 #include "ios/chrome/browser/browser_state/model/browser_state_keyed_service_factories.h"
 
 #include "brave/ios/browser/browser_state/brave_browser_state_keyed_service_factories.h"
+#include "ios/chrome/browser/affiliations/model/ios_chrome_affiliation_service_factory.h"
 #include "ios/chrome/browser/autocomplete/model/autocomplete_classifier_factory.h"
 #include "ios/chrome/browser/autocomplete/model/zero_suggest_cache_service_factory.h"
 #include "ios/chrome/browser/autofill/model/autofill_log_router_factory.h"
@@ -113,6 +114,7 @@ void EnsureBrowserStateKeyedServiceFactoriesBuilt() {
   HttpsUpgradeServiceFactory::GetInstance();
   IdentityManagerFactory::GetInstance();
   IOSChromeAccountPasswordStoreFactory::GetInstance();
+  IOSChromeAffiliationServiceFactory::GetInstance();
   IOSChromeBulkLeakCheckServiceFactory::GetInstance();
   IOSChromeFaviconLoaderFactory::GetInstance();
   IOSChromeGCMProfileServiceFactory::GetInstance();
