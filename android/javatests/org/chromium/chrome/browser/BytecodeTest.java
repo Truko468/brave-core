@@ -107,6 +107,7 @@ import org.chromium.chrome.browser.toolbar.ToolbarManager;
 import org.chromium.chrome.browser.toolbar.ToolbarTabController;
 import org.chromium.chrome.browser.toolbar.menu_button.MenuButtonCoordinator;
 import org.chromium.chrome.browser.toolbar.top.NavigationPopup.HistoryDelegate;
+import org.chromium.chrome.browser.toolbar.top.ToggleTabStackButtonCoordinator;
 import org.chromium.chrome.browser.toolbar.top.ToolbarActionModeCallback;
 import org.chromium.chrome.browser.toolbar.top.ToolbarControlContainer;
 import org.chromium.chrome.browser.toolbar.top.ToolbarLayout;
@@ -1197,6 +1198,7 @@ public class BytecodeTest {
                         ThemeColorProvider.class,
                         MenuButtonCoordinator.class,
                         ObservableSupplier.class,
+                        ToggleTabStackButtonCoordinator.class,
                         ObservableSupplier.class,
                         ObservableSupplier.class,
                         Supplier.class,
@@ -1649,7 +1651,6 @@ public class BytecodeTest {
                         "org/chromium/components/embedder_support/view/ContentView",
                         "org/chromium/components/embedder_support/view/BraveContentView",
                         Context.class,
-                        EventOffsetHandler.class,
                         WebContents.class));
         Assert.assertTrue(
                 constructorsMatch(
