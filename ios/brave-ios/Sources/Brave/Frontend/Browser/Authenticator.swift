@@ -30,26 +30,16 @@ class Authenticator {
     }
   }
 
-  private static let maxAuthenticationAttempts = 3
-
   static func handleAuthRequest(
     _ viewController: UIViewController,
     credential: URLCredential?,
-    protectionSpace: URLProtectionSpace,
-    previousFailureCount: Int
+    protectionSpace: URLProtectionSpace
   ) async throws -> LoginData {
     var credential = credential
-    // If there have already been too many login attempts, we'll just fail.
-    if previousFailureCount >= Authenticator.maxAuthenticationAttempts {
-      throw LoginDataError(description: "Too many attempts to open site")
-    }
-
     // If we were passed an initial set of credentials from iOS, try and use them.
     if let proposed = credential {
       if !(proposed.user?.isEmpty ?? true) {
-        if previousFailureCount == 0 {
-          return LoginData(credentials: proposed, protectionSpace: protectionSpace)
-        }
+        return LoginData(credentials: proposed, protectionSpace: protectionSpace)
       } else {
         credential = nil
       }
