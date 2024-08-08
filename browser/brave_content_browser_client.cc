@@ -694,6 +694,32 @@ uint8_t BraveContentBrowserClient::WorkerGetBraveFarblingLevel(
   return BraveFarblingLevel::BALANCED;
 }
 
+base::Token BraveContentBrowserClient::WorkerGetBraveFarblingToken(
+    const GURL& url,
+    content::BrowserContext* browser_context) {
+  HostContentSettingsMap* map =
+      HostContentSettingsMapFactory::GetForProfile(browser_context);
+  auto shields_metadata_value = map->GetWebsiteSetting(
+      url, url, ContentSettingsType::BRAVE_SHIELDS_METADATA);
+  auto* shields_metadata_dict = shields_metadata_value.GetIfDict();
+  if (!shields_metadata_dict) {
+    shields_metadata_value = base::Value(base::Value::Type::DICT);
+    shields_metadata_dict = &shields_metadata_value.GetDict();
+  }
+  base::Token token;
+  if (auto* farbling_token =
+          shields_metadata_dict->FindString("farbling_token")) {
+    token = base::Token::FromString(*farbling_token).value_or(base::Token());
+  } else {
+    token = base::Token::CreateRandom();
+    shields_metadata_dict->Set("farbling_token", token.ToString());
+    map->SetWebsiteSettingDefaultScope(
+        url, url, ContentSettingsType::BRAVE_SHIELDS_METADATA,
+        std::move(shields_metadata_value));
+  }
+  return token;
+}
+
 content::ContentBrowserClient::AllowWebBluetoothResult
 BraveContentBrowserClient::AllowWebBluetooth(
     content::BrowserContext* browser_context,

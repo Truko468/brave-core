@@ -368,6 +368,15 @@ BraveFarblingLevel BraveContentSettingsAgentImpl::GetBraveFarblingLevel(
   }
 }
 
+base::Token BraveContentSettingsAgentImpl::GetBraveFarblingToken() {
+  blink::WebLocalFrame* frame = render_frame()->GetWebFrame();
+  if (content_setting_rules_) {
+    return brave_shields::GetFarblingTokenFromRules(
+        content_setting_rules_->brave_shields_metadata, GetOriginOrURL(frame));
+  }
+  return {};
+}
+
 bool BraveContentSettingsAgentImpl::AllowAutoplay(bool play_requested) {
   blink::WebLocalFrame* frame = render_frame()->GetWebFrame();
   auto origin = frame->GetSecurityOrigin();

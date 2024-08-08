@@ -11,6 +11,7 @@
 #include "base/feature_list.h"
 #include "base/numerics/safe_conversions.h"
 #include "base/strings/string_number_conversions.h"
+#include "base/token.h"
 #include "brave/components/brave_shields/core/common/features.h"
 #include "brave/third_party/blink/renderer/brave_farbling_constants.h"
 #include "brave/third_party/blink/renderer/brave_font_whitelist.h"
@@ -21,6 +22,7 @@
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 #include "third_party/blink/renderer/core/frame/local_dom_window.h"
 #include "third_party/blink/renderer/core/frame/local_frame.h"
+#include "third_party/blink/renderer/core/loader/document_loader.h"
 #include "third_party/blink/renderer/core/workers/worker_or_worklet_global_scope.h"
 #include "third_party/blink/renderer/platform/fonts/font_fallback_list.h"
 #include "third_party/blink/renderer/platform/heap/garbage_collected.h"
@@ -179,12 +181,22 @@ BraveSessionCache::BraveSessionCache(ExecutionContext& context)
   farbling_enabled_ = false;
   farbling_level_ = BraveFarblingLevel::OFF;
   scoped_refptr<const blink::SecurityOrigin> origin;
+  base::Token farbling_token;
   if (auto* window = blink::DynamicTo<blink::LocalDOMWindow>(context)) {
     auto* frame = window->GetFrame();
     if (!frame)
       frame = window->GetDisconnectedFrame();
-    if (frame)
+    if (frame) {
       origin = frame->Tree().Top().GetSecurityContext()->GetSecurityOrigin();
+      if (auto* top_local_frame =
+              blink::DynamicTo<blink::LocalFrame>(frame->Tree().Top())) {
+        if (auto* document_loader =
+                top_local_frame->Loader().GetDocumentLoader()) {
+          farbling_token =
+              document_loader->GetContentSettings()->farbling_token;
+        }
+      }
+    }
   } else {
     origin = context.GetSecurityContext().GetSecurityOrigin();
   }
@@ -210,12 +222,11 @@ BraveSessionCache::BraveSessionCache(ExecutionContext& context)
                       // our farbling tests
       &session_key_);
 
-  crypto::HMAC h(crypto::HMAC::SHA256);
-  CHECK(h.Init(reinterpret_cast<const unsigned char*>(&session_key_),
-               sizeof session_key_));
-  CHECK(h.Sign(domain, domain_key_, sizeof domain_key_));
   settings_client_ = GetContentSettingsClientFor(&context, true);
   if (settings_client_ != nullptr) {
+    if (farbling_token.is_zero()) {
+      farbling_token = settings_client_->GetBraveFarblingToken();
+    }
     auto raw_farbling_level = settings_client_->GetBraveFarblingLevel(
         ContentSettingsType::BRAVE_WEBCOMPAT_NONE);
     farbling_level_ =
@@ -226,6 +237,18 @@ BraveSessionCache::BraveSessionCache(ExecutionContext& context)
                    ? BraveFarblingLevel::OFF
                    : BraveFarblingLevel::BALANCED);
   }
+
+  if (!farbling_token.is_zero()) {
+    LOG(ERROR) << "got farbling token! " << farbling_token.ToString();
+    session_key_ ^= farbling_token.high();
+  } else {
+    LOG(ERROR) << "no farbling token\n" << base::debug::StackTrace().ToString();
+  }
+
+  crypto::HMAC h(crypto::HMAC::SHA256);
+  CHECK(h.Init(reinterpret_cast<const unsigned char*>(&session_key_),
+               sizeof session_key_));
+  CHECK(h.Sign(domain, domain_key_, sizeof domain_key_));
   farbling_enabled_ = true;
 }
 

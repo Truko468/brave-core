@@ -111,4 +111,24 @@ ShieldsSettingCounts GetAdsSettingCountFromRules(
   return result;
 }
 
+base::Token GetFarblingTokenFromRules(const ContentSettingsForOneType& rules,
+                                      const GURL& primary_url) {
+  ContentSettingPatternSource fp_rule;
+  for (const auto& rule : rules) {
+    if (rule.primary_pattern.Matches(primary_url)) {
+      const auto* dict = rule.setting_value.GetIfDict();
+      if (!dict) {
+        return {};
+      }
+      const auto* farbling_token = dict->FindString("farbling_token");
+      if (!farbling_token) {
+        return {};
+      }
+      return base::Token::FromString(*farbling_token).value_or(base::Token());
+    }
+  }
+
+  return {};
+}
+
 }  // namespace brave_shields
