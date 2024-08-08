@@ -188,16 +188,7 @@ class RunableConfiguration:
       assert bench_out_dir
       return custom_handler(bench_out_dir)
 
-    if self.binary.profile_dir:
-      args.append(f'--profile-dir={self.binary.profile_dir}')
-
-    if self.binary.telemetry_browser_type() is not None:
-      args.append(f'--browser={self.binary.telemetry_browser_type()}')
-    elif self.binary.binary_path is not None:
-      args.append('--browser=exact')
-      args.append(f'--browser-executable={self.binary.binary_path}')
-    else:
-      raise RuntimeError('Bad binary spec, no browser to run')
+    args.extend(self.binary.get_run_benchmark_args())
 
     args.append('--pageset-repeat=%d' % benchmark_config.pageset_repeat)
 
@@ -215,9 +206,7 @@ class RunableConfiguration:
 
     extra_browser_args = deepcopy(config.extra_browser_args)
     extra_browser_args.extend(config.browser_type.extra_browser_args)
-    if self.binary.field_trial_config:
-      extra_browser_args.append(
-          f'--field-trial-config={self.binary.field_trial_config.filename}')
+    extra_browser_args.extend(self.binary.get_extra_browser_args())
 
     args.extend(config.browser_type.extra_benchmark_args)
     args.extend(config.extra_benchmark_args)

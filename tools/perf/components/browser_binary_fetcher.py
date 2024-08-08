@@ -6,7 +6,7 @@
 # pylint: disable=too-few-public-methods
 
 import os
-from typing import Optional
+from typing import List, Optional
 
 import components.path_util as path_util
 
@@ -56,6 +56,26 @@ class BrowserBinary:
       raise RuntimeError('No matching browser-type found ' +
                          self.android_package)
 
+  def get_run_benchmark_args(self) -> List[str]:
+    args = []
+    if self.profile_dir:
+      args.append(f'--profile-dir={self.profile_dir}')
+
+    if self.telemetry_browser_type() is not None:
+      args.append(f'--browser={self.telemetry_browser_type()}')
+    elif self.binary_path is not None:
+      args.append('--browser=exact')
+      args.append(f'--browser-executable={self.binary_path}')
+    else:
+      raise RuntimeError('Bad binary spec, no browser to run')
+
+    return args
+
+  def get_extra_browser_args(self) -> List[str]:
+    args = []
+    if self.field_trial_config:
+      args.append(f'--field-trial-config={self.field_trial_config.filename}')
+    return args
 
   def __str__(self) -> str:
     if self.binary_path:
