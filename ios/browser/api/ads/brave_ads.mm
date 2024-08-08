@@ -1638,40 +1638,42 @@ constexpr NSString* kComponentUpdaterMetadataPrefKey =
       base::BindOnce(completion));
 }
 
-- (void)toggleLikeAd:(NSString*)creativeInstanceId
-        advertiserId:(NSString*)advertiserId
-             segment:(NSString*)segment {
+- (void)toggleLikeAd:(BraveAdsAdType)adType
+    creativeInstanceId:(NSString*)creativeInstanceId
+         creativeSetId:(NSString*)creativeSetId
+          advertiserId:(NSString*)advertiserId
+               segment:(NSString*)segment {
   if (![self isServiceRunning]) {
     return;
   }
 
-  brave_ads::AdHistoryItemInfo ad_history_item;
-  ad_history_item.type = brave_ads::AdType::kNotificationAd;
-  ad_history_item.creative_instance_id =
-      base::SysNSStringToUTF8(creativeInstanceId);
-  ad_history_item.advertiser_id = base::SysNSStringToUTF8(advertiserId);
-  ad_history_item.segment = base::SysNSStringToUTF8(segment);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(adType);
+  reaction.creative_instance_id = base::SysNSStringToUTF8(creativeInstanceId);
+  reaction.creative_set_id = base::SysNSStringToUTF8(creativeSetId);
+  reaction.advertiser_id = base::SysNSStringToUTF8(advertiserId);
+  reaction.segment = base::SysNSStringToUTF8(segment);
 
-  ads->ToggleLikeAd(brave_ads::AdHistoryItemToValue(ad_history_item),
-                    /*intentional*/ base::DoNothing());
+  ads->ToggleLikeAd(std::move(reaction), /*intentional*/ base::DoNothing());
 }
 
-- (void)toggleDislikeAd:(NSString*)creativeInstanceId
+- (void)toggleDislikeAd:(BraveAdsAdType)adType
+     creativeInstanceId:(NSString*)creativeInstanceId
+          creativeSetId:(NSString*)creativeSetId
            advertiserId:(NSString*)advertiserId
                 segment:(NSString*)segment {
   if (![self isServiceRunning]) {
     return;
   }
 
-  brave_ads::AdHistoryItemInfo ad_history_item;
-  ad_history_item.type = brave_ads::AdType::kNotificationAd;
-  ad_history_item.creative_instance_id =
-      base::SysNSStringToUTF8(creativeInstanceId);
-  ad_history_item.advertiser_id = base::SysNSStringToUTF8(advertiserId);
-  ad_history_item.segment = base::SysNSStringToUTF8(segment);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(adType);
+  reaction.creative_instance_id = base::SysNSStringToUTF8(creativeInstanceId);
+  reaction.creative_set_id = base::SysNSStringToUTF8(creativeSetId);
+  reaction.advertiser_id = base::SysNSStringToUTF8(advertiserId);
+  reaction.segment = base::SysNSStringToUTF8(segment);
 
-  ads->ToggleDislikeAd(brave_ads::AdHistoryItemToValue(ad_history_item),
-                       /*intentional*/ base::DoNothing());
+  ads->ToggleDislikeAd(std::move(reaction), /*intentional*/ base::DoNothing());
 }
 
 - (void)clearData:(void (^)())completion {

@@ -24,6 +24,8 @@
 #include "brave/components/brave_ads/core/mojom/brave_ads.mojom-forward.h"
 #include "brave/components/brave_ads/core/public/ads_util.h"
 #include "brave/components/brave_ads/core/public/history/ad_history_feature.h"
+#include "brave/components/brave_ads/core/public/history/ad_history_item_info.h"
+#include "brave/components/brave_ads/core/public/history/ad_history_value_util.h"
 #include "brave/components/brave_ads/core/public/prefs/pref_names.h"
 #include "brave/components/brave_ads/core/public/targeting/geographical/subdivision/supported_subdivisions.h"
 #include "brave/components/brave_news/common/pref_names.h"
@@ -1154,9 +1156,19 @@ void RewardsDOMHandler::ToggleAdThumbUp(const base::Value::List& args) {
 
   AllowJavascript();
 
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
   ads_service_->ToggleLikeAd(
-      dict->Clone(), base::BindOnce(&RewardsDOMHandler::OnToggleAdThumbUp,
-                                    weak_factory_.GetWeakPtr()));
+      std::move(reaction), base::BindOnce(&RewardsDOMHandler::OnToggleAdThumbUp,
+                                          weak_factory_.GetWeakPtr()));
 }
 
 void RewardsDOMHandler::OnToggleAdThumbUp(const bool success) {
@@ -1182,9 +1194,20 @@ void RewardsDOMHandler::ToggleAdThumbDown(const base::Value::List& args) {
 
   AllowJavascript();
 
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
   ads_service_->ToggleDislikeAd(
-      dict->Clone(), base::BindOnce(&RewardsDOMHandler::OnToggleAdThumbDown,
-                                    weak_factory_.GetWeakPtr()));
+      std::move(reaction),
+      base::BindOnce(&RewardsDOMHandler::OnToggleAdThumbDown,
+                     weak_factory_.GetWeakPtr()));
 }
 
 void RewardsDOMHandler::OnToggleAdThumbDown(const bool success) {
@@ -1210,9 +1233,19 @@ void RewardsDOMHandler::ToggleAdOptIn(const base::Value::List& args) {
 
   AllowJavascript();
 
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
   ads_service_->ToggleLikeSegment(
-      dict->Clone(), base::BindOnce(&RewardsDOMHandler::OnToggleAdOptIn,
-                                    weak_factory_.GetWeakPtr()));
+      std::move(reaction), base::BindOnce(&RewardsDOMHandler::OnToggleAdOptIn,
+                                          weak_factory_.GetWeakPtr()));
 }
 
 void RewardsDOMHandler::OnToggleAdOptIn(const bool success) {
@@ -1238,9 +1271,19 @@ void RewardsDOMHandler::ToggleAdOptOut(const base::Value::List& args) {
 
   AllowJavascript();
 
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
   ads_service_->ToggleDislikeSegment(
-      dict->Clone(), base::BindOnce(&RewardsDOMHandler::OnToggleAdOptOut,
-                                    weak_factory_.GetWeakPtr()));
+      std::move(reaction), base::BindOnce(&RewardsDOMHandler::OnToggleAdOptOut,
+                                          weak_factory_.GetWeakPtr()));
 }
 
 void RewardsDOMHandler::OnToggleAdOptOut(const bool success) {
@@ -1266,7 +1309,17 @@ void RewardsDOMHandler::ToggleSavedAd(const base::Value::List& args) {
 
   AllowJavascript();
 
-  ads_service_->ToggleSaveAd(dict->Clone(),
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
+  ads_service_->ToggleSaveAd(std::move(reaction),
                              base::BindOnce(&RewardsDOMHandler::OnToggleSavedAd,
                                             weak_factory_.GetWeakPtr()));
 }
@@ -1294,9 +1347,19 @@ void RewardsDOMHandler::ToggleFlaggedAd(const base::Value::List& args) {
 
   AllowJavascript();
 
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
   ads_service_->ToggleMarkAdAsInappropriate(
-      dict->Clone(), base::BindOnce(&RewardsDOMHandler::OnToggleFlaggedAd,
-                                    weak_factory_.GetWeakPtr()));
+      std::move(reaction), base::BindOnce(&RewardsDOMHandler::OnToggleFlaggedAd,
+                                          weak_factory_.GetWeakPtr()));
 }
 
 void RewardsDOMHandler::OnToggleFlaggedAd(const bool success) {

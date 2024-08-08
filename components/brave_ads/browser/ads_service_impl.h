@@ -263,17 +263,17 @@ class AdsServiceImpl final : public AdsService,
                     base::Time to_time,
                     GetAdHistoryForUICallback callback) override;
 
-  void ToggleLikeAd(base::Value::Dict value,
+  void ToggleLikeAd(mojom::ReactionInfoPtr reaction,
                     ToggleReactionCallback callback) override;
-  void ToggleDislikeAd(base::Value::Dict value,
+  void ToggleDislikeAd(mojom::ReactionInfoPtr reaction,
                        ToggleReactionCallback callback) override;
-  void ToggleLikeSegment(base::Value::Dict value,
+  void ToggleLikeSegment(mojom::ReactionInfoPtr reaction,
                          ToggleReactionCallback callback) override;
-  void ToggleDislikeSegment(base::Value::Dict value,
+  void ToggleDislikeSegment(mojom::ReactionInfoPtr reaction,
                             ToggleReactionCallback callback) override;
-  void ToggleSaveAd(base::Value::Dict value,
+  void ToggleSaveAd(mojom::ReactionInfoPtr reaction,
                     ToggleReactionCallback callback) override;
-  void ToggleMarkAdAsInappropriate(base::Value::Dict value,
+  void ToggleMarkAdAsInappropriate(mojom::ReactionInfoPtr reaction,
                                    ToggleReactionCallback callback) override;
 
   void NotifyTabTextContentDidChange(int32_t tab_id,

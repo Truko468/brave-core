@@ -129,11 +129,15 @@ OBJC_EXPORT
 - (void)purgeOrphanedAdEventsForType:(BraveAdsAdType)adType
                           completion:(void (^)(BOOL success))completion;
 
-- (void)toggleLikeAd:(NSString*)creativeInstanceId
-        advertiserId:(NSString*)advertiserId
-             segment:(NSString*)segment;
+- (void)toggleLikeAd:(BraveAdsAdType)adType
+    creativeInstanceId:(NSString*)creativeInstanceId
+         creativeSetId:(NSString*)creativeSetId
+          advertiserId:(NSString*)advertiserId
+               segment:(NSString*)segment;
 
-- (void)toggleDislikeAd:(NSString*)creativeInstanceId
+- (void)toggleDislikeAd:(BraveAdsAdType)adType
+     creativeInstanceId:(NSString*)creativeInstanceId
+          creativeSetId:(NSString*)creativeSetId
            advertiserId:(NSString*)advertiserId
                 segment:(NSString*)segment;
 

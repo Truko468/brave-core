@@ -31,10 +31,13 @@ TEST_F(BraveAdsMarkedAsInappropriateExclusionRuleTest, ShouldInclude) {
 
 TEST_F(BraveAdsMarkedAsInappropriateExclusionRuleTest, ShouldExclude) {
   // Arrange
+  auto reaction = mojom::ReactionInfo::New();
+  reaction->creative_set_id = test::kCreativeSetId;
+  GetReactions().ToggleMarkAdAsInappropriate(std::move(reaction),
+                                             /*intentional*/ base::DoNothing());
+
   CreativeAdInfo creative_ad;
   creative_ad.creative_set_id = test::kCreativeSetId;
-
-  GetReactions().ToggleMarkAdAsInappropriate(test::kCreativeSetId);
 
   // Act & Assert
   EXPECT_FALSE(exclusion_rule_.ShouldInclude(creative_ad).has_value());

@@ -25,7 +25,6 @@
 #include "brave/components/brave_ads/core/internal/legacy_migration/confirmations/legacy_confirmation_migration.h"
 #include "brave/components/brave_ads/core/internal/user_engagement/ad_events/ad_events.h"
 #include "brave/components/brave_ads/core/public/ad_units/notification_ad/notification_ad_info.h"
-#include "brave/components/brave_ads/core/public/history/ad_history_value_util.h"
 
 namespace brave_ads {
 
@@ -253,64 +252,59 @@ void AdsImpl::GetAdHistory(const base::Time from_time,
   AdHistoryManager::GetForUI(from_time, to_time, std::move(callback));
 }
 
-void AdsImpl::ToggleLikeAd(const base::Value::Dict& value,
+void AdsImpl::ToggleLikeAd(mojom::ReactionInfoPtr reaction,
                            ToggleReactionCallback callback) {
   if (!is_initialized_) {
     return std::move(callback).Run(/*success=*/false);
   }
 
-  AdHistoryManager::GetInstance().LikeAd(AdHistoryItemFromValue(value),
-                                         std::move(callback));
+  GetReactions().ToggleLikeAd(std::move(reaction), std::move(callback));
 }
 
-void AdsImpl::ToggleDislikeAd(const base::Value::Dict& value,
+void AdsImpl::ToggleDislikeAd(mojom::ReactionInfoPtr reaction,
                               ToggleReactionCallback callback) {
   if (!is_initialized_) {
     return std::move(callback).Run(/*success=*/false);
   }
 
-  AdHistoryManager::GetInstance().DislikeAd(AdHistoryItemFromValue(value),
-                                            std::move(callback));
+  GetReactions().ToggleDislikeAd(std::move(reaction), std::move(callback));
 }
 
-void AdsImpl::ToggleLikeSegment(const base::Value::Dict& value,
+void AdsImpl::ToggleLikeSegment(mojom::ReactionInfoPtr reaction,
                                 ToggleReactionCallback callback) {
   if (!is_initialized_) {
     return std::move(callback).Run(/*success=*/false);
   }
 
-  AdHistoryManager::GetInstance().LikeSegment(AdHistoryItemFromValue(value),
-                                              std::move(callback));
+  GetReactions().ToggleLikeSegment(std::move(reaction), std::move(callback));
 }
 
-void AdsImpl::ToggleDislikeSegment(const base::Value::Dict& value,
+void AdsImpl::ToggleDislikeSegment(mojom::ReactionInfoPtr reaction,
                                    ToggleReactionCallback callback) {
   if (!is_initialized_) {
     return std::move(callback).Run(/*success=*/false);
   }
 
-  AdHistoryManager::GetInstance().DislikeSegment(AdHistoryItemFromValue(value),
-                                                 std::move(callback));
+  GetReactions().ToggleDislikeSegment(std::move(reaction), std::move(callback));
 }
 
-void AdsImpl::ToggleSaveAd(const base::Value::Dict& value,
+void AdsImpl::ToggleSaveAd(mojom::ReactionInfoPtr reaction,
                            ToggleReactionCallback callback) {
   if (!is_initialized_) {
     return std::move(callback).Run(/*success=*/false);
   }
 
-  AdHistoryManager::GetInstance().ToggleSaveAd(AdHistoryItemFromValue(value),
-                                               std::move(callback));
+  GetReactions().ToggleSaveAd(std::move(reaction), std::move(callback));
 }
 
-void AdsImpl::ToggleMarkAdAsInappropriate(const base::Value::Dict& value,
+void AdsImpl::ToggleMarkAdAsInappropriate(mojom::ReactionInfoPtr reaction,
                                           ToggleReactionCallback callback) {
   if (!is_initialized_) {
     return std::move(callback).Run(/*success=*/false);
   }
 
-  AdHistoryManager::GetInstance().ToggleMarkAdAsInappropriate(
-      AdHistoryItemFromValue(value), std::move(callback));
+  GetReactions().ToggleMarkAdAsInappropriate(std::move(reaction),
+                                             std::move(callback));
 }
 
 ///////////////////////////////////////////////////////////////////////////////

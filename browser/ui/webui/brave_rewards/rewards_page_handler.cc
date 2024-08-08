@@ -19,6 +19,7 @@
 #include "brave/browser/brave_rewards/rewards_service_factory.h"
 #include "brave/components/brave_ads/browser/ads_service.h"
 #include "brave/components/brave_ads/core/public/history/ad_history_feature.h"
+#include "brave/components/brave_ads/core/public/history/ad_history_value_util.h"
 #include "brave/components/brave_ads/core/public/prefs/pref_names.h"
 #include "brave/components/brave_ads/core/public/targeting/geographical/subdivision/supported_subdivisions.h"
 #include "brave/components/brave_news/common/pref_names.h"
@@ -357,7 +358,17 @@ void RewardsPageHandler::ToggleAdLike(const std::string& history_item,
     return;
   }
 
-  ads_service_->ToggleLikeAd(std::move(*dict),
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
+  ads_service_->ToggleLikeAd(std::move(reaction),
                              base::IgnoreArgs<bool>(std::move(callback)));
 }
 
@@ -369,7 +380,17 @@ void RewardsPageHandler::ToggleAdDislike(const std::string& history_item,
     return;
   }
 
-  ads_service_->ToggleDislikeAd(std::move(*dict),
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
+  ads_service_->ToggleDislikeAd(std::move(reaction),
                                 base::IgnoreArgs<bool>(std::move(callback)));
 }
 
@@ -382,8 +403,18 @@ void RewardsPageHandler::ToggleAdInappropriate(
     return;
   }
 
+  // TODO(tmancey): Decouple to `BuildReaction`.
+  const brave_ads::AdHistoryItemInfo ad_history_item =
+      brave_ads::AdHistoryItemFromValue(*dict);
+  auto reaction = brave_ads::mojom::ReactionInfo::New();
+  reaction->type = static_cast<brave_ads::mojom::AdType>(ad_history_item.type);
+  reaction->creative_instance_id = ad_history_item.creative_instance_id;
+  reaction->creative_set_id = ad_history_item.creative_set_id;
+  reaction->advertiser_id = ad_history_item.advertiser_id;
+  reaction->segment = ad_history_item.segment;
+
   ads_service_->ToggleMarkAdAsInappropriate(
-      std::move(*dict), base::IgnoreArgs<bool>(std::move(callback)));
+      std::move(reaction), base::IgnoreArgs<bool>(std::move(callback)));
 }
 
 void RewardsPageHandler::EnableRewards(const std::string& country_code,

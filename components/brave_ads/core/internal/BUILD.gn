@@ -1157,6 +1157,7 @@ static_library("internal") {
     "user_engagement/conversions/types/verifiable_conversion/verifiable_conversion_info.h",
     "user_engagement/reactions/reactions.cc",
     "user_engagement/reactions/reactions.h",
+    "user_engagement/reactions/reactions_observer.h",
     "user_engagement/reactions/reactions_type_util.cc",
     "user_engagement/reactions/reactions_type_util.h",
     "user_engagement/reactions/reactions_value_util.cc",

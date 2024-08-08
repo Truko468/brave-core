@@ -10,8 +10,10 @@
 #include <set>
 #include <string>
 
-#include "brave/components/brave_ads/core/internal/history/ad_history_manager_observer.h"
-#include "brave/components/brave_ads/core/mojom/brave_ads.mojom-shared.h"
+#include "base/observer_list.h"
+#include "brave/components/brave_ads/browser/ads_service_callback.h"
+#include "brave/components/brave_ads/core/internal/user_engagement/reactions/reactions_observer.h"
+#include "brave/components/brave_ads/core/mojom/brave_ads.mojom-forward.h"
 #include "brave/components/brave_ads/core/public/account/confirmations/confirmation_type.h"
 
 namespace brave_ads {
@@ -26,7 +28,7 @@ using ReactionSet = std::set</*id*/ std::string>;
 
 struct AdHistoryItemInfo;
 
-class Reactions final : public AdHistoryManagerObserver {
+class Reactions final {
  public:
   Reactions();
 
@@ -36,24 +38,30 @@ class Reactions final : public AdHistoryManagerObserver {
   Reactions(Reactions&&) noexcept = delete;
   Reactions& operator=(Reactions&&) noexcept = delete;
 
-  ~Reactions() override;
+  ~Reactions();
 
-  void ToggleLikeAd(const std::string& advertiser_id);
-  void ToggleDislikeAd(const std::string& advertiser_id);
+  void ToggleLikeAd(mojom::ReactionInfoPtr reaction,
+                    ToggleReactionCallback callback);
+  void ToggleDislikeAd(mojom::ReactionInfoPtr reaction,
+                       ToggleReactionCallback callback);
   mojom::ReactionType AdReactionTypeForId(
       const std::string& advertiser_id) const;
   const ReactionMap& Ads() const { return ad_reactions_; }
 
-  void ToggleLikeSegment(const std::string& segment);
-  void ToggleDislikeSegment(const std::string& segment);
+  void ToggleLikeSegment(mojom::ReactionInfoPtr reaction,
+                         ToggleReactionCallback callback);
+  void ToggleDislikeSegment(mojom::ReactionInfoPtr reaction,
+                            ToggleReactionCallback callback);
   mojom::ReactionType SegmentReactionTypeForId(
       const std::string& segment) const;
   const ReactionMap& Segments() const { return segment_reactions_; }
 
-  void ToggleSaveAd(const std::string& creative_instance_id);
+  void ToggleSaveAd(mojom::ReactionInfoPtr reaction,
+                    ToggleReactionCallback callback);
   bool IsAdSaved(const std::string& creative_instance_id) const;
 
-  void ToggleMarkAdAsInappropriate(const std::string& creative_set_id);
+  void ToggleMarkAdAsInappropriate(mojom::ReactionInfoPtr reaction,
+                                   ToggleReactionCallback callback);
   bool IsAdMarkedAsInappropriate(const std::string& creative_set_id) const;
 
  private:
@@ -63,22 +71,23 @@ class Reactions final : public AdHistoryManagerObserver {
   void LoadMarkedAsInappropriate();
   void Load();
 
-  static void Deposit(const AdHistoryItemInfo& ad_history_item,
+  static void Deposit(const mojom::ReactionInfo* reaction,
                       ConfirmationType confirmation_type);
 
-  // AdHistoryManagerObserver:
-  void OnDidLikeAd(const AdHistoryItemInfo& ad_history_item) override;
-  void OnDidDislikeAd(const AdHistoryItemInfo& ad_history_item) override;
-  void OnDidLikeSegment(const AdHistoryItemInfo& ad_history_item) override;
-  void OnDidDislikeSegment(const AdHistoryItemInfo& ad_history_item) override;
-  void OnDidToggleSaveAd(const AdHistoryItemInfo& ad_history_item) override;
-  void OnDidToggleMarkAdAsInappropriate(
-      const AdHistoryItemInfo& ad_history_item) override;
+  void NotifyDidLikeAd(const std::string& advertiser_id) const;
+  void NotifyDidDislikeAd(const std::string& advertiser_id) const;
+  void NotifyDidLikeSegment(const std::string& segment) const;
+  void NotifyDidDislikeSegment(const std::string& segment) const;
+  void NotifyDidToggleSaveAd(const std::string& creative_instance_id) const;
+  void NotifyDidToggleMarkAdAsInappropriate(
+      const std::string& creative_set) const;
 
   ReactionMap ad_reactions_;
   ReactionMap segment_reactions_;
   ReactionSet saved_ads_;
   ReactionSet marked_as_inappropriate_;
+
+  base::ObserverList<ReactionsObserver> observers_;
 };
 
 }  // namespace brave_ads
