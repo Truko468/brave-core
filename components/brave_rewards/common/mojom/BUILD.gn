@@ -7,6 +7,7 @@ import("//mojo/public/tools/bindings/mojom.gni")
 
 mojom("mojom") {
   generate_java = true
+  generate_legacy_js_bindings = true
 
   sources = [
     "rewards.mojom",
@@ -17,6 +18,8 @@ mojom("mojom") {
 }
 
 mojom("engine") {
+  generate_legacy_js_bindings = true
+
   sources = [ "rewards_engine.mojom" ]
 
   public_deps = [ "//mojo/public/mojom/base" ]

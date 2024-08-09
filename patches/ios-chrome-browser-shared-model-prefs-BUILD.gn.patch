@@ -1,0 +1,12 @@
+diff --git a/ios/chrome/browser/shared/model/prefs/BUILD.gn b/ios/chrome/browser/shared/model/prefs/BUILD.gn
+index cc81d0db086fbf9ae711b41b70a30fa564fa7a44..c45c845a258c92b436b853f054c6900136b940e7 100644
+--- a/ios/chrome/browser/shared/model/prefs/BUILD.gn
++++ b/ios/chrome/browser/shared/model/prefs/BUILD.gn
+@@ -125,6 +125,7 @@ source_set("browser_prefs") {
+     "//ios/web/common:features",
+     "//ui/base",
+   ]
++  deps += [ "//brave/components/p3a:buildflags" ]
+ }
+ 
+ source_set("unit_tests") {

@@ -37,6 +37,7 @@ if (!is_android && !is_ios) {
 
 if (enable_extensions) {
   brave_chrome_common_sources += [
+    "//brave/common/extensions/api/generated_includes.h",
     "//brave/common/extensions/brave_extensions_api_provider.cc",
     "//brave/common/extensions/brave_extensions_api_provider.h",
     "//brave/common/extensions/brave_extensions_client.cc",
@@ -44,6 +45,7 @@ if (enable_extensions) {
   ]
 
   brave_chrome_common_deps += [
+    "//brave/common/extensions/api",
     "//brave/components/brave_component_updater/browser",
     "//brave/components/https_upgrade_exceptions/browser",
     "//components/component_updater",
