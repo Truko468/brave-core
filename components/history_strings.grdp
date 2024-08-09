@@ -131,6 +131,9 @@
   <message name="IDS_HISTORY_EMBEDDINGS_PROMO_BODY" desc="On the history page, the body text of the promo for history search powered by AI.">
     Using everyday language, you can search your browsing history using phrases like "pizza places near me" or “family-friendly parks downtown". Your searches, best matches, and their page contents are sent to Brave and may be seen by human reviewers to improve this feature. <ph name="BEGIN_LINK">&lt;a target="_blank" href="$1"&gt;</ph>Manage your history search setting<ph name="END_LINK">&lt;/a&gt;</ph>
   </message>
+  <message name="IDS_HISTORY_EMBEDDINGS_SHOW_BY_ARIA_LABEL" desc="On the history page, the accessibility label on the menu to select whether to filter results grouped by date or by group.">
+    Filter
+  </message>
   <message name="IDS_HISTORY_EMBEDDINGS_SHOW_BY_DATE" desc="On the history page, the label on the option to show history results grouped by date.">
     Show by date
   </message>
@@ -185,7 +188,7 @@
     Remove from lists
   </message>
   <message name="IDS_PRODUCT_SPECIFICATIONS_INFO" desc="Info disclaimer text for product specifications tab in history." translateable="false">
-    Tabs you delete from your product specifications tables will still show up in your Brave history.
+    Tabs you delete from your Brave history will still show up in your product specifications tables
   </message>
   <message name="IDS_PRODUCT_SPECIFICATIONS_MENU_ARIA_LABEL" desc="Aria label for menu button for a row in Product Specifications history" translateable="false">
     More actions for product set <ph name="PRODUCT_SPECIFICATIONS_SET_NAME"><ex>e-bikes</ex>$1</ph>

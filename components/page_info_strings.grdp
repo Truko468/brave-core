@@ -212,8 +212,8 @@
       <message name="IDS_PAGE_INFO_CERTIFICATE_IS_VALID" desc="Title of the certificate area in the Page Info bubble, shown when a HTTPS site is loaded with a valid certificate.">
         Certificate is valid
       </message>
-      <message name="IDS_PAGE_INFO_CERTIFICATE_IS_NOT_VALID" desc="Title of the certificate area in the Page Info bubble, shown when a HTTPS site is loaded with an invalid certificate.">
-        Certificate is not valid
+      <message name="IDS_PAGE_INFO_CERTIFICATE_DETAILS" desc="Title of the certificate area in the Page Info bubble, shown when a HTTPS site is loaded with an invalid certificate.">
+        Certificate details
       </message>
       <message name="IDS_PAGE_INFO_CERTIFICATE_VALID_LINK_TOOLTIP" desc="The text of the tooltip on IDS_PAGE_INFO_CERTIFICATE_VALID_LINK.">
         Show certificate (issued by <ph name="ISSUER">$1<ex>Let's Encrypt X3</ex></ph>)
@@ -492,6 +492,9 @@
     </message>
     <message name="IDS_PAGE_INFO_MICROPHONE_SYSTEM_SETTINGS_DESCRIPTION" desc="The description for the microphone permission with a link to system settings.">
         To use your microphone, give Brave access in <ph name="LINK">$1<ex>system settings</ex></ph>.
+    </message>
+    <message name="IDS_PAGE_INFO_LOCATION_SYSTEM_SETTINGS_DESCRIPTION" desc="The description for the location permission with a link to system settings.">
+        To use your location, give Brave access in <ph name="LINK">$1<ex>system settings</ex></ph>.
     </message>
     <message name="IDS_PAGE_INFO_SETTINGS_OF_A_SYSTEM_LINK" desc="This is the text of the link pointing to settings of a system. This appears under a permission in the Page Info bubble if the permission is blocked on the system level.">
         system settings
