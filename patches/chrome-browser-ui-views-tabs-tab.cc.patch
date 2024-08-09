@@ -1,8 +1,8 @@
 diff --git a/chrome/browser/ui/views/tabs/tab.cc b/chrome/browser/ui/views/tabs/tab.cc
-index 80dc74bc56db4b188e2f29593d2f0354389c25d0..91a874f9095024a9fce14602905e2fcfe8f53843 100644
+index 5fbd45885317b1c9698984492035c119c61b1300..837bcf573a13032b09ed046166e19dc95ace7f22 100644
 --- a/chrome/browser/ui/views/tabs/tab.cc
 +++ b/chrome/browser/ui/views/tabs/tab.cc
-@@ -311,6 +311,7 @@ void Tab::Layout(PassKey) {
+@@ -316,6 +316,7 @@ void Tab::Layout(PassKey) {
    // indicator, but visually it will be smaller at kFaviconSize wide.
    gfx::Rect favicon_bounds(start, contents_rect.y(), 0, 0);
    if (showing_icon_) {
@@ -10,7 +10,7 @@ index 80dc74bc56db4b188e2f29593d2f0354389c25d0..91a874f9095024a9fce14602905e2fcf
      if (center_icon_) {
        // When centering the favicon, the favicon is allowed to escape the normal
        // contents rect.
-@@ -414,6 +415,7 @@ void Tab::Layout(PassKey) {
+@@ -415,6 +416,7 @@ void Tab::Layout(PassKey) {
      int title_right = contents_rect.right();
      if (showing_alert_indicator_) {
        title_right = alert_indicator_button_->x() - after_title_padding;

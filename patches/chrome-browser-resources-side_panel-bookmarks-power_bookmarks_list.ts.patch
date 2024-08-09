@@ -1,5 +1,5 @@
 diff --git a/chrome/browser/resources/side_panel/bookmarks/power_bookmarks_list.ts b/chrome/browser/resources/side_panel/bookmarks/power_bookmarks_list.ts
-index e32ad7763ad5ac9a42122c94d660d0cfa9d4476b..1279d7fa7cbe52da7a29bcb9ba3d117a370c6952 100644
+index 6baa5671cd4a40ea4feff5db24d743d47ab79c37..6ee9f2297ceb85b45c60b2a9e4a13e74a42342b0 100644
 --- a/chrome/browser/resources/side_panel/bookmarks/power_bookmarks_list.ts
 +++ b/chrome/browser/resources/side_panel/bookmarks/power_bookmarks_list.ts
 @@ -3,6 +3,7 @@
@@ -10,7 +10,7 @@ index e32ad7763ad5ac9a42122c94d660d0cfa9d4476b..1279d7fa7cbe52da7a29bcb9ba3d117a
  import './commerce/shopping_list.js';
  import './icons.html.js';
  import './power_bookmarks_context_menu.js';
-@@ -176,7 +177,8 @@ export class PowerBookmarksListElement extends PolymerElement {
+@@ -177,7 +178,8 @@ export class PowerBookmarksListElement extends PolymerElement {
                 sortOrder: SortOrder.kReverseAlphabetical,
                 label: loadTimeData.getString('sortReverseAlphabetically'),
                 lowerLabel: loadTimeData.getString('sortReverseAlphabetically'),

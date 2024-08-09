@@ -1,8 +1,8 @@
 diff --git a/components/sync/protocol/proto_visitors.h b/components/sync/protocol/proto_visitors.h
-index 638f5743399150210869701e0c671f8d299a89b2..984edd2793ef902ab40d5cd3ab3b545c57bb0e19 100644
+index eec557587af13ff19c2ab469f1a1a267d2e0f831..0c235a024e254baa0afbae91743fb156f28e5d1a 100644
 --- a/components/sync/protocol/proto_visitors.h
 +++ b/components/sync/protocol/proto_visitors.h
-@@ -599,6 +599,7 @@ VISIT_PROTO_FIELDS(const sync_pb::DeviceInfoSpecifics& proto) {
+@@ -601,6 +601,7 @@ VISIT_PROTO_FIELDS(const sync_pb::DeviceInfoSpecifics& proto) {
    VISIT(manufacturer);
    VISIT(last_updated_timestamp);
    VISIT(feature_fields);
@@ -10,7 +10,7 @@ index 638f5743399150210869701e0c671f8d299a89b2..984edd2793ef902ab40d5cd3ab3b545c
    VISIT(sharing_fields);
    VISIT(invalidation_fields);
    VISIT(paask_fields);
-@@ -615,6 +616,7 @@ VISIT_PROTO_FIELDS(const sync_pb::FeatureSpecificFields& proto) {
+@@ -617,6 +618,7 @@ VISIT_PROTO_FIELDS(const sync_pb::FeatureSpecificFields& proto) {
    VISIT(floating_workspace_last_signin_time_windows_epoch_micros);
  }
  

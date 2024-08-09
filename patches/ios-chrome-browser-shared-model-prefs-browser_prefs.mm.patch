@@ -1,8 +1,8 @@
 diff --git a/ios/chrome/browser/shared/model/prefs/browser_prefs.mm b/ios/chrome/browser/shared/model/prefs/browser_prefs.mm
-index d3544b9872f8e77a2d1293524300ec004a09902e..f1fd761fc836018d9d4b1d010af16a53f4c285fc 100644
+index 638ec25a61b31d04fa8e16bf03906e2578a91cf6..f08d0a5c12e12d24d3e87c381bb50c4b44899f53 100644
 --- a/ios/chrome/browser/shared/model/prefs/browser_prefs.mm
 +++ b/ios/chrome/browser/shared/model/prefs/browser_prefs.mm
-@@ -697,6 +697,7 @@ void RegisterLocalStatePrefs(PrefRegistrySimple* registry) {
+@@ -680,6 +680,7 @@ void RegisterLocalStatePrefs(PrefRegistrySimple* registry) {
    // settings UI on chrome://settings/security.
    registry->RegisterBooleanPref(kSafeBrowsingEsbOptInWithFriendlierSettings,
                                  false);
@@ -10,7 +10,7 @@ index d3544b9872f8e77a2d1293524300ec004a09902e..f1fd761fc836018d9d4b1d010af16a53
  }
  
  void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
-@@ -1035,6 +1036,7 @@ void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
+@@ -1013,6 +1014,7 @@ void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
    // Prefs migrated to localState prefs.
    registry->RegisterBooleanPref(prefs::kBottomOmnibox, false);
    registry->RegisterBooleanPref(prefs::kBottomOmniboxByDefault, false);

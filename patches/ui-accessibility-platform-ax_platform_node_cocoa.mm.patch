@@ -1,5 +1,5 @@
 diff --git a/ui/accessibility/platform/ax_platform_node_cocoa.mm b/ui/accessibility/platform/ax_platform_node_cocoa.mm
-index 5458187c5b8a4493e3b9a3306d97465af6c84fc3..de85e8deadff145221f7ef6219d7f52f787dc10e 100644
+index 871a9bf2f3c7b4a12437d12aa6854d799a84ae31..c9b5182ad67c5f9718feea3aa09280cc0d2b05de 100644
 --- a/ui/accessibility/platform/ax_platform_node_cocoa.mm
 +++ b/ui/accessibility/platform/ax_platform_node_cocoa.mm
 @@ -2562,6 +2562,7 @@ void CollectAncestorRoles(
