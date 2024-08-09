@@ -1,5 +1,5 @@
 diff --git a/chrome/common/BUILD.gn b/chrome/common/BUILD.gn
-index 12595ec9d1d766ab88f794466d4596f7778e5db8..09c3a35c8f40212b2e9cb0991e730024a0ccb819 100644
+index ce30fb4396ed123ae7ad0f085410dad85b785a69..576beccf0c09d2a6a030f6449e5b0c263c37c0d5 100644
 --- a/chrome/common/BUILD.gn
 +++ b/chrome/common/BUILD.gn
 @@ -100,6 +100,7 @@ source_set("channel_info") {
@@ -16,9 +16,9 @@ index 12595ec9d1d766ab88f794466d4596f7778e5db8..09c3a35c8f40212b2e9cb0991e730024
    }
 +  import("//brave/common/sources.gni") sources += brave_chrome_common_sources deps += brave_chrome_common_deps public_deps += brave_chrome_common_public_deps
  
-   if (enable_extensions) {
-     sources += [
-@@ -541,6 +543,7 @@ static_library("non_code_constants") {
+   if (enable_extensions || enable_desktop_android_extensions) {
+     # TODO(https://crbug.com/356905053): Gradually include more of these sources
+@@ -549,6 +551,7 @@ static_library("non_code_constants") {
    if (is_win) {
      sources += [ "chrome_icon_resources_win.h" ]
    }
