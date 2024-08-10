@@ -10,6 +10,7 @@
 #include "brave/components/content_settings/core/browser/remote_list_provider.h"
 #include "brave/components/webcompat/content/browser/webcompat_exceptions_service.h"
 #include "build/build_config.h"
+#include "components/content_settings/core/browser/content_settings_policy_provider.h"
 #include "components/content_settings/core/browser/content_settings_provider.h"
 #include "components/content_settings/core/browser/content_settings_utils.h"
 #include "components/content_settings/core/browser/host_content_settings_map.h"
