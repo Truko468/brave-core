@@ -83,7 +83,8 @@ export function createWalletApiBase() {
       'MeldCountries',
       'MeldServiceProviders',
       'MeldCryptoQuotes',
-      'MeldPaymentMethods'
+      'MeldPaymentMethods',
+      'MeldWidget'
     ],
     endpoints: ({ mutation, query }) => ({})
   })

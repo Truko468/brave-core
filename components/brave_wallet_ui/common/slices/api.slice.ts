@@ -351,7 +351,8 @@ export const {
   useGetMeldCountriesQuery,
   useGetMeldServiceProvidersQuery,
   useGetMeldPaymentMethodsQuery,
-  useGenerateMeldCryptoQuotesMutation
+  useGenerateMeldCryptoQuotesMutation,
+  useCreateMeldBuyWidgetMutation
 } = walletApi
 
 // Derived Data Queries
