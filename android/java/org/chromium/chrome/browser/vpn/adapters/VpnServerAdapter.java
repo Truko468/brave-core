@@ -17,9 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.radiobutton.MaterialRadioButton;
 
+import org.chromium.brave_vpn.mojom.Region;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.vpn.activities.VpnServerActivity.OnServerRegionSelection;
-import org.chromium.chrome.browser.vpn.models.BraveVpnServerRegion;
+import org.chromium.chrome.browser.vpn.activities.VpnServerActivity.OnCitySelection;
 import org.chromium.chrome.browser.vpn.utils.BraveVpnPrefUtils;
 
 import java.util.ArrayList;
@@ -27,8 +27,8 @@ import java.util.List;
 
 public class VpnServerAdapter extends RecyclerView.Adapter<VpnServerAdapter.ViewHolder> {
     private final Context mContext;
-    private List<BraveVpnServerRegion> mBraveVpnServerRegions = new ArrayList<>();
-    private OnServerRegionSelection mOnServerRegionSelection;
+    private List<Region> mCities = new ArrayList<>();
+    private OnCitySelection mOnCitySelection;
 
     public VpnServerAdapter(Context context) {
         this.mContext = context;
@@ -44,18 +44,16 @@ public class VpnServerAdapter extends RecyclerView.Adapter<VpnServerAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final BraveVpnServerRegion vpnServerRegion = mBraveVpnServerRegions.get(position);
-        if (vpnServerRegion != null) {
-            holder.serverText.setText(vpnServerRegion.getNamePretty());
-            // holder.cityServerText.setText(
-            //         mContext.getResources().getString(R.string.city_server_text));
+        final Region city = mCities.get(position);
+        if (city != null) {
+            holder.serverText.setText(city.namePretty);
             holder.serverRadioButton.setChecked(
-                    BraveVpnPrefUtils.getServerRegion().equals(vpnServerRegion.getName()));
+                    BraveVpnPrefUtils.getServerRegion().equals(city.name));
             holder.serverSelectionItemLayout.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            mOnServerRegionSelection.onServerRegionClick(vpnServerRegion);
+                            mOnCitySelection.onCityClick(city);
                         }
                     });
         }
@@ -63,15 +61,15 @@ public class VpnServerAdapter extends RecyclerView.Adapter<VpnServerAdapter.View
 
     @Override
     public int getItemCount() {
-        return mBraveVpnServerRegions.size();
+        return mCities.size();
     }
 
-    public void setVpnServerRegions(List<BraveVpnServerRegion> vpnServerRegions) {
-        this.mBraveVpnServerRegions = vpnServerRegions;
+    public void setCities(List<Region> cities) {
+        this.mCities = cities;
     }
 
-    public void setOnServerRegionSelection(OnServerRegionSelection onServerRegionSelection) {
-        this.mOnServerRegionSelection = onServerRegionSelection;
+    public void setOnCitySelection(OnCitySelection onCitySelection) {
+        this.mOnCitySelection = onCitySelection;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
