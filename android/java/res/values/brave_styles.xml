@@ -287,6 +287,13 @@
         <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
+    <style name="VpnPaywallToolbar" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="android:background">@color/primitive_blurple_25</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
     <style name="BraveLeoToolbar" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@android:color/white</item>
         <item name="android:background">@color/brave_leo_plans_bg</item>
@@ -396,6 +403,14 @@
         <item name="fontStyle">normal</item>
         <item name="fontWeight">400</item>
     </style>
+
+    <style name="LargeSemibold">
+        <!-- Default browser size for fonts -->
+        <item name="android:textSize">@dimen/large_semibold</item>
+        <item name="lineHeight">24sp</item>
+        <item name="fontStyle">normal</item>
+        <item name="fontWeight">600</item>
+      </style>
 
     <style name="DefaultSemibold">
         <!-- Default Brave UI size -->
