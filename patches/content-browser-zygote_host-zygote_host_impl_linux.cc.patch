@@ -1,5 +1,5 @@
 diff --git a/content/browser/zygote_host/zygote_host_impl_linux.cc b/content/browser/zygote_host/zygote_host_impl_linux.cc
-index ec8df7b34b6d3a7abd14cdd7ec2743ed36bef4e1..78a5d48fd4866f6524257f3b4b77dc031256f8ff 100644
+index 688cb570c039223b9cdb8c6d4a4f221b8d4d89d7..d038583dd26bbb9a1fd83f24871b27bf37768d97 100644
 --- a/content/browser/zygote_host/zygote_host_impl_linux.cc
 +++ b/content/browser/zygote_host/zygote_host_impl_linux.cc
 @@ -126,6 +126,7 @@ void ZygoteHostImpl::Init(const base::CommandLine& command_line) {
@@ -7,6 +7,6 @@ index ec8df7b34b6d3a7abd14cdd7ec2743ed36bef4e1..78a5d48fd4866f6524257f3b4b77dc03
    } else {
      LOG(FATAL)
 +    BRAVE_ZYGOTE_HOST_IMPL_LINUX_ZYGOTE_HOST_IMPL_INIT
-         << "No usable sandbox! Update your kernel or see "
-            "https://chromium.googlesource.com/chromium/src/+/main/"
-            "docs/linux/suid_sandbox_development.md for more information on "
+         << "No usable sandbox! If you are running on Ubuntu 23.10+ or another "
+            "Linux distro that has disabled unprivileged user namespaces with "
+            "AppArmor, see "

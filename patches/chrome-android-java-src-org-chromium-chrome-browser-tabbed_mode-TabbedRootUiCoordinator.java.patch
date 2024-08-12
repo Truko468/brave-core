@@ -1,13 +1,13 @@
 diff --git a/chrome/android/java/src/org/chromium/chrome/browser/tabbed_mode/TabbedRootUiCoordinator.java b/chrome/android/java/src/org/chromium/chrome/browser/tabbed_mode/TabbedRootUiCoordinator.java
-index 87542390ddcba8746cc3f12851a7c3d1e5c23fe8..eff1256644d134b8c7718b01a71fed55947b260f 100644
+index 48cf78e727d419cba880eb145f60cef7c713a3e9..466015f0942c56df44cdf9020f2409c7580bc6ac 100644
 --- a/chrome/android/java/src/org/chromium/chrome/browser/tabbed_mode/TabbedRootUiCoordinator.java
 +++ b/chrome/android/java/src/org/chromium/chrome/browser/tabbed_mode/TabbedRootUiCoordinator.java
-@@ -936,7 +936,7 @@ public class TabbedRootUiCoordinator extends RootUiCoordinator {
-             NotificationPermissionController.attach(
-                     mWindowAndroid, mNotificationPermissionController);
- 
--            didTriggerPromo =
-+            if(false) didTriggerPromo =
-                     mNotificationPermissionController.requestPermissionIfNeeded(
-                             /* contextual= */ false);
+@@ -1241,7 +1241,7 @@ public class TabbedRootUiCoordinator extends RootUiCoordinator {
+         mNotificationPermissionController =
+                 new NotificationPermissionController(mWindowAndroid, rationaleUIDelegateSupplier);
+         NotificationPermissionController.attach(mWindowAndroid, mNotificationPermissionController);
+-        if (mNotificationPermissionController.requestPermissionIfNeeded(/* contextual= */ false)) {
++        if (false && mNotificationPermissionController.requestPermissionIfNeeded(/* contextual= */ false)) {
+             return true;
          }
+ 
