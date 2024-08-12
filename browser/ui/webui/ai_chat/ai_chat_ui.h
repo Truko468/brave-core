@@ -19,7 +19,7 @@
 #include "chrome/browser/ui/webui/top_chrome/top_chrome_webui_config.h"
 #else
 #include "content/public/browser/webui_config.h"
-#endif // #if !BUILDFLAG(IS_ANDROID)
+#endif  // #if !BUILDFLAG(IS_ANDROID)
 
 namespace content {
 class BrowserContext;
