@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.radiobutton.MaterialRadioButton;
+
 import org.chromium.brave_vpn.mojom.Region;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.vpn.adapters.VpnServerAdapter;
@@ -24,11 +26,16 @@ import org.chromium.chrome.browser.vpn.utils.BraveVpnPrefUtils;
 import org.chromium.chrome.browser.vpn.utils.BraveVpnUtils;
 import org.chromium.ui.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class VpnServerActivity extends BraveVpnParentActivity {
     private VpnServerAdapter mVpnServerAdapter;
+
+    private LinearLayout mOptimalLayout;
+    private MaterialRadioButton mOptimalServerRadioButton;
+
     private LinearLayout mServerListLayout;
     private ProgressBar mServerProgress;
     private RecyclerView mServerRegionList;
@@ -46,6 +53,15 @@ public class VpnServerActivity extends BraveVpnParentActivity {
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(getResources().getString(R.string.change_location));
+
+        // mOptimalLayout = (LinearLayout) findViewById(R.id.optimal_region_layout);
+        // TextView optimalServerText = (TextView) mOptimalLayout.findViewById(R.id.server_text);
+        // optimalServerText.setText(getString(R.string.optimal_text));
+        // TextView optimalCityServerText = (TextView)
+        // mOptimalLayout.findViewById(R.id.city_server_text);
+        // optimalCityServerText.setText(getString(R.string.optimal_desc));
+        // mOptimalServerRadioButton = (MaterialRadioButton)
+        // mOptimalLayout.findViewById(R.id.server_radio_button);
 
         mServerRegionList = (RecyclerView) findViewById(R.id.server_list);
 
@@ -92,7 +108,13 @@ public class VpnServerActivity extends BraveVpnParentActivity {
         // }
         // if (region != null && region.cities.length > 0) {
         showProgress();
-        List<Region> cities = Arrays.asList(region.cities);
+        List<Region> cities = new ArrayList<Region>(Arrays.asList(region.cities));
+
+        Region optimalRegion = new Region();
+        optimalRegion.namePretty = getString(R.string.optimal_text);
+        optimalRegion.name = getString(R.string.optimal_desc);
+        cities.add(0, optimalRegion);
+
         mVpnServerAdapter = new VpnServerAdapter(VpnServerActivity.this);
         mVpnServerAdapter.setCities(cities);
         mVpnServerAdapter.setOnCitySelection(

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.radiobutton.MaterialRadioButton;
 
+import org.chromium.base.Log;
 import org.chromium.brave_vpn.mojom.Region;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.vpn.activities.VpnServerActivity.OnCitySelection;
@@ -47,8 +48,13 @@ public class VpnServerAdapter extends RecyclerView.Adapter<VpnServerAdapter.View
         final Region city = mCities.get(position);
         if (city != null) {
             holder.serverText.setText(city.namePretty);
-            holder.serverRadioButton.setChecked(
-                    BraveVpnPrefUtils.getServerRegion().equals(city.name));
+            String cityServerText =
+                    mContext.getResources()
+                            .getQuantityString(
+                                    R.plurals.server_text, city.serverCount, city.serverCount);
+            holder.cityServerText.setText((position == 0) ? city.name : cityServerText);
+            Log.e("brave_vpn", "hostname : " + BraveVpnPrefUtils.getHostname());
+            holder.serverRadioButton.setChecked(BraveVpnPrefUtils.getHostname().equals(city.name));
             holder.serverSelectionItemLayout.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
