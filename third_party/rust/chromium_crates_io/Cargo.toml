@@ -226,3 +226,7 @@ package = "zcash_encoding"
 [patch.crates-io.zcash_primitives_v0_15]
 path = "../../../components/brave_wallet/browser/zcash/rust/librustzcash/src/zcash_primitives"
 package = "zcash_primitives"
+
+[patch.crates-io.zcash_client_backend_v0_12]
+path = "../../../components/brave_wallet/browser/zcash/rust/librustzcash/src/zcash_client_backend"
+package = "zcash_client_backend"
