@@ -1163,7 +1163,7 @@ public abstract class BraveActivity extends ChromeActivity
         if (!isFirstInstall
                 && !BraveVpnPrefUtils.isIsoCodeUpgradeDone()
                 && BraveVpnPrefUtils.isSubscriptionPurchase()) {
-            BraveVpnNativeWorker.getInstance().getAllServerRegions();
+            // BraveVpnNativeWorker.getInstance().getAllServerRegions();
         }
 
         if (ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_VPN_LINK_SUBSCRIPTION_ANDROID_UI)
@@ -1345,21 +1345,21 @@ public abstract class BraveActivity extends ChromeActivity
         }
     }
 
-    @Override
-    public void onGetAllServerRegions(String jsonResponse, boolean isSuccess) {
-        if (isSuccess) {
-            List<BraveVpnServerRegion> braveVpnServerRegions =
-                    BraveVpnUtils.getServerLocations(jsonResponse);
-            for (BraveVpnServerRegion braveVpnServerRegion : braveVpnServerRegions) {
-                if (braveVpnServerRegion.getName().equals(BraveVpnPrefUtils.getServerRegion())) {
-                    BraveVpnPrefUtils.setServerIsoCode(braveVpnServerRegion.getCountryIsoCode());
-                    BraveVpnPrefUtils.setServerNamePretty(braveVpnServerRegion.getNamePretty());
-                    BraveVpnPrefUtils.setIsoCodeUpgrade(true);
-                    break;
-                }
-            }
-        }
-    }
+    // @Override
+    // public void onGetAllServerRegions(String jsonResponse, boolean isSuccess) {
+    //     if (isSuccess) {
+    //         List<BraveVpnServerRegion> braveVpnServerRegions =
+    //                 BraveVpnUtils.getServerLocations(jsonResponse);
+    //         for (BraveVpnServerRegion braveVpnServerRegion : braveVpnServerRegions) {
+    //             if (braveVpnServerRegion.getName().equals(BraveVpnPrefUtils.getServerRegion())) {
+    //                 BraveVpnPrefUtils.setServerIsoCode(braveVpnServerRegion.getCountryIsoCode());
+    //                 BraveVpnPrefUtils.setServerNamePretty(braveVpnServerRegion.getNamePretty());
+    //                 BraveVpnPrefUtils.setIsoCodeUpgrade(true);
+    //                 break;
+    //             }
+    //         }
+    //     }
+    // }
 
     private void handleDeepLinkVpn() {
         mIsDeepLink = true;
