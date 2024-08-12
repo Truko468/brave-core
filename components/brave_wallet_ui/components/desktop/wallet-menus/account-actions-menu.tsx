@@ -20,7 +20,7 @@ import {
   PopupButton,
   PopupButtonText,
   ButtonIcon
-} from './wellet-menus.style'
+} from './wallet_menus.style'
 import { VerticalDivider, VerticalSpace } from '../../shared/style'
 
 export interface Props {

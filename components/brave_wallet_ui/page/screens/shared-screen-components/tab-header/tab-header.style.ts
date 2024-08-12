@@ -41,6 +41,7 @@ export const BraveLogo = styled(StyledDiv)`
   }
 `
 
+// TODO: delete
 export const SettingsWrapper = styled(StyledDiv)`
   position: relative;
 `

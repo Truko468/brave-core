@@ -6,12 +6,20 @@
 import styled from 'styled-components'
 import * as leo from '@brave/leo/tokens/css/variables'
 import Icon from '@brave/leo/react/icon'
-import { WalletButton, Row } from '../../shared/style'
+import NalaButtonMenu from '@brave/leo/react/buttonMenu'
+
+// shared styles
+import { Row } from '../../shared/style'
 import {
   layoutPanelWidth,
   layoutSmallWidth
 } from '../wallet-page-wrapper/wallet-page-wrapper.style'
 
+export const ButtonMenu = styled(NalaButtonMenu)`
+  --leo-menu-control-min-width: 220px;
+`
+
+// TODO: delete
 export const StyledWrapper = styled.div<{
   yPosition?: number
   right?: number
@@ -32,28 +40,25 @@ export const StyledWrapper = styled.div<{
   z-index: 20;
 `
 
-export const PopupButton = styled(WalletButton)<{
+export const PopupButton = styled('leo-menu-item')<{
   minWidth?: number
-}>`
+}>``
+
+export const MenuItemRow = styled.div`
   display: flex;
-  align-items: center;
   justify-content: flex-start;
-  text-align: left;
-  cursor: pointer;
-  min-width: ${(p) => (p.minWidth !== undefined ? p.minWidth : 220)}px;
-  border-radius: 8px;
-  outline: none;
-  border: none;
-  background: none;
-  padding: 12px 8px;
-  margin: 0px 0px 8px 0px;
-  background-color: transparent;
-  width: 100%;
-  &:hover {
-    background-color: ${leo.color.divider.subtle};
-  }
+  align-items: center;
+  gap: 16px;
 `
 
+export const MenuOptionRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+`
+
+// TODO: delete
 export const PopupButtonText = styled.span`
   flex: 1;
   font-family: Poppins;
@@ -66,20 +71,11 @@ export const PopupButtonText = styled.span`
 
 export const ButtonIcon = styled(Icon)`
   --leo-icon-size: 18px;
-  color: ${leo.color.icon.default};
-  margin-right: 16px;
 `
 
-export const ToggleRow = styled.label`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  width: 220px;
-  padding: 12px 8px;
-  margin: 0px 0px 8px 0px;
-  background-color: transparent;
-`
+export const ToggleRow = styled('leo-option').attrs({
+  'data-is-interactive': true
+})``
 
 export const LineChartWrapper = styled(StyledWrapper)`
   padding: 4px;

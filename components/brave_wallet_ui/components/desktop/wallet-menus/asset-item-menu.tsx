@@ -42,7 +42,7 @@ import {
   PopupButton,
   PopupButtonText,
   ButtonIcon
-} from './wellet-menus.style'
+} from './wallet_menus.style'
 
 const coinSupportsSwap = (coin: BraveWallet.CoinType) => {
   return [BraveWallet.CoinType.ETH, BraveWallet.CoinType.SOL].includes(coin)
