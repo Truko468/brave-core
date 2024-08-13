@@ -19,3 +19,21 @@ text_embedder_fix_deps = [
   ":encoder_config",
   "//third_party/tflite:tflite_builtin_op_resolver",
 ]
+
+template("flatbuffer_text_embedder_fix") {
+  sources = [
+    "src/tensorflow_lite_support/custom_ops/kernel/sentencepiece/config.fbs",
+    "src/tensorflow_lite_support/custom_ops/kernel/sentencepiece/encoder_config.fbs",
+  ]
+
+  # Disable warnings as the flatbuffer uses snakecase for sentencePiece which
+  # now causes a warning message with flatc.
+  args = [ "--no-warnings" ]
+  flatbuffer(target_name) {
+    forward_variables_from(invoker,
+                           [
+                             "sources",
+                             "args",
+                           ])
+  }
+}
