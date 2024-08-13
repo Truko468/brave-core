@@ -112,9 +112,7 @@ void AddBraveVpnColorMixer(ui::ColorProvider* provider,
         key, mixer, SkColorSetARGB(0x14, 0x13, 0x16, 0x20),
         SkColorSetARGB(0x4D, 0x04, 0x04, 0x06))};
   } else {
-    mixer[kColorBraveVpnButtonBorder] = {
-        leo::GetColor(leo::Color::kColorDividerSubtle,
-                      is_dark ? leo::Theme::kDark : leo::Theme::kLight)};
+    mixer[kColorBraveVpnButtonBorder] = {nala::kColorDividerSubtle};
     // TODO(simonhong): Use leo color. button/Background-active is not available
     // yet.
     mixer[kColorBraveVpnButtonBackgroundHover] = {

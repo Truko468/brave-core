@@ -10,19 +10,21 @@
 // which we need for Nala. We have a mixer in
 // brave/ui/color/missing_color_ref_mixer.h for adding these missing Material
 // colors.
-#define MATERIAL_MISSING_COLOR_IDS \
-  E_CPONLY(kColorRefNeutral5)      \
-  E_CPONLY(kColorRefNeutral35)     \
-  E_CPONLY(kColorRefPrimary5)      \
-  E_CPONLY(kColorRefPrimary15)     \
-  E_CPONLY(kColorRefPrimary35)     \
-  E_CPONLY(kColorRefPrimary98)     \
-  E_CPONLY(kColorRefSecondary5)    \
-  E_CPONLY(kColorRefSecondary98)   \
-  E_CPONLY(kColorRefTertiary5)     \
-  E_CPONLY(kColorRefTertiary15)    \
-  E_CPONLY(kColorRefTertiary25)    \
-  E_CPONLY(kColorRefTertiary35)    \
+// This isn't undefined because other files use the |COLOR_ID| macro which
+// depends on this being defined.
+#define BRAVE_MATERIAL_MISSING_COLOR_IDS \
+  E_CPONLY(kColorRefNeutral5)            \
+  E_CPONLY(kColorRefNeutral35)           \
+  E_CPONLY(kColorRefPrimary5)            \
+  E_CPONLY(kColorRefPrimary15)           \
+  E_CPONLY(kColorRefPrimary35)           \
+  E_CPONLY(kColorRefPrimary98)           \
+  E_CPONLY(kColorRefSecondary5)          \
+  E_CPONLY(kColorRefSecondary98)         \
+  E_CPONLY(kColorRefTertiary5)           \
+  E_CPONLY(kColorRefTertiary15)          \
+  E_CPONLY(kColorRefTertiary25)          \
+  E_CPONLY(kColorRefTertiary35)          \
   E_CPONLY(kColorRefTertiary98)
 
 #include "src/ui/color/color_id.h"  // IWYU pragma: export

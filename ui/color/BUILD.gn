@@ -3,35 +3,32 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at https://mozilla.org/MPL/2.0/.
 
-copy("copy_nala_color_ids") {
-  sources = [ "//brave/node_modules/@brave/leo/tokens/skia/nala_color_id.h" ]
-
-  outputs = [ "$root_out_dir/gen/brave/ui/color/nala/{{source_file_part}}" ]
-}
-
-source_set("nala_color_id") {
-  sources = get_target_outputs(":copy_nala_color_ids")
-
-  deps = [ ":copy_nala_color_ids" ]
-}
-
-copy("copy_nala_color_mixer") {
+copy("copy_nala_files") {
   sources = [
+    "//brave/node_modules/@brave/leo/tokens/skia/nala_color_id.h",
     "//brave/node_modules/@brave/leo/tokens/skia/nala_color_mixer.cc",
     "//brave/node_modules/@brave/leo/tokens/skia/nala_color_mixer.h",
   ]
 
-  outputs = [ "$root_out_dir/gen/brave/ui/color/nala/{{source_file_part}}" ]
+  outputs = [ "$target_gen_dir/nala/{{source_file_part}}" ]
+}
+
+source_set("nala_color_id") {
+  sources = [ "$target_gen_dir/nala/nala_color_id.h" ]
+
+  deps = [ ":copy_nala_files" ]
 }
 
 source_set("brave_color_mixers") {
-  sources = get_target_outputs(":copy_nala_color_mixer") + [
-              "missing_color_ref_mixer.cc",
-              "missing_color_ref_mixer.h",
-            ]
+  sources = [
+    "$target_gen_dir/nala/nala_color_mixer.cc",
+    "$target_gen_dir/nala/nala_color_mixer.h",
+    "missing_color_ref_mixer.cc",
+    "missing_color_ref_mixer.h",
+  ]
 
   deps = [
-    ":copy_nala_color_mixer",
+    ":copy_nala_files",
     ":nala_color_id",
     "//ui/color",
     "//ui/color:color_headers",

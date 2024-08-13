@@ -59,8 +59,8 @@ void AddGenerated(ColorProvider* provider,
 }
 }  // namespace
 
-void AddMissingRefColorMixer(ColorProvider* provider,
-                             const ColorProviderKey& key) {
+void AddMissingRefColorMixerForNala(ColorProvider* provider,
+                                    const ColorProviderKey& key) {
   // Note: The logic for determining whether to use the baseline or generated
   // color is taken from AddRefMixer in
   // ui/color/ref_color_mixer.cc

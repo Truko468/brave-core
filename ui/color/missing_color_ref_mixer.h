@@ -10,8 +10,13 @@
 #include "ui/color/color_provider_key.h"
 
 namespace ui {
-void AddMissingRefColorMixer(ColorProvider* provider,
-                             const ColorProviderKey& key);
-}
+
+// This adds colors which are part of the Material Design Palette that Chromium
+// doesn't define (as it doesn't need them). Nala does requirethem, so we inject
+// them here.
+void AddMissingRefColorMixerForNala(ColorProvider* provider,
+                                    const ColorProviderKey& key);
+
+}  // namespace ui
 
 #endif  // BRAVE_UI_COLOR_MISSING_COLOR_REF_MIXER_H_
