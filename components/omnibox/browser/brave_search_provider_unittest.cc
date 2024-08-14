@@ -37,7 +37,10 @@
 #include "services/network/test/test_url_loader_factory.h"
 #include "testing/gtest/include/gtest/gtest.h"
 #include "third_party/metrics_proto/omnibox_event.pb.h"
+
+#if !BUILDFLAG(IS_IOS)
 #include "ui/base/clipboard/test/test_clipboard.h"
+#endif
 
 // BraveSearchProviderTest -----------------------------------------------------
 
@@ -130,7 +133,9 @@ class BraveSearchProviderTest : public testing::Test {
     provider_ =
         base::MakeRefCounted<BraveSearchProvider>(client_.get(), nullptr);
 
+#if !BUILDFLAG(IS_IOS)
     test_clipboard_ = ui::TestClipboard::CreateForCurrentThread();
+#endif
   }
 
   void TearDown() override {
@@ -183,13 +188,7 @@ class BraveSearchProviderTest : public testing::Test {
 
   void QueryForInputAndSetWYTMatch(const std::u16string& text,
                                    AutocompleteMatch* wyt_match) {
-    AutocompleteInput input(text, metrics::OmniboxEventProto::OTHER,
-                            ChromeAutocompleteSchemeClassifier(profile_.get()));
-    provider_->Start(input, false);
-
-    // RunUntilIdle so that the task scheduled by SearchProvider to create the
-    // URLFetchers runs.
-    base::RunLoop().RunUntilIdle();
+    QueryForInput(text);
 
     profile_->BlockUntilHistoryProcessesPendingRequests();
     DCHECK(wyt_match);
@@ -213,7 +212,10 @@ class BraveSearchProviderTest : public testing::Test {
   network::TestURLLoaderFactory test_url_loader_factory_;
   std::unique_ptr<TestAutocompleteProviderClient> client_;
   scoped_refptr<BraveSearchProvider> provider_;
+
+#if !BUILDFLAG(IS_IOS)
   raw_ptr<ui::TestClipboard> test_clipboard_ = nullptr;
+#endif
 
   raw_ptr<TemplateURL> default_t_url_ = nullptr;
 
@@ -247,6 +249,7 @@ TEST_F(BraveSearchProviderTest,
   ASSERT_EQ(1u, provider_->matches().size());
 }
 
+#if !BUILDFLAG(IS_IOS)
 // Check search suggestion is blocked when input and clipboard text is same.
 TEST_F(BraveSearchProviderTest, DontSendClipboardTextToSuggest) {
   // Check it's not blocked.
@@ -259,3 +262,4 @@ TEST_F(BraveSearchProviderTest, DontSendClipboardTextToSuggest) {
   EXPECT_FALSE(
       test_url_loader_factory_.IsPending("https://defaultturl2/brave_private"));
 }
+#endif
