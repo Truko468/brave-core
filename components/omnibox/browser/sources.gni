@@ -41,6 +41,8 @@ brave_components_omnibox_browser_deps = [
   "//brave/components/resources:strings",
   "//brave/components/vector_icons",
   "//components/prefs",
+  "//ui/base/clipboard",
+  "//ui/base/data_transfer_policy",
   "//url",
 ]
 

@@ -3,6 +3,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#include "brave/components/omnibox/browser/brave_search_provider.h"
+
 #include <stddef.h>
 
 #include <algorithm>
@@ -14,9 +16,10 @@
 #include "base/run_loop.h"
 #include "base/time/time.h"
 #include "brave/components/omnibox/browser/brave_omnibox_prefs.h"
-#include "brave/components/omnibox/browser/brave_search_provider.h"
 #include "chrome/browser/autocomplete/autocomplete_classifier_factory.h"
 #include "chrome/browser/autocomplete/chrome_autocomplete_provider_client.h"
+#include "chrome/browser/autocomplete/document_suggestions_service_factory.h"
+#include "chrome/browser/autocomplete/remote_suggestions_service_factory.h"
 #include "chrome/browser/history/history_service_factory.h"
 #include "chrome/browser/search_engines/template_url_service_factory.h"
 #include "chrome/test/base/testing_profile.h"
@@ -24,14 +27,55 @@
 #include "components/omnibox/browser/autocomplete_input.h"
 #include "components/omnibox/browser/autocomplete_match.h"
 #include "components/omnibox/browser/autocomplete_provider.h"
+#include "components/omnibox/browser/remote_suggestions_service.h"
 #include "components/omnibox/browser/search_provider.h"
 #include "components/search_engines/search_engines_pref_names.h"
 #include "components/sync_preferences/testing_pref_service_syncable.h"
+#include "components/variations/scoped_variations_ids_provider.h"
 #include "content/public/test/browser_task_environment.h"
+#include "services/network/public/cpp/weak_wrapper_shared_url_loader_factory.h"
+#include "services/network/test/test_url_loader_factory.h"
 #include "testing/gtest/include/gtest/gtest.h"
 #include "third_party/metrics_proto/omnibox_event.pb.h"
+#include "ui/base/clipboard/test/test_clipboard.h"
 
 // BraveSearchProviderTest -----------------------------------------------------
+
+namespace {
+
+// Some code is copied from
+// chrome/browser/autocomplete/search_provider_unittest.cc
+class TestAutocompleteProviderClient : public ChromeAutocompleteProviderClient {
+ public:
+  TestAutocompleteProviderClient(Profile* profile,
+                                 network::TestURLLoaderFactory* loader_factory)
+      : ChromeAutocompleteProviderClient(profile),
+        shared_factory_(
+            base::MakeRefCounted<network::WeakWrapperSharedURLLoaderFactory>(
+                loader_factory)) {}
+  ~TestAutocompleteProviderClient() override {}
+
+  scoped_refptr<network::SharedURLLoaderFactory> GetURLLoaderFactory()
+      override {
+    return shared_factory_;
+  }
+
+  bool SearchSuggestEnabled() const override { return true; }
+
+ private:
+  scoped_refptr<network::SharedURLLoaderFactory> shared_factory_;
+};
+
+std::unique_ptr<KeyedService> BuildRemoteSuggestionsServiceWithURLLoader(
+    network::TestURLLoaderFactory* test_url_loader_factory,
+    content::BrowserContext* context) {
+  return std::make_unique<RemoteSuggestionsService>(
+      DocumentSuggestionsServiceFactory::GetForProfile(
+          Profile::FromBrowserContext(context), /*create_if_necessary=*/true),
+      test_url_loader_factory->GetSafeWeakWrapper());
+}
+
+}  // namespace
 
 class BraveSearchProviderTest : public testing::Test {
  public:
@@ -43,6 +87,10 @@ class BraveSearchProviderTest : public testing::Test {
     profile_builder.AddTestingFactory(
         TemplateURLServiceFactory::GetInstance(),
         base::BindRepeating(&TemplateURLServiceFactory::BuildInstanceFor));
+    profile_builder.AddTestingFactory(
+        RemoteSuggestionsServiceFactory::GetInstance(),
+        base::BindRepeating(&BuildRemoteSuggestionsServiceWithURLLoader,
+                            &test_url_loader_factory_));
 
     profile_ = profile_builder.Build();
   }
@@ -51,8 +99,8 @@ class BraveSearchProviderTest : public testing::Test {
   BraveSearchProviderTest& operator=(const BraveSearchProviderTest&) = delete;
 
   void SetUp() override {
-    std::string search_url = "http://defaultturl/{searchTerms}";
-    std::string suggestions_url = "http://defaultturl2/{searchTerms}";
+    std::string search_url = "https://defaultturl/{searchTerms}";
+    std::string suggestions_url = "https://defaultturl2/{searchTerms}";
     TemplateURLService* turl_model =
         TemplateURLServiceFactory::GetForProfile(profile_.get());
 
@@ -77,10 +125,12 @@ class BraveSearchProviderTest : public testing::Test {
         profile_.get(),
         base::BindRepeating(&AutocompleteClassifierFactory::BuildInstanceFor));
 
-    client_ =
-        std::make_unique<ChromeAutocompleteProviderClient>(profile_.get());
+    client_ = std::make_unique<TestAutocompleteProviderClient>(
+        profile_.get(), &test_url_loader_factory_);
     provider_ =
         base::MakeRefCounted<BraveSearchProvider>(client_.get(), nullptr);
+
+    test_clipboard_ = ui::TestClipboard::CreateForCurrentThread();
   }
 
   void TearDown() override {
@@ -121,6 +171,16 @@ class BraveSearchProviderTest : public testing::Test {
     return false;
   }
 
+  void QueryForInput(const std::u16string& text) {
+    AutocompleteInput input(text, metrics::OmniboxEventProto::OTHER,
+                            ChromeAutocompleteSchemeClassifier(profile_.get()));
+    provider_->Start(input, false);
+
+    // RunUntilIdle so that the task scheduled by SearchProvider to create the
+    // URLFetchers runs.
+    base::RunLoop().RunUntilIdle();
+  }
+
   void QueryForInputAndSetWYTMatch(const std::u16string& text,
                                    AutocompleteMatch* wyt_match) {
     AutocompleteInput input(text, metrics::OmniboxEventProto::OTHER,
@@ -148,8 +208,12 @@ class BraveSearchProviderTest : public testing::Test {
   content::BrowserTaskEnvironment task_environment_;
 
   std::unique_ptr<TestingProfile> profile_;
-  std::unique_ptr<ChromeAutocompleteProviderClient> client_;
+  variations::ScopedVariationsIdsProvider scoped_variations_ids_provider_{
+      variations::VariationsIdsProvider::Mode::kUseSignedInState};
+  network::TestURLLoaderFactory test_url_loader_factory_;
+  std::unique_ptr<TestAutocompleteProviderClient> client_;
   scoped_refptr<BraveSearchProvider> provider_;
+  raw_ptr<ui::TestClipboard> test_clipboard_ = nullptr;
 
   raw_ptr<TemplateURL> default_t_url_ = nullptr;
 
@@ -181,4 +245,17 @@ TEST_F(BraveSearchProviderTest,
   AutocompleteMatch wyt_match;
   ASSERT_NO_FATAL_FAILURE(QueryForInputAndSetWYTMatch(u"hel", &wyt_match));
   ASSERT_EQ(1u, provider_->matches().size());
+}
+
+// Check search suggestion is blocked when input and clipboard text is same.
+TEST_F(BraveSearchProviderTest, DontSendClipboardTextToSuggest) {
+  // Check it's not blocked.
+  ASSERT_NO_FATAL_FAILURE(QueryForInput(u"brave"));
+  EXPECT_TRUE(test_url_loader_factory_.IsPending("https://defaultturl2/brave"));
+
+  // Check it's blocked.
+  test_clipboard_->WriteText("brave_private");
+  ASSERT_NO_FATAL_FAILURE(QueryForInput(u"brave_private"));
+  EXPECT_FALSE(
+      test_url_loader_factory_.IsPending("https://defaultturl2/brave_private"));
 }

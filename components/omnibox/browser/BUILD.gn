@@ -43,6 +43,7 @@ source_set("unit_tests") {
     "//services/network:test_support",
     "//testing/gmock",
     "//testing/gtest",
+    "//ui/base/clipboard:clipboard_test_support",
   ]
 
   if (!is_ios) {
