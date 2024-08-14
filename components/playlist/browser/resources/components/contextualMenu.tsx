@@ -55,7 +55,6 @@ export default function ContextualMenuAnchorButton ({
 
   return (
     <StyledButtonMenu
-      tabIndex={0}
       visible={visible}
       onChange={({ isOpen }) => {
         if (isOpen) onShowMenu?.()
@@ -64,7 +63,7 @@ export default function ContextualMenuAnchorButton ({
       onClose={() => onDismissMenu?.()}
       isOpen={open}
     >
-      <div slot='anchor-content'>
+      <div tabIndex={0} slot='anchor-content'>
         <Icon name='more-horizontal' />
       </div>
       {items
