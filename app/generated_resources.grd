@@ -875,6 +875,10 @@ are declared in tools/grit/grit_rule.gni.
           <message name="IDS_CONTENT_CONTEXT_AUTOFILL_FALLBACK_TITLE" desc="The title of the Autofill manual fallback for showing the Autofill suggestions in the content area context menu.">
             Fill in form
           </message>
+          <!-- TODO(359570730): remove non translateable flag  -->
+          <message name="IDS_CONTENT_CONTEXT_AUTOFILL_PREDICTION_IMPROVEMENTS" desc="The name of the Autofill context menu entry that will initiate filling using improved predictions." translateable="false">
+            Autocomplete
+          </message>
           <message name="IDS_CONTENT_CONTEXT_AUTOFILL_FALLBACK_ADDRESS" desc="The name of the Autofill manual fallback for showing address suggestions in the content area context menu.">
             Addresses and more
           </message>
@@ -1207,6 +1211,10 @@ are declared in tools/grit/grit_rule.gni.
           </message>
           <message name="IDS_CONTENT_CONTEXT_AUTOFILL_FALLBACK_TITLE" desc="In Title Case: The title of the Autofill manual fallback for showing the Autofill suggestions in the content area context menu.">
             Fill in Form
+          </message>
+          <!-- TODO(359570730): remove non translateable flag  -->
+          <message name="IDS_CONTENT_CONTEXT_AUTOFILL_PREDICTION_IMPROVEMENTS" desc="In Title Case: The name of the Autofill manual fallback for payment methods attribute command in the content area context menu." translateable="false">
+            Autocomplete
           </message>
           <message name="IDS_CONTENT_CONTEXT_AUTOFILL_FALLBACK_ADDRESS" desc="In Title Case: The name of the Autofill manual fallback for showing address suggestions in the content area context menu.">
             Addresses and More
@@ -8379,6 +8387,9 @@ Keep your key file in a safe place. You will need it to create new versions of y
       <message name="IDS_NTP_MODULES_OUTLOOK_CALENDAR_DISABLE_BUTTON_TEXT" desc="Text shown on the disable button of a NTP Outlook Calendar card." translateable="false">
         Don't show Outlook Calendar
       </message>
+      <message name="IDS_NTP_MODULES_CALENDAR_DOUBLE_BOOKED" desc="Text displaying that the calendar event is booked at the same time as another." meaning="The meeting takes place at the same time as another.">
+        Double-Booked
+      </message>
       <message name="IDS_NTP_MODULES_CALENDAR_JOIN_MEETING_BUTTON_TEXT" desc="Text shown on button on the NTP Calendar cards for joining a video conference." meaning="Click here to join your video conference meetings.">
         Join Meeting
       </message>
@@ -10274,9 +10285,6 @@ Check your passwords anytime in <ph name="GOOGLE_PASSWORD_MANAGER">$1<ex>Brave P
         </message>
         <message name="IDS_PASSWORD_MANAGER_ACCESSORY_PASSWORD_LIST_EMPTY_MESSAGE" desc="Message indicating that the list of saved passwords for this site is empty.">
           No saved passwords for <ph name="domain">$1<ex>example.com</ex></ph>
-        </message>
-        <message name="IDS_PASSWORD_MANAGER_ACCESSORY_PASSWORD_LIST_TITLE" desc="The title of a list of saved passwords for the currently visible site.">
-          Saved passwords for <ph name="domain">$1<ex>example.com</ex></ph>
         </message>
         <message name="IDS_PASSWORD_MANAGER_ACCESSORY_ALL_PASSWORDS_LINK" desc="The text of the link in the password sheet that opens the password management section.">
           Manage passwords
@@ -14670,6 +14678,19 @@ Please help our engineers fix this problem. Tell us what happened right before y
         Unnamed media source
       </message>
 
+      <message name="IDS_DESKTOP_MEDIA_PICKER_DELEGATED_SOURCE_LIST_WINDOW_TEXT" desc="Select window label text.">
+        To share your window, use your system's window picker
+      </message>
+      <message name="IDS_DESKTOP_MEDIA_PICKER_DELEGATED_SOURCE_LIST_WINDOW_BUTTON" desc="Select window button text.">
+        Choose a window
+      </message>
+      <message name="IDS_DESKTOP_MEDIA_PICKER_DELEGATED_SOURCE_LIST_SCREEN_TEXT" desc="Select screen label text.">
+        To share your screen, use your system's screen picker
+      </message>
+      <message name="IDS_DESKTOP_MEDIA_PICKER_DELEGATED_SOURCE_LIST_SCREEN_BUTTON" desc="Select screen button text.">
+        Choose a screen
+      </message>
+
       <message name="IDS_SHARE_THIS_TAB_DIALOG_TITLE" desc="Title for the tab-sharing dialog shown when a getDisplayMedia capture is constrained to share only the current tab.">
         Allow <ph name="APP_NAME">$1</ph> to see this tab?
       </message>
@@ -15749,6 +15770,9 @@ Please help our engineers fix this problem. Tell us what happened right before y
       </message>
       <message name="IDS_WEBAUTHN_BLUETOOTH_POWER_ON_MANUAL_NEXT" desc="Button text. The user clicks this once they manually turned on Bluetooth, so that Brave would retry connecting to security keys over Bluetooth.">
         Try again
+      </message>
+      <message name="IDS_WEBAUTHN_LOADING" is_accessibility_with_no_ui="true" desc="Accesibility text which is announced while a WebAuthn request is being processed. This text will be announced while the loading dialog is displayed.">
+        Loading...
       </message>
 
       <if expr="is_macosx">
@@ -16846,8 +16870,20 @@ Please help our engineers fix this problem. Tell us what happened right before y
     <message name="IDS_LENS_OVERLAY_FIND_IN_PAGE_ENTRYPOINT_MESSAGE" desc="Text     that is shown in the CTRL+F dialog next to the Google Lens button. Informs the user to click     to search anything on the page via Google Lens.">
       Search anything on this page
     </message>
+    <message name="IDS_LENS_OVERLAY_FIND_IN_PAGE_ENTRYPOINT_MESSAGE_1" desc="Text     that is shown in the CTRL+F dialog next to the Google Lens button. Informs the user to click     to search any image or text via Google Lens.">
+      Search any image or text with Lens
+    </message>
+    <message name="IDS_LENS_OVERLAY_FIND_IN_PAGE_ENTRYPOINT_MESSAGE_2" desc="Text     that is shown in the CTRL+F dialog next to the Google Lens button. Informs the user to click     to select images or text to search with Google Lens.">
+      Select images/text to search with Lens
+    </message>
     <message name="IDS_LENS_OVERLAY_FIND_IN_PAGE_ENTRYPOINT_LABEL" desc="Label     for the Google Lens button in the CTRL+F dialog.">
       Google Lens
+    </message>
+    <message name="IDS_LENS_OVERLAY_FIND_IN_PAGE_ENTRYPOINT_LABEL_1" desc="Label     for the button in the CTRL+F dialog to open Google Lens.">
+      Open Lens
+    </message>
+    <message name="IDS_LENS_OVERLAY_FIND_IN_PAGE_ENTRYPOINT_LABEL_2" desc="Label     for the button in the CTRL+F dialog inviting the user to try Google Lens.">
+      Try Lens
     </message>
     <message name="IDS_LENS_OVERLAY_AUTO_DETECT_LANGUAGE_LABEL" desc="Label for the language picker button denoting that source language of the page will be automatically detected.">
       Auto-detect
@@ -16866,16 +16902,16 @@ Please help our engineers fix this problem. Tell us what happened right before y
       Cancel
     </message>
     <message name="IDS_LENS_PERMISSION_BUBBLE_DIALOG_CONTINUE_BUTTON" desc="Text on the continue button in the dialog for choosing to allow the sending of the Lens screenshot to Brave.">
-      Continue
+      OK
     </message>
-    <message name="IDS_LENS_PERMISSION_BUBBLE_DIALOG_DESCRIPTION" desc="Text that is shown in the Lens permission bubble informing users that their screenshot will be sent to Brave. Includes placeholder for learn more link.">
-      When you use Google Lens, a screenshot of the page is sent to Brave. <ph name="LEARN_MORE">$1<ex>Learn more</ex></ph>
+    <message name="IDS_LENS_PERMISSION_BUBBLE_DIALOG_DESCRIPTION" desc="Text that is shown in the Lens permission bubble, giving examples of what Lens can do and informing users that their screenshot will be sent to Brave. Includes placeholder for learn more link.">
+      Identify things or places and copy or translate text. When you use Google Lens, a screenshot of the page is sent to Brave. <ph name="LEARN_MORE">$1<ex>Learn more</ex></ph>
     </message>
     <message name="IDS_LENS_PERMISSION_BUBBLE_DIALOG_LEARN_MORE_LINK" desc="Text link that is shown to users to learn more about privacy in relation to Google Lens.">
       Learn more
     </message>
-    <message name="IDS_LENS_PERMISSION_BUBBLE_DIALOG_TITLE" desc="The title of the lens permission search bubble dialog.">
-      Search anything on this page with Google Lens
+    <message name="IDS_LENS_PERMISSION_BUBBLE_DIALOG_TITLE" desc="The title of the lens permission search bubble dialog, introducing Lens as a way to search what's on their screen.">
+      New! An easy way to search what's on your screen
     </message>
     <!-- BraveLabs Thumbnail Tab Strip -->
     <message name="IDS_THUMBNAIL_TAB_STRIP_EXPERIMENT_NAME" desc="Name for Thumbnail Tab Strip experiment">
@@ -17571,13 +17607,13 @@ Please help our engineers fix this problem. Tell us what happened right before y
         </message>
         <message name="IDS_SETTINGS_SAFETY_HUB_REVOKED_PERMISSIONS_MENU_NOTIFICATION" desc="Title for the permissions review Safety Check module on the Magic Stack. Shown when Safety Check has identified several sites that send abusive notifications.">
           {NUM_SITES, plural,
-          =1 {Brave removed permissions for 1 site}
-          other {Brave removed permissions for {NUM_SITES} sites}}
+          =1 {Brave removed permissions from 1 site}
+          other {Brave removed permissions from {NUM_SITES} sites}}
         </message>
         <message name="IDS_SETTINGS_SAFETY_HUB_UNUSED_SITE_PERMISSIONS_MENU_NOTIFICATION" desc="Title for the permissions review Safety Check module on the Magic Stack. Shown when Safety Check has identified several unused sites that have granted permissions.">
           {NUM_SITES, plural,
-          =1 {Brave removed permissions for 1 site}
-          other {Brave removed permissions for {NUM_SITES} sites}}
+          =1 {Brave removed permissions from 1 site}
+          other {Brave removed permissions from {NUM_SITES} sites}}
         </message>
         <message name="IDS_SETTINGS_SAFETY_HUB_COMPROMISED_PASSWORDS_MENU_NOTIFICATION" translateable="false">
           {NUM_SITES, plural,

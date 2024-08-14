@@ -923,6 +923,15 @@ For more settings that use data to improve your Brave experience, go to <ph name
       <message name="IDS_ACCESS_LOSS_NO_GMS_POSITIVE_BUTTON_TEXT" desc="If the user has no Google Play services installed on the phone, they see the modal dialog warning them that passwords will stop working soon and proposing them to export their paswords before that. This string is the agreement button text in the warning.">
         Export passwords
       </message>
+      <message name="IDS_ACCESS_LOSS_EXPORT_DIALOG_TITLE" desc="The title of the modal dialog proposing the user to export their passwords from Brave and remove them from Brave's database (to later import them in Google Play Services).">
+        First, export and delete the passwords from Brave
+      </message>
+      <message name="IDS_ACCESS_LOSS_EXPORT_DIALOG_MESSAGE" desc="The message of the modal dialog proposing the user to export their passwords from Brave and remove them from Brave's database (to later import them in Google Play Services).">
+        Your passwords will be downloaded as a CSV file. They will be visible to anyone who can access the file, including apps. Exported passwords will be deleted from Brave.
+      </message>
+      <message name="IDS_ACCESS_LOSS_EXPORT_DIALOG_POSITIVE_BUTTON_TEXT" desc="The text on the button, confirming the user's agreement to export passwords and remove them from Brave's database.">
+        Export and delete
+      </message>
 
       <!-- Lock Screen Fragment -->
       <message name="IDS_LOCKSCREEN_DESCRIPTION_COPY" desc="When a user attempts to copy a password for a particular website into clipboard in Brave's settings, Brave launches a lock screen to verify the user's identity and displays the following explanation.">
@@ -1837,7 +1846,7 @@ Your Brave account may have other forms of browsing history like searches and ac
         Brave automatically removes permissions from abusive and unused sites
       </message>
       <message name="IDS_SAFETY_HUB_PERMISSIONS_WARNING_SUMMARY" desc="Text shown as a header at the very top of the Safety Hub permissions review subpage, or as a summary in the permissions review dashboard module. Further educates the user about why their permissions were revoked.">
-        To protect your privacy, permissions were removed from some sites
+        To help keep you safe, permissions were removed from some sites
       </message>
       <message name="IDS_SAFETY_HUB_COMPROMISED_PASSWORDS_SUMMARY" desc="Summary for the password check row in the Safety Check page indicating that the checkup found compromised passwords and that the user should change them immediately.">
         {NUM_PASSWORDS, plural,
@@ -2390,9 +2399,6 @@ Your Brave account may have other forms of browsing history like searches and ac
       <!-- Sync strings -->
       <message name="IDS_SIGN_IN_MANAGED_ACCOUNT" desc="Title for prompts to sign in to managed accounts">
         Sign in to managed account
-      </message>
-      <message name="IDS_SIGN_IN_MANAGED_ACCOUNT_DESCRIPTION" desc="Description for signing in to managed accounts">
-        You are signing in with an account managed by <ph name="MANAGED_DOMAIN">%1$s<ex>Brave</ex></ph> and giving its administrator control over your Brave data. Your data will become permanently tied to this account. Signing out of Brave will delete your data from this device, but it will remain stored in your Brave sync chain.
       </message>
       <message name="IDS_MANAGED_SIGNIN_WITH_USER_POLICY_SUBTITLE" desc="The subtitle of the Sign in with a managed account dialog when user policies are enabled.">
         Your organization, <ph name="MANAGED_DOMAIN">%1$s<ex>Brave</ex></ph>, manages the account you're signing in to and how Brave can be used. Your administrator can set up or restrict certain features.
@@ -3122,9 +3128,8 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       <message name="IDS_PAGE_INFO_CONNECTION_TRANSIENT_PDF" desc="Message to display in the page info bubble when viewing a transient pdf page.">
         You're viewing a PDF file
       </message>
-      <!-- Message to be determined. -->
-      <message name="IDS_PAGE_INFO_CONNECTION_TRANSIENT_PDF_INSECURE" desc="Message to display in the page info bubble when viewing a transient pdf page from insecure source." translateable="false">
-        You're viewing a PDF file from insecure source
+      <message name="IDS_PAGE_INFO_CONNECTION_TRANSIENT_PDF_INSECURE" desc="Message to display in the page info bubble when viewing a transient pdf page from a site using an insecure connection.">
+        This PDF file is from a site using an insecure connection
       </message>
       <message name="IDS_PAGE_INFO_CONNECTION_LOCAL_PDF" desc="Message to display in the page info bubble when viewing a local pdf page.">
         You're viewing a local file
@@ -4250,6 +4255,12 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       <message name="IDS_MENU_STOP_IMAGE_DESCRIPTIONS" desc="Menu item to stop getting alt text accessibility image labels/descriptions [CHAR_LIMIT=27]">
         Stop image descriptions
       </message>
+      <message name="IDS_MENU_SWITCH_TO_INCOGNITO" desc="Menu item for switching to private.">
+        Switch to Private
+      </message>
+      <message name="IDS_MENU_SWITCH_OUT_OF_INCOGNITO" desc="Menu item for switching out of private.">
+        Switch out of Private
+      </message>
 
       <!-- Bookmarks strings -->
       <message name="IDS_BOOKMARKS" desc="Title of the bookmarks page, which shows a list of the user's bookmarks. [CHAR_LIMIT=18]">
@@ -4441,6 +4452,9 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       </message>
       <message name="IDS_PRICE_HISTORY_TITLE" desc="The title when a user see the price history graph section in the price insights bottom sheet.">
         Price history across the web
+      </message>
+      <message name="IDS_PRICE_HISTORY_MULTIPLE_CATALOGS_TITLE" desc="The title when a user see the price history graph for multiple catalog in the price insights bottom sheet.">
+        Price history across the web for this option
       </message>
       <message name="IDS_IPH_SHOPPING_LIST_SAVE_FLOW" desc="In-product help text that notifies a user that they can organize their saved products from a folder in bookmarks.">
         Organize your tracked products in Bookmarks
@@ -4887,11 +4901,35 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
       <message name="IDS_UNDO_BAR_CLOSE_ALL_MESSAGE" desc="Message shown when you can undo a close all tabs action.">
         <ph name="TAB_COUNT">%1$s<ex>3</ex></ph> tabs closed
       </message>
-      <message name="IDS_UNDO_BAR_DELETE_TAB_GROUP_MESSAGE" desc="Message shown when you can undo a tab group deletion action.">
-        <ph name="TAB_COUNT">%1$s<ex>3</ex></ph> tabs deleted
+      <message name="IDS_UNDO_BAR_TAB_GROUP_DELETED_MESSAGE" desc="Message shown when you delete a tab group. This message is short for a sentence to indicate the tab group with the title TAB_GROUP_TITLE was deleted. The title can be anything as it is a user generated string.">
+        <ph name="TAB_GROUP_TITLE">%1$s<ex>Vacation</ex></ph> tab group deleted
       </message>
-      <message name="IDS_UNDO_BAR_DELETE_SINGLE_TAB_GROUP_MESSAGE" desc="Message shown when you can undo a tab group containing a single tab.">
-        <ph name="TAB_COUNT">%1$s<ex>1</ex></ph> tab deleted
+      <message name="IDS_UNDO_BAR_TAB_GROUP_CLOSED_AND_SAVED_MESSAGE" desc="Message shown when you close and save a tab group. This message is short for a sentence to indicate the tab group with the title TAB_GROUP_TITLE was closed and may be saved. The title can be anything as it is a user generated string.">
+        <ph name="TAB_GROUP_TITLE">%1$s<ex>Vacation</ex></ph> tab group closed and saved
+      </message>
+      <message name="IDS_UNDO_BAR_TAB_GROUP_CLOSED_MESSAGE" desc="Message shown when you close a tab group. This message is short for a sentence to indicate the tab group with the title TAB_GROUP_TITLE was closed and may be saved. The title can be anything as it is a user generated string.">
+        <ph name="TAB_GROUP_TITLE">%1$s<ex>Vacation</ex></ph> tab group closed
+      </message>
+      <message name="IDS_UNDO_BAR_TAB_GROUPS_PART" desc="Part of message shown when you close or delete multiple tab groups in combination with some tabs. See IDS_UNDO_BAR_TABS_PART for the next part.">
+        {TAB_GROUP_COUNT, plural,
+          =1 {<ph name="TAB_GROUPS_ONE">%1$d<ex>1</ex></ph> tab group}
+          other {<ph name="TAB_GROUPS_MANY">%1$d<ex>3</ex></ph> tab groups}
+        }
+      </message>
+      <message name="IDS_UNDO_BAR_TAB_GROUPS_AND_TABS_PART" desc="Part of message shown when you close or delete multiple tabs in combination with some tab groups. See IDS_UNDO_BAR_TAB_GROUPS_PART for the TAB_GROUPS_PART.">
+        {TAB_COUNT, plural,
+          =1 {<ph name="TAB_GROUPS_PART">%1$s<ex>3 tab groups</ex></ph>, <ph name="TAB_COUNT_ONE">%2$d<ex>1</ex></ph> tab}
+          other {<ph name="TAB_GROUPS_PART">%1$s<ex>3 tab groups</ex></ph>, <ph name="TAB_COUNT_MANY">%2$d<ex>3</ex></ph> tabs}
+        }
+      </message>
+      <message name="IDS_UNDO_BAR_DELETED_MESSAGE" desc="Message shown when you delete a combination of tabs and tab groups. See IDS_UNDO_BAR_TAB_GROUPS_AND_TABS_PART for TAB_GROUPS_AND_TABS_PART.">
+        <ph name="TAB_GROUPS_AND_TABS_PART">%1$s<ex>5 tab groups, 3 tabs</ex></ph> deleted
+      </message>
+      <message name="IDS_UNDO_BAR_CLOSED_AND_SAVED_MESSAGE" desc="Message shown when you closea combination of tabs and tab groups and the tab groups will be saved. See IDS_UNDO_BAR_TAB_GROUPS_AND_TABS_PART for TAB_GROUPS_AND_TABS_PART.">
+        <ph name="TAB_GROUPS_AND_TABS_PART">%1$s<ex>5 tab groups, 3 tabs</ex></ph> closed and saved
+      </message>
+      <message name="IDS_UNDO_BAR_CLOSED_MESSAGE" desc="Message shown when you close a combination of tabs and tab groups. See IDS_UNDO_BAR_TAB_GROUPS_AND_TABS_PART for TAB_GROUPS_AND_TABS_PART.">
+        <ph name="TAB_GROUPS_AND_TABS_PART">%1$s<ex>5 tab groups, 3 tabs</ex></ph> closed
       </message>
       <message name="IDS_CONFIRM_DELETE_MESSAGE" desc="Message shown or announced to get confirmation on whether a file should be deleted.">
         Do you want to delete <ph name="ITEM_TITLE">%1$s<ex>example.pdf</ex></ph>?
@@ -5408,6 +5446,12 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
         Open tabs to visit different pages at the same time
       </message>
       <message name="IDS_IPH_TAB_SWITCHER_ACCESSIBILITY_TEXT" desc="The in-product-help accessibility text to open the new tab page. The 'open tabs' button name should match TC 3108541343994525384">
+        To open tabs and visit different pages at the same time, tap the open tabs button
+      </message>
+      <message name="IDS_IPH_ANDROID_TAB_DECLUTTER_TEXT" desc="The in-product-help text for the android tab declutter feature.">
+        Review your inactive tabs here
+      </message>
+      <message name="IDS_IPH_ANDROID_TAB_DECLUTTER_ACCESSIBILITY_TEXT" desc="The in-product-help accessibility text for the android tab declutter feature.">
         To open tabs and visit different pages at the same time, tap the open tabs button
       </message>
       <message name="IDS_IPH_TRANSLATE_MENU_BUTTON_TEXT" desc="The in-product-help message after a successful navigation prompting user to translate current page.">
@@ -6594,7 +6638,10 @@ To change this setting, <ph name="BEGIN_LINK">BEGIN_LINK</ph>delete the Brave da
           other {Not used for # days or more}}
       </message>
       <message name="IDS_ARCHIVED_TAB_IPH_CARD_SUBTITLE" desc="In product help shown as a message in the archived tabs dialog.">
-        Tabs you haven’t used for <ph name="DAYS_INACTIVE">%1$d<ex>14</ex></ph> days are moved here and closed after <ph name="DAYS_ARCHIVED">%2$d<ex>60</ex></ph> days. You can change this anytime in <ph name="SETTINGS_TITLE">%3$s<ex>Settings</ex></ph>.
+        Tabs you haven’t used for <ph name="DAYS_INACTIVE">%1$d<ex>14</ex></ph> days are moved here<ph name="AUTODELETE_SECTION">%2$s<ex>and deleted after 60 days</ex></ph>. You can change this anytime in <ph name="SETTINGS_TITLE">%3$s<ex>Settings</ex></ph>.
+      </message>
+      <message name="IDS_ARCHIVED_TAB_IPH_CARD_SUBTITLE_AUTODELETE_SECTION" desc="A section describing auto-delete, shown if it's enabled.">
+        \u0020and closed after <ph name="DAYS_ARCHIVED">%1$d<ex>60</ex></ph> days
       </message>
       <message name="IDS_ARCHIVED_TAB_IPH_CARD_SUBTITLE_SETTINGS_TITLE" desc="The word for settings, used in IDS_ARCHIVED_TAB_IPH_CARD_SUBTITLE.">
         Settings
