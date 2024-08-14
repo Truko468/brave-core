@@ -1,8 +1,8 @@
 diff --git a/third_party/polymer/v3_0/BUILD.gn b/third_party/polymer/v3_0/BUILD.gn
-index 4064279778d100ba388efff4a5d25010ed961f7c..374eee626b306e9ceb8e8af6aeab14aee07dc5a1 100644
+index f0ae56345e6f0ef4ad6f0eb315ac122753460d96..1b96da4973f8b462e9daf01a041d1283729bf6c6 100644
 --- a/third_party/polymer/v3_0/BUILD.gn
 +++ b/third_party/polymer/v3_0/BUILD.gn
-@@ -38,10 +38,12 @@ js_files = [
+@@ -37,10 +37,12 @@ js_files = [
  # Also needed on LaCros for Print Preview. Remove once CrOS Print Preview
  # launches.
  if (is_chromeos) {
@@ -15,7 +15,7 @@ index 4064279778d100ba388efff4a5d25010ed961f7c..374eee626b306e9ceb8e8af6aeab14ae
    js_files += [
      "iron-a11y-announcer/iron-a11y-announcer.js",
      "iron-behaviors/iron-control-state.js",
-@@ -268,11 +270,13 @@ ts_library("library") {
+@@ -267,11 +269,13 @@ ts_library("library") {
    # Also needed on LaCros for Print Preview. Remove once CrOS Print Preview
    # launches.
    if (is_chromeos) {

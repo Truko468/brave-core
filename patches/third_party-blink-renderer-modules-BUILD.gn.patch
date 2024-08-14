@@ -1,8 +1,8 @@
 diff --git a/third_party/blink/renderer/modules/BUILD.gn b/third_party/blink/renderer/modules/BUILD.gn
-index b2cc85066f8a3dd64218503bc27e79c0333a741b..1b326ed61a6000705bfaa873880411fafba418d1 100644
+index 2f4d2eb2c7f6af7b47131702d11d4aec5b70fb39..8ae96f961030143874d7c5a27f20a5e3bd80582d 100644
 --- a/third_party/blink/renderer/modules/BUILD.gn
 +++ b/third_party/blink/renderer/modules/BUILD.gn
-@@ -19,6 +19,7 @@ if (is_ios) {
+@@ -20,6 +20,7 @@ if (is_ios) {
  }
  
  visibility = [ "//third_party/blink/renderer/*" ]

@@ -1,8 +1,8 @@
 diff --git a/ios/chrome/browser/flags/about_flags.mm b/ios/chrome/browser/flags/about_flags.mm
-index 682c2f9ccee70ce54f711dfcebd83485db592cc3..b4d5841a4424a8af135141e78ebc12a810c84184 100644
+index a275bedaf49f5aeb07af11e57d20a1e44c4d90c6..7f8f41349aa052b06308d62081eda58e1cbd69e7 100644
 --- a/ios/chrome/browser/flags/about_flags.mm
 +++ b/ios/chrome/browser/flags/about_flags.mm
-@@ -1002,6 +1002,7 @@ const FeatureEntry::FeatureVariation kTabResumption2Variations[] = {
+@@ -981,6 +981,7 @@ const FeatureEntry::FeatureVariation kTabResumption2Variations[] = {
  //
  // When adding a new choice, add it to the end of the list.
  const flags_ui::FeatureEntry kFeatureEntries[] = {

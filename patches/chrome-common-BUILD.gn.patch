@@ -1,5 +1,5 @@
 diff --git a/chrome/common/BUILD.gn b/chrome/common/BUILD.gn
-index ce30fb4396ed123ae7ad0f085410dad85b785a69..576beccf0c09d2a6a030f6449e5b0c263c37c0d5 100644
+index 762174bbf7076283879f9798a01a86411025e5fa..0b99e7b44cce3d196bd97c33ea12c229c01070c0 100644
 --- a/chrome/common/BUILD.gn
 +++ b/chrome/common/BUILD.gn
 @@ -100,6 +100,7 @@ source_set("channel_info") {
@@ -10,7 +10,7 @@ index ce30fb4396ed123ae7ad0f085410dad85b785a69..576beccf0c09d2a6a030f6449e5b0c26
  }
  
  source_set("ini_parser") {
-@@ -276,6 +277,7 @@ static_library("common_lib") {
+@@ -278,6 +279,7 @@ static_library("common_lib") {
    if (enable_ppapi) {
      public_deps += [ "//ppapi/shared_impl" ]
    }
@@ -18,7 +18,7 @@ index ce30fb4396ed123ae7ad0f085410dad85b785a69..576beccf0c09d2a6a030f6449e5b0c26
  
    if (enable_extensions || enable_desktop_android_extensions) {
      # TODO(https://crbug.com/356905053): Gradually include more of these sources
-@@ -549,6 +551,7 @@ static_library("non_code_constants") {
+@@ -551,6 +553,7 @@ static_library("non_code_constants") {
    if (is_win) {
      sources += [ "chrome_icon_resources_win.h" ]
    }

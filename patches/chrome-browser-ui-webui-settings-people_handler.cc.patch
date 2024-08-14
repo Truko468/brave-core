@@ -1,5 +1,5 @@
 diff --git a/chrome/browser/ui/webui/settings/people_handler.cc b/chrome/browser/ui/webui/settings/people_handler.cc
-index 58df72d030847ee3e460420c97cb5e5454449362..08f9c3e96fc03a77bbc257faec9ed7c7f08f7051 100644
+index 05cce84d6fca254768d643a1d4f257638cb72e89..9651e1e81c9857a837174ad09c95eb64e94054f0 100644
 --- a/chrome/browser/ui/webui/settings/people_handler.cc
 +++ b/chrome/browser/ui/webui/settings/people_handler.cc
 @@ -1043,6 +1043,7 @@ void PeopleHandler::OnStateChanged(syncer::SyncService* sync_service) {
